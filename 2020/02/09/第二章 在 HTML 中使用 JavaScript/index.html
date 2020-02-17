@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-script-gt-元素"><span class="toc-text">&lt;script&gt;元素</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签的位置"><span class="toc-text">标签的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外部文件的优点"><span class="toc-text">外部文件的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档模式"><span class="toc-text">文档模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-noscript-gt-元素"><span class="toc-text">&lt;noscript&gt;元素</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#script元素"><span class="toc-text">script元素</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签的位置"><span class="toc-text">标签的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外部文件的优点"><span class="toc-text">外部文件的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档模式"><span class="toc-text">文档模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#noscript元素"><span class="toc-text">noscript元素</span></a></li></ol>
 </div>
     
 </div>
@@ -142,17 +142,17 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h2 id="lt-script-gt-元素"><a href="#lt-script-gt-元素" class="headerlink" title="&lt;script&gt;元素"></a><code>&lt;script&gt;</code>元素</h2><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
+        <h2 id="script元素"><a href="#script元素" class="headerlink" title="script元素"></a><code>script</code>元素</h2><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
 <li><p>src 可选。包含要执行代码的外部文件。</p>
 <blockquote>
-<p>如果有 src，标签内嵌入的 JavaScript 代码会被忽略<br>可以包含来自外部域的 JavaScript 文件。这点与 <code>&lt;img&gt;</code> 相同</p>
+<p>如果有 src，标签内嵌入的 JavaScript 代码会被忽略<br>可以包含来自外部域的 JavaScript 文件。这点与 <code>img</code> 相同</p>
 </blockquote>
 </li>
 <li><p>async 可选。立即下载脚本，但不妨碍页面中其他操作。只对外部脚本文件有效。<strong>不能保证按顺序执行。不要修改 DOM 会在load 事件前执行，可能会在 <code>DOMContentLoaded</code> 事件触发之前或之后执行。</strong></p>
 </li>
-<li><p>defer 可选。延迟到文档完全被解析和显示之后（<code>&lt;/html&gt;</code>标签后）执行。<strong>只对外部脚本文件有效。</strong>（嵌入脚本的 defer 属性会被忽略）<strong>延迟脚本不一定会按照顺序执行，也不一定会在 <code>DOMContentLoaded</code> 事件触发前执行，因此最好只有一个延迟脚本。</strong></p>
+<li><p>defer 可选。延迟到文档完全被解析和显示之后（<code>/html</code>标签后）执行。<strong>只对外部脚本文件有效。</strong>（嵌入脚本的 defer 属性会被忽略）<strong>延迟脚本不一定会按照顺序执行，也不一定会在 <code>DOMContentLoaded</code> 事件触发前执行，因此最好只有一个延迟脚本。</strong></p>
 <blockquote>
-<p>只要不存在 defer 和 async 属性，浏览器都会按照 <code>&lt;scrip&gt;</code> 元素在页面中出现的先后顺序进行解析</p>
+<p>只要不存在 defer 和 async 属性，浏览器都会按照 <code>scrip</code> 元素在页面中出现的先后顺序进行解析</p>
 </blockquote>
 </li>
 </ul>
@@ -163,14 +163,14 @@
 </li>
 <li>charset 可选。表示通过 src 属性指定代码的字符集。大多数浏览器忽略</li>
 </ul>
-<h3 id="标签的位置"><a href="#标签的位置" class="headerlink" title="标签的位置"></a>标签的位置</h3><p>放在 <code>head</code> 中必须先把 js 代码下载、解析和执行完成后才能开始呈现页面内容，此时页面空白。<br>把 js 引用放在 <code>body</code> 中，空白时间会缩短。<br>或者设置 defer 属性，立即下载，延迟（<code>&lt;/html&gt;</code>标签后）执行。</p>
+<h3 id="标签的位置"><a href="#标签的位置" class="headerlink" title="标签的位置"></a>标签的位置</h3><p>放在 <code>head</code> 中必须先把 js 代码下载、解析和执行完成后才能开始呈现页面内容，此时页面空白。<br>把 js 引用放在 <code>body</code> 中，空白时间会缩短。<br>或者设置 defer 属性，立即下载，延迟（<code>/html</code>标签后）执行。</p>
 <h2 id="外部文件的优点"><a href="#外部文件的优点" class="headerlink" title="外部文件的优点"></a>外部文件的优点</h2><ul>
 <li>可维护性：集中精力编辑 js 代码</li>
 <li>可缓存：如果两个页面使用同一个文件，只需下载一次</li>
 <li>适应未来</li>
 </ul>
-<h2 id="文档模式"><a href="#文档模式" class="headerlink" title="文档模式"></a>文档模式</h2><p><code>&lt;!DOCTYPE html&gt;</code></p>
-<h2 id="lt-noscript-gt-元素"><a href="#lt-noscript-gt-元素" class="headerlink" title="&lt;noscript&gt;元素"></a><code>&lt;noscript&gt;</code>元素</h2><ul>
+<h2 id="文档模式"><a href="#文档模式" class="headerlink" title="文档模式"></a>文档模式</h2><p><code>!DOCTYPE html</code></p>
+<h2 id="noscript元素"><a href="#noscript元素" class="headerlink" title="noscript元素"></a><code>noscript</code>元素</h2><ul>
 <li>浏览器不支持脚本</li>
 <li>浏览器支持脚本，但脚本被禁用<br>符合上述条件，元素内容会被显示。</li>
 </ul>
