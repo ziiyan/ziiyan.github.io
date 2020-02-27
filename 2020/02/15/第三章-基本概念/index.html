@@ -153,7 +153,7 @@
 <h3 id="Undefined-类型"><a href="#Undefined-类型" class="headerlink" title="Undefined 类型"></a>Undefined 类型</h3><p><code>Undefined</code> 类型只有一个值，即 <code>undefined</code></p>
 <blockquote>
 <p>变量已声明但未初始化（message）：该变量的值为 <code>undefined</code>,<code>typeof</code> 返回<code>&quot;undefined&quot;</code><br>若变量未声明（age）：只可以执行<code>typeof</code> 操作符，返回<code>&quot;undefined&quot;</code>，其他操作产生错误。</p>
-<p> ![变量初始化](第三章 基本概念/变量初始化.png)</p>
+<p> <img src="/.com//%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96.png" alt="变量初始化"></p>
 </blockquote>
 <h3 id="Null-类型"><a href="#Null-类型" class="headerlink" title="Null 类型"></a>Null 类型</h3><p><code>Null</code> 类型只有一个值，即 <code>null</code>，表示一个空对象指针，因此 <code>typeof null</code> 返回 <code>&quot;object&quot;</code>。<br>如果定义的变量准备用于保存对象，那么最好初始化为 <code>null</code>，可以直接判断是否已经保存了一个对象的引用。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (car != <span class="literal">null</span>) &#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -204,7 +204,7 @@
 <ul>
 <li>十进制</li>
 <li>八进制（0）</li>
-<li>十六进制（0x）<br>在进行算数计算时，都会转为十进制数值。<h5 id="浮点数值"><a href="#浮点数值" class="headerlink" title="浮点数值"></a>浮点数值</h5>浮点数值需要的内存空间是整数值的两倍。<br>6 个 0 以上，e表示法：3.125e7、3e-17<br>浮点数值最高精度 17 位小数，但在算数计算时精度远不如整数。![精度](第三章 基本概念/精度.png)<br>（IEEE745 数值的浮点计算通病，不是 ECMAScript 独有）</li>
+<li>十六进制（0x）<br>在进行算数计算时，都会转为十进制数值。<h5 id="浮点数值"><a href="#浮点数值" class="headerlink" title="浮点数值"></a>浮点数值</h5>浮点数值需要的内存空间是整数值的两倍。<br>6 个 0 以上，e表示法：3.125e7、3e-17<br>浮点数值最高精度 17 位小数，但在算数计算时精度远不如整数。<img src="/.com//%E7%B2%BE%E5%BA%A6.png" alt="精度"><br>（IEEE745 数值的浮点计算通病，不是 ECMAScript 独有）</li>
 </ul>
 <h5 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h5><p><code>Number.MIN_VALUE</code> 5e-324<br><code>Number.MAX_VALUE</code> 1.7976931348623157e+308<br><code>Number.POSITIVE_INFINITY</code> 或 <code>Infinity</code> 正无穷<br><code>Number.NEGATIVE_INFINITY</code> 或 <code>-Infinity</code> 负无穷<br><code>isFinite()</code>有穷返回 <code>true</code></p>
 <h5 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h5><ul>
