@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>第八章-BOM&amp;第九章-客户端检测</title>
+      <link href="/2020/03/02/%E7%AC%AC%E5%85%AB%E7%AB%A0-BOM-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/"/>
+      <url>/2020/03/02/%E7%AC%AC%E5%85%AB%E7%AB%A0-BOM-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第八章-BOM"><a href="#第八章-BOM" class="headerlink" title="第八章 BOM"></a>第八章 BOM</h1><h2 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h2><ul><li>BOM 的核心对象是 window，表示浏览器的一个实例<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3></li><li>Window 作为 Global 对象，所有在全局作用域中声明的变量、函数都会变成 window 对象的属性和方法</li><li>全局变量不能通过 delete 删除，直接在 window 对上定义的属性可以</li></ul><h3 id="窗口位置"><a href="#窗口位置" class="headerlink" title="窗口位置"></a>窗口位置</h3><ul><li><code>window.screenLeft</code></li><li><code>window.screenTop</code></li><li><code>window.screenX</code></li><li><code>window.screenY</code></li><li><code>window.moveTo(x, y)</code></li><li><code>window.moveBy(a, b)</code></li></ul><h3 id="窗口大小"><a href="#窗口大小" class="headerlink" title="窗口大小"></a>窗口大小</h3><ul><li><code>window.innerWidth</code></li><li><code>window.innerHeight</code></li><li><code>window.outerWidth</code></li><li><code>window.outerHeight</code></li><li><code>window.resizeTo(w, h)</code></li><li><code>window.resizeBy(w, h)</code></li></ul><h3 id="导航和打开窗口"><a href="#导航和打开窗口" class="headerlink" title="导航和打开窗口"></a>导航和打开窗口</h3><ul><li><code>window.open(URL, target, String, Boolean)</code></li></ul><h3 id="间歇调用和超时调用"><a href="#间歇调用和超时调用" class="headerlink" title="间歇调用和超时调用"></a>间歇调用和超时调用</h3><ul><li><code>setTimeout(function, ms)</code><ul><li>ms 后把当前任务添加到任务队列，如果此时任务队列是空的才会立即执行<ul><li>所以不一定 ms 后就会执行 function</li></ul></li><li>返回一个数值 ID</li></ul></li><li><code>clearTimeout(timeoutID)</code></li><li><code>setInterVal(function, ms)</code></li><li><code>clearInterval(timeoutID)</code></li></ul><h3 id="系统对话框"><a href="#系统对话框" class="headerlink" title="系统对话框"></a>系统对话框</h3><p>样式由操作系统或浏览器决定<br>显示这些对话框的时候代码会停止执行</p><ul><li><code>alert()</code></li><li><code>confirm()</code></li><li><code>prompt()</code></li><li><code>find()</code></li><li><code>print()</code></li></ul><h2 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h2><ul><li>既是 window 对象的属性，也是 document 对象的属性</li><li>window.LOcation 和 document.location 引用的是同一个对象</li></ul><h3 id="位置操作"><a href="#位置操作" class="headerlink" title="位置操作"></a>位置操作</h3><ul><li><p><code>location.assign(url)</code></p></li><li><p><code>window.location = &quot;url&quot;</code></p></li><li><p><code>location.href = &quot;url&quot;</code><br>修改 location 其它属性页面都会重新加载，浏览器的历史记录会生产一条新记录</p></li><li><p><code>replace(url)</code> 不会产生新记录</p></li><li><p><code>reload()</code> </p><ul><li>无参数，可能是用缓存</li><li>参数 true，强制从服务器重新加载</li><li>调用之后的代码可能会也可能不会执行，这要取决于网络延迟或系统资源等因素。最好将 reload()放在代码的最后一行</li></ul></li></ul><h2 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h2><h2 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h2><ul><li><code>history.go()</code><ul><li>number 前进或后退页面</li><li>string 跳转到历史记录中包含string最近的位置</li></ul></li><li><code>history.back()</code> 后退</li><li><code>history.forward()</code> 前进</li><li><code>history.length</code> 历史记录数量</li></ul><h1 id="第九章-客户端检测"><a href="#第九章-客户端检测" class="headerlink" title="第九章 客户端检测"></a>第九章 客户端检测</h1><p>先设计最通用的方案，再使用客户端检测</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JavaScript高级程序设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第十五章-使用Canvas绘图</title>
       <link href="/2020/03/02/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E4%BD%BF%E7%94%A8Canvas%E7%BB%98%E5%9B%BE/"/>
       <url>/2020/03/02/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E4%BD%BF%E7%94%A8Canvas%E7%BB%98%E5%9B%BE/</url>
