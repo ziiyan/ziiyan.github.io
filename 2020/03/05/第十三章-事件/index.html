@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第十三章 事件 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第十三章-事件"><span class="toc-text">第十三章 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件流"><span class="toc-text">事件流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件冒泡"><span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件捕获"><span class="toc-text">事件捕获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-事件流"><span class="toc-text">DOM 事件流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件处理程序"><span class="toc-text">事件处理程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-事件处理程序"><span class="toc-text">HTML 事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM0-级事件处理程序"><span class="toc-text">DOM0 级事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM2-级事件处理程序"><span class="toc-text">DOM2 级事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE-事件处理程序"><span class="toc-text">IE 事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨浏览器的事件处理程序"><span class="toc-text">跨浏览器的事件处理程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象"><span class="toc-text">事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-中的事件对象"><span class="toc-text">DOM 中的事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE-中的事件对象"><span class="toc-text">IE 中的事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨浏览器的事件对象"><span class="toc-text">跨浏览器的事件对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件类型"><span class="toc-text">事件类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-text">UI事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#焦点事件"><span class="toc-text">焦点事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标与滚轮事件"><span class="toc-text">鼠标与滚轮事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘与文本事件"><span class="toc-text">键盘与文本事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变动事件"><span class="toc-text">变动事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5-事件"><span class="toc-text">HTML5 事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设备事件"><span class="toc-text">设备事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸与手势"><span class="toc-text">触摸与手势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存和性能"><span class="toc-text">内存和性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件委托"><span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除事件处理程序"><span class="toc-text">移除事件处理程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟事件"><span class="toc-text">模拟事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-中的事件模拟"><span class="toc-text">DOM 中的事件模拟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE-中"><span class="toc-text">IE 中</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第十三章 事件
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-05 00:52:46</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="第十三章-事件"><a href="#第十三章-事件" class="headerlink" title="第十三章 事件"></a>第十三章 事件</h1><p>js 和 html 之间的交互是通过<strong>事件</strong>实现的，事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。<br>可以使用<strong>侦听器</strong>来预定事件，以便事件发生时执行相应的代码。<br>这种在传统软件工程中被称为<strong>观察员模式</strong>的模型，支持 js 和 html+css 之间的松散耦合。</p>
+<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p><strong>事件流</strong>描述的是从页面中接收事件的顺序</p>
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>按照 DOM 树逐级向上，在每一级节点上都会发生，直到 document</p>
+<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>顺序与事件冒泡相反</p>
+<h3 id="DOM-事件流"><a href="#DOM-事件流" class="headerlink" title="DOM 事件流"></a>DOM 事件流</h3><p>“DOM2 级事件”规定的事件流包括三个阶段：</p>
+<ul>
+<li>事件捕获阶段<ul>
+<li>Document 到 目标元素的上一级</li>
+</ul>
+</li>
+<li>处于目标阶段<ul>
+<li>事件在目标元素上发生，事件处理被看成冒泡的一部分</li>
+</ul>
+</li>
+<li>事件冒泡阶段<ul>
+<li>目标元素 到 Document<blockquote>
+<p>DOM2 规定捕获阶段不设计目标，但浏览器实现时都会出发事件对象上的事件</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><ul>
+<li><strong>事件</strong>就是某种动作，如 click、load、mouseovre</li>
+<li><strong>事件处理程序（事件侦听器）</strong>就是响应事件的函数，以 on 开头，onclick、onload 等</li>
+</ul>
+<h3 id="HTML-事件处理程序"><a href="#HTML-事件处理程序" class="headerlink" title="HTML 事件处理程序"></a>HTML 事件处理程序</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">"showMessage()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span><span class="params">()</span> </span>&#123;……&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果用户在页面解析事件处理程序之前点击元素，会引发错误</li>
+<li>扩展作用域链在不同浏览器中会导致不同结果</li>
+<li>HTML 与 JavaScript 代码紧密耦合</li>
+</ul>
+<h3 id="DOM0-级事件处理程序"><a href="#DOM0-级事件处理程序" class="headerlink" title="DOM0 级事件处理程序"></a>DOM0 级事件处理程序</h3><p>将一个函数赋值给事件处理程序属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;……&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>代码运行之前不会指定事件处理程序，可能导致点击无效</li>
+<li>事件处理程序是在元素的作用域中运行的，this 引用当前元素</li>
+<li>null 即删除</li>
+</ul>
+<h3 id="DOM2-级事件处理程序"><a href="#DOM2-级事件处理程序" class="headerlink" title="DOM2 级事件处理程序"></a>DOM2 级事件处理程序</h3><ul>
+<li><p><code>addEventListener(a, b, c)</code></p>
+</li>
+<li><p><code>removeEventListener(a, b, c)</code></p>
+<ul>
+<li>a 要处理的事件名</li>
+<li>b 作为事件处理程序的函数</li>
+<li>c 一个布尔值<ul>
+<li>true 捕获阶段调用事件处理程序</li>
+<li>false 冒泡阶段调用事件处理程序 ☑️<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件处理程序是在元素的作用域中运行的，this 引用当前元素</p>
+</li>
+<li><p>存在多个事件处理程序会按照添加顺序触发</p>
+</li>
+<li><p>addEventListener()添加的事件处理程序只能使用 removeEventListener()来移除</p>
+</li>
+<li><p>addEventListener() 添加的匿名函数无法移除</p>
+</li>
+</ul>
+<h3 id="IE-事件处理程序"><a href="#IE-事件处理程序" class="headerlink" title="IE 事件处理程序"></a>IE 事件处理程序</h3><ul>
+<li><p><code>attachEvent(a, b)</code></p>
+</li>
+<li><p><code>detachEvent(a, b)</code></p>
+<ul>
+<li>a 事件处理程序名称</li>
+<li>b 事件处理程序函数</li>
+</ul>
+</li>
+<li><p>只支持冒泡</p>
+</li>
+<li><p>事件处理程序的作用域是全局</p>
+</li>
+<li><p>存在多个事件处理程序会按照添加顺序相反的顺序触发</p>
+</li>
+</ul>
+<h3 id="跨浏览器的事件处理程序"><a href="#跨浏览器的事件处理程序" class="headerlink" title="跨浏览器的事件处理程序"></a>跨浏览器的事件处理程序</h3><p>关注冒泡阶段</p>
+<ul>
+<li><code>addHandler(a, b, c)</code></li>
+<li><code>EventUtil(a, b, c)</code><ul>
+<li>a 要操作的元素</li>
+<li>b 事件名称</li>
+<li>c 事件处理程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p>在触发 DOM 上的某个事件时，会产生一个事件对象 event，这个对象中包含着所有与时间有关的信息</p>
+<h3 id="DOM-中的事件对象"><a href="#DOM-中的事件对象" class="headerlink" title="DOM 中的事件对象"></a>DOM 中的事件对象</h3><p>兼容 DOM 的浏览器会将一个 event 对象传入到事件处理程序中</p>
+<ul>
+<li><code>event.preventDefault()</code> 阻止特定事件的默认行为，如链接到默认行为是导航到 href</li>
+<li><code>event.stopPropagation()</code> 停止事件在 DOM 层次中的传播（捕获或冒泡）</li>
+<li><code>event.eventPhase</code> 确定事件当前正位于事件流的哪个阶段<ul>
+<li>捕获 1</li>
+<li>处于目标 2</li>
+<li>冒泡 3</li>
+</ul>
+</li>
+<li>事件处理器执行期间 event 对象才会存在，执行完就销毁</li>
+</ul>
+<h3 id="IE-中的事件对象"><a href="#IE-中的事件对象" class="headerlink" title="IE 中的事件对象"></a>IE 中的事件对象</h3><h3 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h3><h2 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h2><h3 id="UI事件"><a href="#UI事件" class="headerlink" title="UI事件"></a>UI事件</h3><p>不一定与用户操作有关</p>
+<ul>
+<li><code>load</code> 当页面完全加载后在 window 上触发，当图像加载完毕时在<img>元素上面触发</li>
+<li><code>unload</code> 当页面完全卸载后在 window 上触发（页面切换时）</li>
+<li><code>resize</code> 浏览器窗口调整大小时 window 上触发，通过 js 或 body 元素中 onresize 指定事件处理程序</li>
+<li><code>scroll</code> window 对象上发生，表示页面中相应元素的变化</li>
+</ul>
+<h3 id="焦点事件"><a href="#焦点事件" class="headerlink" title="焦点事件"></a>焦点事件</h3><p>获得或失去焦点时触发</p>
+<ul>
+<li><code>document.hasFocus()</code></li>
+<li><code>document.activeElement</code></li>
+</ul>
+<hr>
+<ul>
+<li><code>blur</code> 元素失去焦点时触发，不冒泡</li>
+<li><code>focus</code> 获得焦点时触发，不冒泡</li>
+<li><code>focusin</code> 获得焦点时，冒泡</li>
+<li><code>focusout</code> 失去焦点时，冒泡</li>
+</ul>
+<h3 id="鼠标与滚轮事件"><a href="#鼠标与滚轮事件" class="headerlink" title="鼠标与滚轮事件"></a>鼠标与滚轮事件</h3><ul>
+<li><code>click</code> 单击或回车</li>
+<li><code>dblclick</code> 双击</li>
+<li><code>mousedown</code> 按下任意鼠标按钮</li>
+<li><code>mouseup</code> 释放鼠标按钮</li>
+<li><code>mouseenter</code> 光标从外部首次移动到元素范围之内，不冒泡，移动到后代元素上不会触发</li>
+<li><code>mouseleave</code> 元素上的光标移动到元素范围之外，不冒泡，移动到后代元素不触发</li>
+<li><code>mousemove</code> 光标在元素内部移动时重复触发</li>
+<li><code>mouseout</code> 鼠标位于一个元素上方，移入另一个元素时触发。另一个元素可能是原来元素的外部或子元素</li>
+<li><code>mouseover</code> 光标位于一个元素外部，首次移入另一个元素边界之内</li>
+</ul>
+<hr>
+<ul>
+<li>客户区坐标位置<ul>
+<li><code>event.clientX</code></li>
+<li><code>event.clientY</code></li>
+</ul>
+</li>
+<li>页面坐标位置<ul>
+<li><code>event.pageX</code></li>
+<li><code>event.pageY</code></li>
+</ul>
+</li>
+<li>屏幕坐标位置<ul>
+<li><code>event.screenX</code></li>
+<li><code>event.screenY</code></li>
+</ul>
+</li>
+<li>修改键<ul>
+<li>click + 键盘 -&gt; 属性（Boolean）<ul>
+<li>Shift <code>shiftKey</code></li>
+<li>Ctrl <code>ctrlKey</code></li>
+<li>Alt <code>altKey</code></li>
+<li>Meta(Windows/Cmd) <code>metaKey</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相关元素<ul>
+<li>针对 <code>moseover</code>、<code>mouseout</code><ul>
+<li><code>relatedTarget</code> 属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>鼠标按钮<ul>
+<li>针对 <code>mousedown</code>、<code>mouseup</code><ul>
+<li><code>button</code> 属性<ul>
+<li>0 主鼠标</li>
+<li>1 滚轮</li>
+<li>2 次鼠标</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>鼠标滚轮事件<ul>
+<li><code>mousewheel</code><ul>
+<li>冒泡</li>
+<li><code>wheelDelta</code> 属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="键盘与文本事件"><a href="#键盘与文本事件" class="headerlink" title="键盘与文本事件"></a>键盘与文本事件</h3><ul>
+<li><code>keydown</code> 任意键</li>
+<li><code>keypress</code> 字符键</li>
+<li><code>keyup</code> 释放案件</li>
+</ul>
+<hr>
+<ul>
+<li><code>event.keyCode</code> 键码，ASCII 小写字母相同</li>
+<li><code>event.charCode</code> 字符编码，针对 keypress</li>
+</ul>
+<h3 id="变动事件"><a href="#变动事件" class="headerlink" title="变动事件"></a>变动事件</h3><ul>
+<li>删除节点</li>
+<li>插入节点</li>
+</ul>
+<h3 id="HTML5-事件"><a href="#HTML5-事件" class="headerlink" title="HTML5 事件"></a>HTML5 事件</h3><ul>
+<li><code>contextmenu</code> 冒泡</li>
+<li><code>beforeunload</code></li>
+<li><code>DOMContentLoaded</code></li>
+<li><code>readystatechange</code><ul>
+<li>uninitialized</li>
+<li>loading</li>
+<li>loaded</li>
+<li>interactive</li>
+<li>complete</li>
+</ul>
+</li>
+<li><code>pageshow</code> <code>pagehide</code></li>
+<li><code>hashchange</code></li>
+</ul>
+<h3 id="设备事件"><a href="#设备事件" class="headerlink" title="设备事件"></a>设备事件</h3><p>智能手机和平板电脑</p>
+<h3 id="触摸与手势"><a href="#触摸与手势" class="headerlink" title="触摸与手势"></a>触摸与手势</h3><h2 id="内存和性能"><a href="#内存和性能" class="headerlink" title="内存和性能"></a>内存和性能</h2><p>添加到页面上 的事件处理程序数量将直接关系到页面的整体运行性能</p>
+<ul>
+<li>函数对象占用内存</li>
+<li>指定事件处理程序导致的 DOM 访问</li>
+</ul>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>利用事件冒泡，只指定一个事件处理程序</p>
+<h3 id="移除事件处理程序"><a href="#移除事件处理程序" class="headerlink" title="移除事件处理程序"></a>移除事件处理程序</h3><p>将事件处理程序指定给元素时，运行中的浏览器代码与支持页面交互的 JavaScript 代码之间就 会建立一个连接。连接越多，页面执行起来就越慢。</p>
+<h2 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h2><p>js 触发事件</p>
+<h3 id="DOM-中的事件模拟"><a href="#DOM-中的事件模拟" class="headerlink" title="DOM 中的事件模拟"></a>DOM 中的事件模拟</h3><ul>
+<li><p><code>document.createEvent()</code></p>
+<ul>
+<li>UIEvents</li>
+<li>MouseEvents</li>
+<li>MutationsEvents</li>
+<li>HTMLEvents</li>
+</ul>
+</li>
+<li><p>模拟鼠标</p>
+</li>
+<li><p>模拟键盘</p>
+</li>
+<li><p>模拟其他</p>
+</li>
+</ul>
+<h3 id="IE-中"><a href="#IE-中" class="headerlink" title="IE 中"></a>IE 中</h3>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
