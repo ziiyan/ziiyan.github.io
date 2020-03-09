@@ -20,7 +20,7 @@ tags: JavaScript高级程序设计
 * `nodeValue` 元素的值
 
 ##### 节点关系
-![节点关系.png](第十章-DOM-第十一章-DOM扩展-第十二章-DOM2和DOM3/节点关系.png)
+![节点关系.png](第10章-DOM-第11章-DOM扩展-第12章-DOM2和DOM3/节点关系.png)
 
 * `hashChildNodes()` 
 * `ownerDocument` 指向文档节点（最外层节点）
@@ -243,19 +243,19 @@ CSSStyleSheet 类型表示的是样式表，继承自 StyleSheet，后者可以�
 
 ### 元素大小
 * 偏移量
-![偏移量.png](第十章-DOM-第十一章-DOM扩展-第十二章-DOM2和DOM3/偏移量.png)
+![偏移量.png](第10章-DOM-第11章-DOM扩展-第12章-DOM2和DOM3/偏移量.png)
 
 * 客户区大小
-![客户区大小.png](第十章-DOM-第十一章-DOM扩展-第十二章-DOM2和DOM3/客户区大小.png)
+![客户区大小.png](第10章-DOM-第11章-DOM扩展-第12章-DOM2和DOM3/客户区大小.png)
 
 所有偏移量、客户区大小都是只读的，每次访问要重新计算。避免重复访问，有需要可以保存下来。
 
 * 滚动大小
-![滚动大小.png](第十章-DOM-第十一章-DOM扩展-第十二章-DOM2和DOM3/滚动大小.png)
+![滚动大小.png](第10章-DOM-第11章-DOM扩展-第12章-DOM2和DOM3/滚动大小.png)
 
 * 确定元素大小
 `getBoundingClientRect()` 返回 DOMRect 对象，包含四个值
-![确定元素大小.png](第十章-DOM-第十一章-DOM扩展-第十二章-DOM2和DOM3/确定元素大小.png)
+![确定元素大小.png](第10章-DOM-第11章-DOM扩展-第12章-DOM2和DOM3/确定元素大小.png)
 
 ## 遍历
 * NodeIterator
