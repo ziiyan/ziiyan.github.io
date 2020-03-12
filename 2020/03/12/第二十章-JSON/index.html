@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第二十章 JSON - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单值"><span class="toc-text">简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析与序列化"><span class="toc-text">解析与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-对象"><span class="toc-text">JSON 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化选项"><span class="toc-text">序列化选项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#过滤结果"><span class="toc-text">过滤结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串缩进"><span class="toc-text">字符串缩进</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#toJSON-方法"><span class="toc-text">toJSON() 方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析选项"><span class="toc-text">解析选项</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第二十章 JSON
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-12 00:11:48</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p><strong>JSON 是一种数据格式，不是编程语言</strong></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>简单值<ul>
+<li>字符串</li>
+<li>数组</li>
+<li>布尔值</li>
+<li>null</li>
+</ul>
+</li>
+<li>复杂数据类型<ul>
+<li>对象<ul>
+<li>无序的键值对</li>
+</ul>
+</li>
+<li>数组<ul>
+<li>有序的值的列表</li>
+<li>可以通过数值索引访问</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p>JSON 字符串必须使用双引号，JavaScript 字符串可以单引号</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello world!"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"属性"</span>: <span class="string">"值"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性必须加双引号</li>
+<li>值可以是简单值/复杂类型</li>
+</ul>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">25</span>, <span class="string">"hi"</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>}</p>
+<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><h3 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h3><ul>
+<li><code>stringify()</code> js 对象序列化为 JSON 字符串<ul>
+<li>函数及原型成员会被忽略</li>
+<li>值为 undefined 的属性也会被跳过</li>
+</ul>
+</li>
+<li><code>parse()</code> JSON 字符串解析为 js 值</li>
+</ul>
+<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3><ul>
+<li><code>JSON.stringify()</code> 参数<ul>
+<li>过滤器<ul>
+<li>数组</li>
+<li>函数 replacer</li>
+</ul>
+</li>
+<li>选项<ul>
+<li>是否在 JSON 字符串中保留缩进</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="过滤结果"><a href="#过滤结果" class="headerlink" title="过滤结果"></a>过滤结果</h5><ul>
+<li><p>如果过滤器参数是数组，那么 stringily() 的结果中将只包含数组中列出的属性</p>
+</li>
+<li><p>如果是函数：该函数接收两个参数（属性名，属性值），根据属性名进行自定义序列化</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">  <span class="string">"title"</span>: <span class="string">"Professional JavaScript"</span>,</span><br><span class="line">  <span class="string">"authors"</span>: [</span><br><span class="line">    <span class="string">"Nicholas C. Zakas"</span></span><br><span class="line">  ],</span><br><span class="line">  edition: <span class="number">3</span>,</span><br><span class="line">  year: <span class="number">2011</span></span><br><span class="line">&#125;;	<span class="comment">// js 对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jsonText = <span class="built_in">JSON</span>.stringify(book, <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(key)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"authors"</span>: <span class="keyword">return</span> value.join(<span class="string">","</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"year"</span>: <span class="keyword">return</span> <span class="number">5000</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"edition"</span>: <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">return</span> value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;"title":"Professional JavaScript","authors":"Nicholas C. Zakas","year":5000&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="字符串缩进"><a href="#字符串缩进" class="headerlink" title="字符串缩进"></a>字符串缩进</h5><ul>
+<li>数字：空格数，最大缩进空格数 10</li>
+<li>字符串：缩进字符，不是用空格，最长10</li>
+</ul>
+<h5 id="toJSON-方法"><a href="#toJSON-方法" class="headerlink" title="toJSON() 方法"></a>toJSON() 方法</h5><p>Date 对象自带，也可以自定义</p>
+<p>做为函数过滤器的补充</p>
+<blockquote>
+<p> stringify() 执行顺序</p>
+<ol>
+<li>如果存在 toJSON() <ul>
+<li>能取得有效值就调用</li>
+<li>否则返回对象本身</li>
+</ul>
+</li>
+<li>如果提供了过滤器（第2个参数）<ul>
+<li>应用过滤器，传入的值是 1 返回的值</li>
+</ul>
+</li>
+<li>对 2 返回的每个值进行相应的序列化</li>
+<li>如果提供第 3 个参数，执行相应的格式化</li>
+</ol>
+</blockquote>
+<h3 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h3><ul>
+<li><code>JSON.parse()</code> 参数<ul>
+<li>还原函数 reviver<ul>
+<li>在每个键值对上调用</li>
+<li>接收两个参数（属性即键，值）</li>
+<li>返回 undefined 表示删除相应的键</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
