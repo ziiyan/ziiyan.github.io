@@ -1,5 +1,5 @@
 ---
-title: 第八章 BOM & 第九章 客户端检测
+title: 第八章 BOM
 date: 2020-03-02 23:41:03
 tags: JavaScript高级程序设计
 ---
@@ -74,6 +74,3 @@ tags: JavaScript高级程序设计
 * `history.back()` 后退
 * `history.forward()` 前进
 * `history.length` 历史记录数量
-
-# 第九章 客户端检测
-先设计最通用的方案，再使用客户端检测
