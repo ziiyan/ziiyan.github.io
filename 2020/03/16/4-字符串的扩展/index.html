@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        字符串的扩展 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串的扩展"><span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符的-Unicode-表示法"><span class="toc-text">字符的 Unicode 表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的遍历器接口"><span class="toc-text">字符串的遍历器接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接输入-U-2028-和-U-2029"><span class="toc-text">直接输入 U+2028 和 U+2029</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-stringify-的改造"><span class="toc-text">JSON.stringify() 的改造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串"><span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签模板"><span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串的限制"><span class="toc-text">模板字符串的限制</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        字符串的扩展
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-16 00:53:37</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ECMAScript 6 入门" title="ECMAScript 6 入门">ECMAScript 6 入门</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h1><h2 id="字符的-Unicode-表示法"><a href="#字符的-Unicode-表示法" class="headerlink" title="字符的 Unicode 表示法"></a>字符的 Unicode 表示法</h2><ul>
+<li>ES6 加强了对 Unicode 的支持，允许采用 <code>\uxxxx</code> 形式表示一个字符，<code>xxxx</code> 表示字符的 Unicode 码点</li>
+<li>限制码点在 <code>\u0000</code> ~ <code>\uFFFF</code> 之间的字符，超出范围必须用两个双字节的形式表示</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"\uD842\uDFB7"</span></span><br><span class="line"><span class="comment">// "𠮷"</span></span><br><span class="line"></span><br><span class="line"><span class="string">"\u20BB7"</span></span><br><span class="line"><span class="comment">// " 7"</span></span><br><span class="line"><span class="comment">// JavaScript 会理解成 \u20BB+7</span></span><br><span class="line"><span class="comment">// \u20BB 不可打印，输出空格</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只要将码点放入大括号，就能正确解读</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"\u&#123;20BB7&#125;"</span></span><br><span class="line"><span class="comment">// "𠮷"</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对编码仍然是一窍不通……</p>
+</blockquote>
+<h2 id="字符串的遍历器接口"><a href="#字符串的遍历器接口" class="headerlink" title="字符串的遍历器接口"></a>字符串的遍历器接口</h2><ul>
+<li>ES6 对字符串添加了遍历器接口（详见《Iterator》一章），使得字符串可以被 <code>for...of</code> 循环便利</li>
+<li>除了遍历字符串，遍历器最大的优点是可以识别大于 <code>0xFFFF</code> 的码点</li>
+</ul>
+<h2 id="直接输入-U-2028-和-U-2029"><a href="#直接输入-U-2028-和-U-2029" class="headerlink" title="直接输入 U+2028 和 U+2029"></a>直接输入 U+2028 和 U+2029</h2><ul>
+<li>JavaScript 字符串允许直接输入字符，以及输入字符的转义形式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'中'</span> === <span class="string">'\u4e2d'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>规定不能在字符串里直接使用，只能用转义形式<ul>
+<li>U+005C：反斜杠</li>
+<li>U+000D：回车</li>
+<li>U+2028：行分隔符</li>
+<li>U+2029：段分隔符</li>
+<li>U+000A：换行符</li>
+</ul>
+</li>
+<li>JSON 允许使用 U+2028、U+2029<ul>
+<li><code>JSON.parse()</code> 解析这两个会报错</li>
+<li>为了兼容 JSON，ES2019 支持直接输入这两个</li>
+</ul>
+</li>
+</ul>
+<h2 id="JSON-stringify-的改造"><a href="#JSON-stringify-的改造" class="headerlink" title="JSON.stringify() 的改造"></a>JSON.stringify() 的改造</h2><ul>
+<li>根据标准，JSON 数据必须是 UTF-8 编码，但是现在的 <code>JSON.stringify()</code> 有可能返回不符合 UTF-8 标准的字符串</li>
+</ul>
+<blockquote>
+<p>UTF-8 标准规定，<code>0xD800</code> 到 <code>0xDFFF</code> 之间的码点必须配对使用</p>
+</blockquote>
+<ul>
+<li><code>JSON.stringify()</code> 可能返回 <code>0xD800</code> 到 <code>0xDFFF</code> 之间的单个码点</li>
+<li>为了确保返回的是合法的 UTF-8 字符，如果遇到<code>0xD800</code>到<code>0xDFFF</code>之间的单个码点，或者不存在的配对形式，它会返回转义字符串，留给应用自己决定下一步的处理</li>
+</ul>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><ul>
+<li>增强版的字符串，用反引号（`）标识</li>
+<li>可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入 <code>${变量}</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">"Bob"</span>, time = <span class="string">"today"</span>;</span><br><span class="line"><span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, how are you <span class="subst">$&#123;time&#125;</span>?`</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>反引号需要反斜杠转义</li>
+<li>保留空格和缩进，可以用 <code>trim()</code> 方法消除</li>
+<li>如果变量的值不是字符串，将按照一般的规则转为字符串<ul>
+<li>比如，大括号中是一个对象，将默认调用对象的<code>toString</code>方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="标签模板"><a href="#标签模板" class="headerlink" title="标签模板"></a>标签模板</h2><ul>
+<li>模版字符串跟在一个函数名后面，该函数将被调用来处理这个模版字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert<span class="string">`hello`</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">alert([<span class="string">'hello'</span>])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>标签模版其实不是模版，而是函数调用的一种特殊形式<ul>
+<li>“标签” 指的是函数，跟在后面的模版字符串是参数</li>
+</ul>
+</li>
+<li>如果有参数，函数会依次受到多个参数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tag</span>(<span class="params">stringArr, ...values</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">tag<span class="string">`Hello <span class="subst">$&#123;a + b&#125;</span> world <span class="subst">$&#123;a + b&#125;</span>`</span>;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line">tag([<span class="string">'Hello '</span>, <span class="string">' world '</span>, <span class="string">''</span>], <span class="number">15</span>, <span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作用<ul>
+<li>过滤 HTML 字符串，防止用户输入恶意内容</li>
+<li>多语言转换</li>
+<li>嵌入其他语言</li>
+</ul>
+</li>
+<li>模版处理函数的第一个参数（模版字符串数组），还有一个 <code>raw</code> 属性，保存的是<strong>转义</strong>后的原字符串</li>
+</ul>
+<h2 id="模板字符串的限制"><a href="#模板字符串的限制" class="headerlink" title="模板字符串的限制"></a>模板字符串的限制</h2><ul>
+<li>标签模板可以内嵌别的语言，默认将字符串转义，导致报错</li>
+<li>ES2018 放松了对<u>标签模版</u>里面字符串转义的限制<ul>
+<li>遇到不合法的字符串转义，返回 <code>undefined</code></li>
+<li><code>raw</code> 属性上仍可以得到原始字符串</li>
+</ul>
+</li>
+<li>不是标签模版仍然会报错</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
