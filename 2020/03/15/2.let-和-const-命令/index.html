@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        let 和 const 命令 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#let-和-const-命令"><span class="toc-text">let 和 const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#let-命令"><span class="toc-text">let 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不存在变量提升"><span class="toc-text">不存在变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暂时性死区"><span class="toc-text">暂时性死区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不允许重复声明"><span class="toc-text">不允许重复声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级作用域"><span class="toc-text">块级作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么需要块级作用域？"><span class="toc-text">为什么需要块级作用域？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块级作用域与函数声明"><span class="toc-text">块级作用域与函数声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const-命令"><span class="toc-text">const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法-1"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本质"><span class="toc-text">本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-声明变量的六种方法"><span class="toc-text">ES6 声明变量的六种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顶层对象的属性"><span class="toc-text">顶层对象的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#globalThis-对象"><span class="toc-text">globalThis 对象</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        let 和 const 命令
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-15 18:18:51</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ECMAScript 6 入门" title="ECMAScript 6 入门">ECMAScript 6 入门</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h1><h2 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
+<li>let 声明的变量值在 let 命令坐在的代码块内有效</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></span><br><span class="line"><span class="comment">// var 声明的 i 在全局有效，最终所有的 i 都指向同一个 i，也就是最后一轮循环时 i 的值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>for 循环变量是一个父作用域，循环体是一个子作用域</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="string">'abc'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// abc</span></span><br><span class="line"><span class="comment">// abc</span></span><br><span class="line"><span class="comment">// abc</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h3><ul>
+<li><code>var</code> 声明会出现”变量提升”现象，即变量可以在声明之前使用，值为 <code>undefined</code></li>
+<li><code>let</code> 改变了语法行为，声明之前使用会报错</li>
+</ul>
+<h3 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h3><ul>
+<li>块级作用域内存在 <code>let</code> 或 <code>const</code> 命令，它所声明的变量就”绑定(binding)”这个区域，不受外部影响</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  tmp = <span class="string">'abc'</span>;	<span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>暂时性死区的本质：只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</li>
+</ul>
+<h3 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h3><ul>
+<li><code>let</code> 不允许在相同作用域内重复声明同一个变量</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><h3 id="为什么需要块级作用域？"><a href="#为什么需要块级作用域？" class="headerlink" title="为什么需要块级作用域？"></a>为什么需要块级作用域？</h3><p>ES5 只有全局作用域和函数作用域，可能会导致：</p>
+<ol>
+<li>内层变量可能会覆盖外层变量</li>
+<li>用来计数的循环变量泄露为全局变量</li>
+</ol>
+<h3 id="块级作用域与函数声明"><a href="#块级作用域与函数声明" class="headerlink" title="块级作用域与函数声明"></a>块级作用域与函数声明</h3><ul>
+<li>ES5 规定，函数只能在顶层作用域和函数作用域之中声明，不能在块级作用域声明。</li>
+<li>ES6 明确允许在块级作用域之中声明函数，且函数声明语句的行为类似于 let，在块级作用域外不可引用</li>
+<li>但为了兼容，浏览器在实现时，函数声明的行为可以类似于 var，即会提升到全局作用域或函数作用域的头部</li>
+</ul>
+<h2 id="const-命令"><a href="#const-命令" class="headerlink" title="const 命令"></a>const 命令</h2><h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
+<li><code>const</code> 声明一个只读的常量，一旦声明，常量的值就不能改变</li>
+<li>由于不能改变，声明时就必须初始化，否则报错</li>
+</ul>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><ul>
+<li><code>csont</code> 实际上保证的是变量指向的那个内存地址所保存的数据不得改动<ul>
+<li>对于简单类型（数值、字符串、布尔值）的数据，变量指向的地址保存值，等同于常量</li>
+<li>对于符合类型（对象、数组）的数据，变量指向的地址保存指针，指针再指向实际数据，这里只能保证指针不变，但不能保证实际数据不变<ul>
+<li>如果想将对象冻结，可以使用 <code>Object.freeze()</code> 方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h3><ul>
+<li>ES5<ul>
+<li>var</li>
+<li>function</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>ES6 新增<ul>
+<li>let</li>
+<li>const</li>
+<li>import</li>
+<li>class</li>
+</ul>
+</li>
+</ul>
+<h2 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h2><ul>
+<li>顶层对象<ul>
+<li>浏览器：window</li>
+<li>Node：global</li>
+</ul>
+</li>
+<li>ES5 之中，顶层对象的属性和全局变量等价</li>
+<li>ES6 规定<ul>
+<li>var、function 声明的全局变量，依旧是顶层对象的属性</li>
+<li>let、const、class 声明的全局变量，不属于顶层对象的属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="globalThis-对象"><a href="#globalThis-对象" class="headerlink" title="globalThis 对象"></a>globalThis 对象</h2><ul>
+<li>顶层对象提供全局环境（即全局作用域）</li>
+<li>各个实现不一致<ul>
+<li>浏览器：<code>window</code></li>
+<li>浏览器和 Web Worker：<code>self</code></li>
+<li>Node：<code>global</code></li>
+</ul>
+</li>
+<li>为了兼容，一般使用 <code>this</code> ，但有限制<ul>
+<li>全局环境中，<code>this</code> 会返回顶层对象。但 Node 模块和 ES6 模块中，<code>this</code> 返回当前模块</li>
+<li>函数里面的 <code>this</code>，如果函数不是作为对象的方法运行，<code>this</code> 指向顶层对象。严格模式下 <code>undefined</code></li>
+<li><code>new Function(&#39;return this&#39;)()</code> 返回全局对象。如果浏览器用了 CSP（内容安全策略），则该方法无法使用</li>
+</ul>
+</li>
+<li>ES2020 引入 <code>globalThis</code> 作为顶层对象，指向全局环境下的 <code>this</code></li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
