@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串的扩展"><span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符的-Unicode-表示法"><span class="toc-text">字符的 Unicode 表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的遍历器接口"><span class="toc-text">字符串的遍历器接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接输入-U-2028-和-U-2029"><span class="toc-text">直接输入 U+2028 和 U+2029</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-stringify-的改造"><span class="toc-text">JSON.stringify() 的改造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串"><span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签模板"><span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串的限制"><span class="toc-text">模板字符串的限制</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串的扩展"><span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符的-Unicode-表示法"><span class="toc-text">字符的 Unicode 表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的遍历器接口"><span class="toc-text">字符串的遍历器接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接输入-U-2028-和-U-2029"><span class="toc-text">直接输入 U+2028 和 U+2029</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-stringify-的改造"><span class="toc-text">JSON.stringify() 的改造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串"><span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签模板"><span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板字符串的限制"><span class="toc-text">模板字符串的限制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串的新增方法"><span class="toc-text">字符串的新增方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#String-fromCodePoint"><span class="toc-text">String.fromCodePoint()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-raw"><span class="toc-text">String.raw()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：codePointAt"><span class="toc-text">实例方法：codePointAt()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：normalize"><span class="toc-text">实例方法：normalize()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：includes-startsWith-endsWith"><span class="toc-text">实例方法：includes(), startsWith(), endsWith()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：repeat-n"><span class="toc-text">实例方法：repeat(n)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：padStart-n-‘string’-padEnd-n-‘string’"><span class="toc-text">实例方法：padStart(n, ‘string’), padEnd(n, ‘string’)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：trimStart-trimEnd"><span class="toc-text">实例方法：trimStart(), trimEnd()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例方法：matchAll"><span class="toc-text">实例方法：matchAll()</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -128,7 +128,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-03-16 00:53:37</span></span>
+        <span class="attr">发布于：<span>2020-03-17 00:43:37</span></span>
         
         <span class="attr">标签：/
         
@@ -235,6 +235,61 @@
 </ul>
 </li>
 <li>不是标签模版仍然会报错</li>
+</ul>
+<h1 id="字符串的新增方法"><a href="#字符串的新增方法" class="headerlink" title="字符串的新增方法"></a>字符串的新增方法</h1><h2 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h2><ul>
+<li>ES5 提供 <code>String.fromCharCode()</code> 方法从 Unicode 码点返回对应字符，不能识别大于 <code>0xFFFF</code> 的字符</li>
+<li>ES6 提供 <code>String.fromCodePoint()</code> 可识别大于 <code>0xFFFF</code> 的字符<ul>
+<li>多个参数会被合并成一个字符串返回</li>
+</ul>
+</li>
+<li><code>fromCodePoint</code> 方法定义在 <code>String</code> 对象上</li>
+<li><code>codePointAt</code> 方法定义在字符串的实例对象上</li>
+</ul>
+<h2 id="String-raw"><a href="#String-raw" class="headerlink" title="String.raw()"></a>String.raw()</h2><ul>
+<li><p>替换所有变量，并对斜杠进行转义</p>
+</li>
+<li><p>实现</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.raw = <span class="function"><span class="keyword">function</span> (<span class="params">strings, ...values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> output = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> index;</span><br><span class="line">  <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; values.length; index++) &#123;</span><br><span class="line">    output += strings.raw[index] + values[index];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  output += strings.raw[index]</span><br><span class="line">  <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法：codePointAt"><a href="#实例方法：codePointAt" class="headerlink" title="实例方法：codePointAt()"></a>实例方法：codePointAt()</h2><ul>
+<li>JavaScript 内部，字符以 UTF-16 的格式存储，每个字符固定 2 字节</li>
+<li>大于 <code>0xFFFF</code> 的字符需要 4 个字节存储，JavaScript 会认为它们是两个字符，字符串长度为 2</li>
+<li>ES5 <code>charCodeAt()</code> 只能 2 个字节 2 个字节处理</li>
+<li>ES6 <code>codePointAt()</code> 能够正确处理 4 个字节</li>
+<li><code>codePointAt()</code> 返回的码点是十进制的，toString(16) 转为十六进制</li>
+</ul>
+<h2 id="实例方法：normalize"><a href="#实例方法：normalize" class="headerlink" title="实例方法：normalize()"></a>实例方法：normalize()</h2><ul>
+<li>合成符号</li>
+</ul>
+<h2 id="实例方法：includes-startsWith-endsWith"><a href="#实例方法：includes-startsWith-endsWith" class="headerlink" title="实例方法：includes(), startsWith(), endsWith()"></a>实例方法：includes(), startsWith(), endsWith()</h2><ul>
+<li>ES5 <code>indexOf</code> 可以确定一个字符串是否包含在另一个字符串中</li>
+<li>ES6<ul>
+<li><code>includes(&#39;subString&#39;, n)</code> 返回布尔值，表示是否找到了参数字符串</li>
+<li><code>startsWith(&#39;subString&#39;, n)</code> 返回布尔值，表示参数字符串是否在原字符串的头部</li>
+<li><code>endsWith(&#39;subString&#39;, n)</code> 返回布尔值，表示参数字符串是否在原字符串的尾部</li>
+</ul>
+</li>
+</ul>
+<h2 id="实例方法：repeat-n"><a href="#实例方法：repeat-n" class="headerlink" title="实例方法：repeat(n)"></a>实例方法：repeat(n)</h2><ul>
+<li>返回一个新字符串，重复 n 次</li>
+<li>小数取整，负数/Infinity 报错</li>
+</ul>
+<h2 id="实例方法：padStart-n-‘string’-padEnd-n-‘string’"><a href="#实例方法：padStart-n-‘string’-padEnd-n-‘string’" class="headerlink" title="实例方法：padStart(n, ‘string’), padEnd(n, ‘string’)"></a>实例方法：padStart(n, ‘string’), padEnd(n, ‘string’)</h2><ul>
+<li>补全长度<ul>
+<li>长度 n</li>
+<li>用来补全的字符串 string</li>
+</ul>
+</li>
+</ul>
+<h2 id="实例方法：trimStart-trimEnd"><a href="#实例方法：trimStart-trimEnd" class="headerlink" title="实例方法：trimStart(), trimEnd()"></a>实例方法：trimStart(), trimEnd()</h2><ul>
+<li>消除空格</li>
+<li>不修改原始字符</li>
+</ul>
+<h2 id="实例方法：matchAll"><a href="#实例方法：matchAll" class="headerlink" title="实例方法：matchAll()"></a>实例方法：matchAll()</h2><ul>
+<li><code>matchAll()</code>返回一个正则表达式在当前字符串的所有匹配</li>
+<li>详见 6-正则的扩展</li>
 </ul>
 
         
