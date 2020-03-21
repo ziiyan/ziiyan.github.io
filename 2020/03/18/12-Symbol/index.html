@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Symbol - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Symbol"><span class="toc-text">Symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-prototype-description"><span class="toc-text">Symbol.prototype.description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为属性名的-Symbol"><span class="toc-text">作为属性名的 Symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例：消除魔术字符串"><span class="toc-text">实例：消除魔术字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性名的遍历"><span class="toc-text">属性名的遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-for-，Symbol-keyFor"><span class="toc-text">Symbol.for()，Symbol.keyFor()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例：模块的-Singleton-模式"><span class="toc-text">实例：模块的 Singleton 模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置的-Symbol-值"><span class="toc-text">内置的 Symbol 值</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Symbol
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-18 21:15:15</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ECMAScript 6 入门" title="ECMAScript 6 入门">ECMAScript 6 入门</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>ES5 的对象属性名都是字符串，容易造成属性名冲突</li>
+<li>原始数据类型 <code>Symbol</code> 表示独一无二的值</li>
+<li>通过 <code>Symbol</code> 函数生成<ul>
+<li>不能使用 <code>new</code> 命令</li>
+<li>可以接受参数，作为变量的描述，用来区分<ul>
+<li>如果参数是对象，先调用该对象的 <code>toString</code> 方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">typeof</span> s	<span class="comment">// "symbol"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>现在，对象的属性名可以有两种类型</p>
+<ul>
+<li>字符串</li>
+<li>Symbol 类型</li>
+</ul>
+</li>
+<li><p>Symbol 值不能与其他类型的值进行运算，会报错</p>
+</li>
+<li><p>可以转为字符串和布尔值(true)，但不能转为数值</p>
+</li>
+</ul>
+<h2 id="Symbol-prototype-description"><a href="#Symbol-prototype-description" class="headerlink" title="Symbol.prototype.description"></a>Symbol.prototype.description</h2><ul>
+<li>创建 Symbol 的时候，可以添加一个描述</li>
+<li>读取描述需要将 Symbol 显式转为字符串</li>
+<li>ES2019 提供  <code>description</code> 属性，返回 Symbol 描述</li>
+</ul>
+<h2 id="作为属性名的-Symbol"><a href="#作为属性名的-Symbol" class="headerlink" title="作为属性名的 Symbol"></a>作为属性名的 Symbol</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  [mySymbol]: <span class="string">'Hello!'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; <span class="attr">value</span>: <span class="string">'Hello!'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上写法都得到同样结果</span></span><br><span class="line">a[mySymbol] <span class="comment">// "Hello!"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol 值作为对象属性名时，不能用点运算符，因为点运算符后面总是字符串<ul>
+<li><strong>要放在方括号中定义</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">const</span> a = &#123;&#125;;</span><br><span class="line">a.mySymbol = <span class="string">'Hello'</span>;</span><br><span class="line">a[mySymbol]	<span class="comment">// undefined</span></span><br><span class="line">a[<span class="string">'mySymbol'</span>] <span class="comment">// 'Hello'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol 值作为属性名时，该属性是公开属性，不是私有属性</li>
+</ul>
+<h2 id="实例：消除魔术字符串"><a href="#实例：消除魔术字符串" class="headerlink" title="实例：消除魔术字符串"></a>实例：消除魔术字符串</h2><blockquote>
+<p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
+</blockquote>
+<ul>
+<li>等于哪个值并不重要，只要确保不会跟其他属性的值冲突即可，就很适合改用 Symbol 值</li>
+</ul>
+<h2 id="属性名的遍历"><a href="#属性名的遍历" class="headerlink" title="属性名的遍历"></a>属性名的遍历</h2><ul>
+<li><p>Symbol 作为属性名，遍历对象的时候不会出现在<code>for...in</code>、<code>for...of</code>循环中</p>
+<ul>
+<li>可以利用这个特性，为对象定义非私有、只希望内部使用的方法</li>
+</ul>
+</li>
+<li><p>不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>JSON.stringify()</code> 返回</p>
+</li>
+<li><p><code>Object.getOwnPropertySymbols()</code>方法，可以获取指定对象的所有 Symbol 属性名</p>
+<ul>
+<li>该方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值</li>
+</ul>
+</li>
+<li><p><code>Reflect.ownKeys(object)</code>方法可以返回所有类型的键名，包括常规键名和 Symbol 键名</p>
+</li>
+</ul>
+<h2 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h2><ul>
+<li><code>Symbol.for(&#39;string&#39;)</code> 检查是否有以 <code>string</code> 作为名称的 Symbol 值，有则返回，没有则新建，并注册到全局</li>
+<li><code>Symbol()</code>写法没有登记机制</li>
+<li><code>Symbol.keyFor(变量名)</code>方法返回一个已登记的 Symbol 类型值的<code>key</code></li>
+</ul>
+<h2 id="实例：模块的-Singleton-模式"><a href="#实例：模块的-Singleton-模式" class="headerlink" title="实例：模块的 Singleton 模式"></a>实例：模块的 Singleton 模式</h2><ul>
+<li>Singleton 模式（单例模式）指的是调用一个类，任何时候返回到都是同一个实例</li>
+</ul>
+<h2 id="内置的-Symbol-值"><a href="#内置的-Symbol-值" class="headerlink" title="内置的 Symbol 值"></a>内置的 Symbol 值</h2><ul>
+<li>Symbol.hasInstance<ul>
+<li>指向一个内部方法</li>
+<li>当其他对象使用<code>instanceof</code>运算符，会调用这个方法</li>
+<li>比如，<code>foo instanceof Foo</code>在语言内部，实际调用的是<code>Foo[Symbol.hasInstance](foo)</code></li>
+</ul>
+</li>
+<li>Symbol.isConcatSpreadable<ul>
+<li>等于一个布尔值</li>
+<li>表示该对象用于<code>Array.prototype.concat()</code>时，是否可以展开</li>
+</ul>
+</li>
+<li>Symbol.species<ul>
+<li>指向一个构造函数，创建衍生对象时使用该属性</li>
+</ul>
+</li>
+<li>Symbol.match<ul>
+<li>指向一个函数</li>
+<li>如果该属性存在，调用它并返回方法的返回值</li>
+</ul>
+</li>
+<li>Symbol.replace<ul>
+<li>指向一个方法</li>
+<li>当该对象被<code>String.prototype.replace</code>方法调用时，会返回该方法的返回值</li>
+</ul>
+</li>
+<li>Symbol.search<ul>
+<li>指向一个方法</li>
+<li>当该对象被<code>String.prototype.search</code>方法调用时，会返回该方法的返回值</li>
+</ul>
+</li>
+<li>Symbol.split<ul>
+<li>指向一个方法</li>
+<li>当该对象被<code>String.prototype.split</code>方法调用时，会返回该方法的返回值</li>
+</ul>
+</li>
+<li>Symbol.iterator</li>
+<li>Symbol.toPrimitive</li>
+<li>Symbol.toStringTag</li>
+<li>SYmbol.unscopables</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

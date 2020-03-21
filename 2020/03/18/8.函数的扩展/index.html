@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        函数的扩展 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数的扩展"><span class="toc-text">函数的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数参数的默认值"><span class="toc-text">函数参数的默认值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与解构赋值默认值结合使用"><span class="toc-text">与解构赋值默认值结合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的-length-属性"><span class="toc-text">函数的 length 属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rest-参数"><span class="toc-text">rest 参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#name-属性"><span class="toc-text">name 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-text">箭头函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点"><span class="toc-text">注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尾调用优化"><span class="toc-text">尾调用优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是尾调用"><span class="toc-text">什么是尾调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾调用优化-1"><span class="toc-text">尾调用优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾递归"><span class="toc-text">尾递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归函数的改写"><span class="toc-text">递归函数的改写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#严格模式"><span class="toc-text">严格模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数参数的尾逗号"><span class="toc-text">函数参数的尾逗号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-prototype-toString"><span class="toc-text">Function.prototype.toString()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#catch-命令的参数省略"><span class="toc-text">catch 命令的参数省略</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        函数的扩展
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-18 21:15:15</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ECMAScript 6 入门" title="ECMAScript 6 入门">ECMAScript 6 入门</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h1><h2 id="函数参数的默认值"><a href="#函数参数的默认值" class="headerlink" title="函数参数的默认值"></a>函数参数的默认值</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>（<span class="title">x</span> = 0, <span class="title">y</span> = 0) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参数默认值是惰性求值，每次重新计算</li>
+</ul>
+<h3 id="与解构赋值默认值结合使用"><a href="#与解构赋值默认值结合使用" class="headerlink" title="与解构赋值默认值结合使用"></a>与解构赋值默认值结合使用</h3><h3 id="函数的-length-属性"><a href="#函数的-length-属性" class="headerlink" title="函数的 length 属性"></a>函数的 length 属性</h3><ul>
+<li>返回没有指定默认值的参数个数</li>
+</ul>
+<h2 id="rest-参数"><a href="#rest-参数" class="headerlink" title="rest 参数"></a>rest 参数</h2><ul>
+<li><code>...变量名</code> 不需要使用 <code>arguments</code> 对象</li>
+<li><code>arguments</code> 是类数组</li>
+<li><code>rest</code> 是真的数组</li>
+</ul>
+<h2 id="name-属性"><a href="#name-属性" class="headerlink" title="name 属性"></a>name 属性</h2><ul>
+<li>返回函数名</li>
+</ul>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>函数体内的 <code>this</code> 对象，是定义时所在的对象，而不是使用时所在的对象<ul>
+<li>箭头函数没有自己的 <code>this</code> ，引用外层的 <code>this</code></li>
+</ul>
+</li>
+<li>不可以当作构造函数，不可以使用 <code>new</code> 命令</li>
+<li>不可以使用 <code>arguments</code> 对象，可以用 <code>rest</code> 参数</li>
+<li>不可以使用 <code>yield</code> 命令，因此不能用做 Generator 函数</li>
+</ul>
+<h2 id="尾调用优化"><a href="#尾调用优化" class="headerlink" title="尾调用优化"></a>尾调用优化</h2><h3 id="什么是尾调用"><a href="#什么是尾调用" class="headerlink" title="什么是尾调用"></a>什么是尾调用</h3><ul>
+<li>某个函数的最后一步是调用另一个函数</li>
+</ul>
+<h3 id="尾调用优化-1"><a href="#尾调用优化-1" class="headerlink" title="尾调用优化"></a>尾调用优化</h3><blockquote>
+<p>函数调用会在内存形成一个“调用记录”，又称“调用帧”（call frame），保存调用位置和内部变量等信息。如果在函数<code>A</code>的内部调用函数<code>B</code>，那么在<code>A</code>的调用帧上方，还会形成一个<code>B</code>的调用帧。等到<code>B</code>运行结束，将结果返回到<code>A</code>，<code>B</code>的调用帧才会消失。如果函数<code>B</code>内部还调用函数<code>C</code>，那就还有一个<code>C</code>的调用帧，以此类推。所有的调用帧，就形成一个“调用栈”（call stack）。</p>
+<p>尾调用由于是函数的最后一步操作，所以不需要保留外层函数的调用帧，因为调用位置、内部变量等信息都不会再用到了，只要直接用内层函数的调用帧，取代外层函数的调用帧就可以了。</p>
+</blockquote>
+<ul>
+<li>只有 Safari 支持</li>
+</ul>
+<h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h3><ul>
+<li>尾调用自身，就称为尾递归。</li>
+</ul>
+<blockquote>
+<p>递归非常耗费内存，因为需要同时保存成千上百个调用帧，很容易发生“栈溢出”错误（stack overflow）。但对于尾递归来说，由于只存在一个调用帧，所以永远不会发生“栈溢出”错误。</p>
+</blockquote>
+<ul>
+<li>斐波那契</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> Fibonacci(n<span class="number">-1</span>) + Fibonacci(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尾递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fibonacci2</span> (<span class="params">n, ac1 = <span class="number">1</span>, ac2 = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> ac2;</span><br><span class="line">  <span class="keyword">return</span> Fibonacci2 (n<span class="number">-1</span>, ac2, ac1 + ac2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ES6 中只要使用尾递归，就不会发生栈溢出，相对节省内存</li>
+</ul>
+<h3 id="递归函数的改写"><a href="#递归函数的改写" class="headerlink" title="递归函数的改写"></a>递归函数的改写</h3><ul>
+<li>把所有用到的内部变量改写成函数的参数</li>
+</ul>
+<blockquote>
+<p>函数式编程有一个概念，叫做柯里化（currying），意思是将多参数的函数转换成单参数的形式。</p>
+</blockquote>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><ul>
+<li>ES6 的尾调用优化只在严格模式下开启</li>
+</ul>
+<h2 id="函数参数的尾逗号"><a href="#函数参数的尾逗号" class="headerlink" title="函数参数的尾逗号"></a>函数参数的尾逗号</h2><ul>
+<li>ES6 中函数最后一个参数后有逗号不会报错</li>
+</ul>
+<h2 id="Function-prototype-toString"><a href="#Function-prototype-toString" class="headerlink" title="Function.prototype.toString()"></a>Function.prototype.toString()</h2><ul>
+<li><code>toString()</code>方法返回函数代码本身，以前会省略注释和空格</li>
+</ul>
+<h2 id="catch-命令的参数省略"><a href="#catch-命令的参数省略" class="headerlink" title="catch 命令的参数省略"></a>catch 命令的参数省略</h2><ul>
+<li>以前 catch 命令后面必须跟参数，ES6 可以省略</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
