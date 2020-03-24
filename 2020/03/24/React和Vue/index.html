@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        React和Vue - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-和-Vue"><span class="toc-text">React 和 Vue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM"><span class="toc-text">MVVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-DOM"><span class="toc-text">Virtual DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-模拟-DOM"><span class="toc-text">JS 模拟 DOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Virtual-DOM-的-diff-算法"><span class="toc-text">Virtual DOM 的 diff 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把差异应用到真正的DOM树上"><span class="toc-text">把差异应用到真正的DOM树上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由原理"><span class="toc-text">路由原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-模式"><span class="toc-text">Hash 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#History-模式"><span class="toc-text">History 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-和-React-之间的区别"><span class="toc-text">Vue 和 React 之间的区别</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        React和Vue
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-24 17:53:27</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Vue React" title="Vue React">Vue React</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>内容转自掘金小册《前端面试之道》</p>
+<h1 id="React-和-Vue"><a href="#React-和-Vue" class="headerlink" title="React 和 Vue"></a>React 和 Vue</h1><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>不管是 React 还是 Vue，它们都不是 MVVM 框架，只是借鉴 MVVM 的思路</p>
+<ul>
+<li>View ：用户看到的视图</li>
+<li>Model：本地数据和数据库中的数据</li>
+</ul>
+<p>传统的 MVC 架构通常是使用控制器更新模型，视图从模型中获取数据去渲染。当用户有输入时，会通过控制器去更新模型，并且通知视图进行更新。</p>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324175720375.png" alt="image-20200324175720375" style="zoom:50%;">
+
+<ul>
+<li>ViewModel：只关心数据和业务的处理，不关心 View 如何处理数据</li>
+</ul>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324175836531.png" alt="image-20200324175836531" style="zoom:50%;">
+
+<ul>
+<li>Binnder（隐式）：实现了 View 和 ViewModel 的绑定</li>
+</ul>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324180259118.png" alt="image-20200324180259118" style="zoom:50%;">
+
+<ul>
+<li>精髓：<strong>通过 ViewModel 将视图中的状态和用户的行为分离出一个抽象</strong></li>
+</ul>
+<h2 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h2><h3 id="JS-模拟-DOM"><a href="#JS-模拟-DOM" class="headerlink" title="JS 模拟 DOM"></a>JS 模拟 DOM</h3><ul>
+<li>操作 DOM 很慢，相较于 DOM 来说，操作 JS 对象会快很多，可以通过 JS 来模拟 DOM</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ul = &#123;</span><br><span class="line">  tag: <span class="string">'ul'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    class: 'list'</span><br><span class="line">  &#125;,</span><br><span class="line">  children: &#123;</span><br><span class="line">    tag: <span class="string">'li'</span>,</span><br><span class="line">    children: <span class="string">'1'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码对应的 DOM 就是</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">'list'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Virtual-DOM-的-diff-算法"><a href="#Virtual-DOM-的-diff-算法" class="headerlink" title="Virtual DOM 的 diff 算法"></a>Virtual DOM 的 diff 算法</h3><ul>
+<li>通过 JS 来模拟 DOM 并且渲染对应的 DOM 只是第一步，难点在于<u>如何判断新旧两个 JS 对象的<strong>最小差异</strong>并且实现<strong>局部更新</strong> DOM。</u></li>
+<li>Virtual DOM 只会对同一个层级的元素进行对比<ul>
+<li>深度优先遍历，每遍历到一个节点就把该节点和新的的树进行对比，如果有差异的话就记录到一个对象里<ul>
+<li>key 作为唯一表示</li>
+</ul>
+</li>
+<li>差异类型<ul>
+<li>替换掉原来的节点</li>
+<li>移动、删除、新增子节点</li>
+<li>修改了节点的属性</li>
+<li>对于文本节点，文本内容可能会改变</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="把差异应用到真正的DOM树上"><a href="#把差异应用到真正的DOM树上" class="headerlink" title="把差异应用到真正的DOM树上"></a>把差异应用到真正的DOM树上</h3><ul>
+<li>对 DOM 树也进行深度优先的遍历，遍历的时候从保存差异的对象中找出当前遍历的节点差异，然后进行 DOM 操作</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1\. 构建虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> tree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: blue'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2\. 通过虚拟DOM构建真正的DOM</span></span><br><span class="line"><span class="keyword">var</span> root = tree.render()</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3\. 生成新的虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> newTree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: red'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>), el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4\. 比较两棵虚拟DOM树的不同</span></span><br><span class="line"><span class="keyword">var</span> patches = diff(tree, newTree)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5\. 在真正的DOM元素上应用变更</span></span><br><span class="line">patch(root, patches)</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由原理"><a href="#路由原理" class="headerlink" title="路由原理"></a>路由原理</h2><ul>
+<li><strong>监听 URL 的变化</strong>，然后匹配路由规则，显示相应的页面</li>
+</ul>
+<h3 id="Hash-模式"><a href="#Hash-模式" class="headerlink" title="Hash 模式"></a>Hash 模式</h3><ul>
+<li><code>www.test.com/#/</code> 就是 Hash URL，当 <code>#</code> 后面的哈希值发生变化时，可以通过 <code>hashchange</code> 事件来监听到 URL 的变化，从而进行跳转页面，并且无论哈希值如何变化，服务端接收到的 URL 请求永远是 <code>www.test.com</code>。</li>
+</ul>
+<h3 id="History-模式"><a href="#History-模式" class="headerlink" title="History 模式"></a>History 模式</h3><ul>
+<li>History 模式是 HTML5 新推出的功能，主要使用 <code>history.pushState</code> 和 <code>history.replaceState</code> 改变 URL。</li>
+<li>通过 History 模式改变 URL 同样不会引起页面的刷新，只会更新浏览器的历史记录。</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>Hash 模式只可以更改 <code>#</code> 后面的内容，History 模式可以通过 API 设置任意的同源 URL</li>
+<li>History 模式可以通过 API 添加任意类型的数据到历史记录中，Hash 模式只能更改哈希值，也就是字符串</li>
+<li>Hash 模式无需后端配置，并且兼容性好。History 模式在用户手动输入地址或者刷新页面的时候会发起 URL 请求，后端需要配置 <code>index.html</code> 页面用于匹配不到静态资源的时候。</li>
+</ul>
+<h2 id="Vue-和-React-之间的区别"><a href="#Vue-和-React-之间的区别" class="headerlink" title="Vue 和 React 之间的区别"></a>Vue 和 React 之间的区别</h2><ul>
+<li>v-model</li>
+<li>setState</li>
+<li>JSX</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

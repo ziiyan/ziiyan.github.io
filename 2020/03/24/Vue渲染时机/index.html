@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Vue渲染时机 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modal-组件渲染时机"><span class="toc-text">Modal 组件渲染时机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug-分析流程"><span class="toc-text">Bug 分析流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextTick"><span class="toc-text">nextTick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步更新队列"><span class="toc-text">异步更新队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Vue渲染时机
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-24 12:39:49</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Vue 浏览器" title="Vue 浏览器">Vue 浏览器</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>​        最近在改样式时碰到一个很神奇的bug：qrcode 生成一个二维码，绘制在对应的 canvas 标签中，bug 是二维码不显示。代码总共三行，qrcode 的回调 error 是空的，说明至少二维码的创建到绘制是没有错误的。</p>
+<p>​        查看分支记录，发现了一些相关修改：二维码码是放在一个弹窗中的，以前的弹窗是用绝对定位移出可视区域，实际上弹窗是一直存在的。因为设计的需求换成了 AntD，这个弹窗也换成了 modal 组件，只有在点击个人信息的时候才显示。</p>
+<h2 id="Modal-组件渲染时机"><a href="#Modal-组件渲染时机" class="headerlink" title="Modal 组件渲染时机"></a>Modal 组件渲染时机</h2><ul>
+<li>项目采用的都是同步引入的方式，父子组件渲染顺序如下：</li>
+</ul>
+<blockquote>
+<p>加载渲染过程</p>
+<p>父 beforeCreate<br>父 created<br>父 beforeMount<br>子 beforeCreate<br>子 created<br>子 beforeMount<br>子 mounted<br>父 mounted</p>
+<hr>
+<p>更新过程</p>
+<p>父 beforeUpdate<br>子 beforeUpdate<br>子 updated<br>父 updated</p>
+</blockquote>
+<p>生命周期介绍：<a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90</a></p>
+<h2 id="Bug-分析流程"><a href="#Bug-分析流程" class="headerlink" title="Bug 分析流程"></a>Bug 分析流程</h2><ul>
+<li>现在在 mouted 里面加入绘制二维码的代码</li>
+</ul>
+<blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324140454111.png" alt="image-20200324140454111" style="zoom:50%;">
+
+<p>document.getElementById(‘canvas’) 获取到的元素为空</p>
+<p>qrcode 报错，这里主要是用来生成二维码的 userInfo.pri_Key 还没获取到值</p>
+</blockquote>
+<ul>
+<li>在 watch 里面加入绘制二维码的代码，监听的是控制弹窗是否显示的变量</li>
+</ul>
+<blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324141141884.png" alt="image-20200324141141884" style="zoom:50%;">
+
+<p>document.getElementById(‘canvas’) 获取到的元素为空</p>
+<p>userInfo.pri_Key 有值，qrcode 不报错了</p>
+</blockquote>
+<ul>
+<li>很显然，问题就在为什么这个 canvas 标签一直获取不到，那什么时候才能获取到呢？</li>
+</ul>
+<blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324150813733.png" alt="image-20200324150813733" style="zoom:50%;">
+
+<p>Click 点击显示 modal，要到子组件 updated 时才能获取到标签</p>
+<p>也就是说在 updated 里面才更新 DOM，watch 里面是不更新的</p>
+</blockquote>
+<ul>
+<li>官网里面关于 updated 的描述</li>
+</ul>
+<blockquote>
+<p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watcher</a> 取而代之。</p>
+</blockquote>
+<ul>
+<li>但我们知道，watch 里 DOM 还没更新，我们如何在 watch 里面修改 canvas 呢？</li>
+</ul>
+<blockquote>
+<p>如果你希望等到整个视图都重绘完毕，可以在 <code>updated</code> 里使用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick" target="_blank" rel="noopener">vm.$nextTick</a></p>
+</blockquote>
+<h2 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h2><blockquote>
+<p>将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。</p>
+</blockquote>
+<ul>
+<li><p>显然，这就是我们需要的方法了。</p>
+<ul>
+<li>等待 DOM 更新，可以得到 canvas 标签</li>
+<li>调用 qrcode 库创建二维码并会绘制到 canvas 上</li>
+</ul>
+</li>
+<li><p>将绘制二维码的代码封装一层 nextTick</p>
+</li>
+</ul>
+<blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324141636792.png" alt="image-20200324141636792" style="zoom:50%;">
+
+<p>document.getElementById(‘canvas’) 可以正常获取到元素，二维码正常显示</p>
+</blockquote>
+<h2 id="异步更新队列"><a href="#异步更新队列" class="headerlink" title="异步更新队列"></a>异步更新队列</h2><blockquote>
+<p>Vue 在更新 DOM 时是<strong>异步</strong>执行的。</p>
+<p>只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。</p>
+<p>如果同一个 watcher 被多次触发，只会被推入到队列中一次。</p>
+<p>这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。</p>
+<p>然后，在下一个的事件循环 “tick” 中，Vue 刷新队列并执行实际 (已去重的) 工作。</p>
+<p>Vue 在内部对异步队列尝试使用原生的 <code>Promise.then</code>、<code>MutationObserver</code> 和 <code>setImmediate</code>，如果执行环境不支持，则会采用 <code>setTimeout(fn, 0)</code> 代替。</p>
+</blockquote>
+<ul>
+<li>之前误打误撞使用了 setTimeout(fn, 0)，实际上恰好实现了异步队列</li>
+</ul>
+<blockquote>
+<p>如果你想基于更新后的 DOM 状态来做点什么，这就可能会有些棘手。</p>
+<p>虽然 Vue.js 通常鼓励开发人员使用“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们必须要这么做。</p>
+<p>为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code>。这样回调函数将在 DOM 更新完成后被调用。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>moda 组件在 mounted 时并不会渲染到页面上</li>
+<li>在控制 modal 显示变量为 true 之后，直到 updated 阶段才更新 DOM</li>
+<li>watch 当中有关 DOM 的操作，要利用 nextTick 延迟到 DOM 渲染之前执行</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
