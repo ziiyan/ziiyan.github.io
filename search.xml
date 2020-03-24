@@ -4,13 +4,19 @@
   
     
     <entry>
-      <title>21&amp;211.Class的基本语法和继承</title>
+      <title>Class的基本语法和继承</title>
       <link href="/2020/03/24/21-211-Class%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%92%8C%E7%BB%A7%E6%89%BF/"/>
       <url>/2020/03/24/21-211-Class%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%92%8C%E7%BB%A7%E6%89%BF/</url>
       
         <content type="html"><![CDATA[]]></content>
       
       
+      
+        <tags>
+            
+            <tag> ECMAScript 6 入门 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -65,7 +71,9 @@
       
         <tags>
             
-            <tag> Vue React </tag>
+            <tag> Vue </tag>
+            
+            <tag> React </tag>
             
         </tags>
       
@@ -103,7 +111,9 @@
       
         <tags>
             
-            <tag> Vue 浏览器 </tag>
+            <tag> Vue </tag>
+            
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -135,7 +145,7 @@
       
         <tags>
             
-            <tag> 面试准备 </tag>
+            <tag> Vue </tag>
             
         </tags>
       
