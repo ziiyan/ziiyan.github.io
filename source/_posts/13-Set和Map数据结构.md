@@ -1,7 +1,7 @@
 ---
-title: 13.Set和Map数据结构
+title: Set和Map数据结构
 date: 2020-03-22 13:34:01
-tags: ESCMAScript 6 入门
+tags: ECMAScript 6 入门
 ---
 
 # Set 和 Map 数据结构
