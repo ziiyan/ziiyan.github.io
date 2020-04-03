@@ -11,7 +11,7 @@
 
     <title>
         
-        刷面经 - undefined
+        阿里AE技术部-一面 - undefined
         
     </title>
 
@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue"><span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-text">网络</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -124,11 +124,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        刷面经
+        阿里AE技术部-一面
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-01 20:38:41</span></span>
+        <span class="attr">发布于：<span>2020-04-02 21:40:50</span></span>
         
         <span class="attr">标签：/
         
@@ -142,21 +142,124 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <p>最近有点看不进去书，到牛客找面经上面对面经复习</p>
-<p>主要是为了用自己的语言组织一下，怕面试了答不上来</p>
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
-<li>队列和栈的区别？用栈来实现队列<ul>
-<li>队列是先进先出，类似于排队；栈的话是先进后出，出入口是同一个，先进的元素会被压在下面</li>
-<li>可以用两个栈，在出栈的时候把元素都先放到另外一个栈中，这样顺序就对了</li>
+        <p>30 分钟凉经</p>
+<ul>
+<li><p>为什么选前端</p>
+</li>
+<li><p>你认为前端需要什么能力</p>
+</li>
+<li><p>介绍一下项目</p>
+<ul>
+<li>卡片和线装饰，线是用 svg 图片，高亮点沿线移动，用 kute.js 动画库</li>
+</ul>
+</li>
+<li><p>不用 svg 的话可以用什么？</p>
+<ul>
+<li>canvas</li>
+</ul>
+</li>
+<li><p>当时为什么不用</p>
+<ul>
+<li><p>不会画……</p>
+<blockquote>
+<p>项目这边应该是给了很不好的印象了，最后有跟我提到技术选型的问题</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>项目在你接手之前和之后有什么不同吗？有没有做什么优化</p>
+<ul>
+<li>没有……</li>
+</ul>
+</li>
+<li><p>css position 的取值</p>
+<ul>
+<li>static</li>
+<li>absolute</li>
+<li>relative</li>
+<li>fixed</li>
+</ul>
+</li>
+<li><p>static 和 fixed 有什么区别？</p>
+<ul>
+<li>fixed 是相对于浏览器窗口定位的，static 我没用过不是太了解</li>
+</ul>
+</li>
+<li><p>css 选择器</p>
+<ul>
+<li>权重叠加，important 最高，id 选择器第二</li>
+</ul>
+</li>
+<li><p>事件冒泡和事件捕获的场景</p>
+<ul>
+<li>冒泡是点击的元素沿着 DOM 树一级级向上直到 Document，捕获相反</li>
+<li>场景想不到，举了一个之前做项目的例子，currentTarget，onmousedown.stop</li>
+</ul>
+</li>
+<li><p>项目用什么框架？打包原理清楚吗？webpack 之类的有配置过吗</p>
+<ul>
+<li><p>Vue</p>
+</li>
+<li><p>webpack 了解过，根据入口去找相关依赖，然后依赖导入的时候会用到 loader</p>
+</li>
+<li><p>配置了一个，就是让 .map 文件不打包出来，这样最终的包会小一点</p>
+</li>
+<li><blockquote>
+<p>这一块其实没听太清楚，电话声音有点小，大概意思就是只是用了脚手架提供的功能，内置的东西没有去深入了解，不知道整个构建流程</p>
+<p>感觉面试官是用 react 的，我说 vue 之后就没什么兴趣问了</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>图片懒加载怎么做的</p>
+<ul>
+<li>这个不清楚</li>
+</ul>
+</li>
+<li><p>说一下 cookie</p>
+<ul>
+<li>sessionStorage 标签之间不共享，localstorage 永久存储， cookie 可以设置过期时间所以项目用了 cookie</li>
+</ul>
+</li>
+<li><p>跨域</p>
+<ul>
+<li>平时一般是 CORS，还有就是 jsonp，jsonp 是利用 html 标签的 src 属性没有浏览器安全的限制，用回调函数实现跨域</li>
+</ul>
+</li>
+<li><p>CORS 有配置过吗</p>
+<ul>
+<li>没有，都是后端配的</li>
+</ul>
+</li>
+<li><p>有没有做过服务端</p>
+<ul>
+<li>写过 sdk，应该不算服务端吧</li>
+</ul>
+</li>
+<li><p>有什么补充的吗</p>
+<ul>
+<li>之前调 bug 的时候用到 setTimeout(0)，就顺便学到了事件循环机制和 js 运行机制，后来回顾的时候知道 vue 里有个 nextTick，算是误打误撞实现了</li>
+</ul>
+</li>
+<li><p>nextTick 和 setTimeout 有什么区别</p>
+<ul>
+<li><p>nextTick 是让回调函数在下一次页面渲染之后再去执行，setTimeout 只是实现 nextTick 的一种方式，也可以用 Promise 实现，这个会判断浏览器的支持情况</p>
+</li>
+<li><blockquote>
+<p>我以为这边会顺着问一下事件循环机制和js运行机制，没想到问了个 nextTick</p>
+</blockquote>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
-<li>TCP、UDP区别？TCP如何做到双工可靠传输？TCP阻塞控制是什么？<ul>
-<li>TCP 是面向连接的，传输比较可靠；UDP 是不可靠传输，比较适用于实时应用</li>
-</ul>
-</li>
-</ul>
+<p>最后我是问对我今后的学习有什么建议？</p>
+<p>系统学一下前端基础，不要是做项目做到了才去学。在做项目的时候要了解一下业界比较流行的做法，前端更新比较快，注意性能上的一些优化。</p>
+<blockquote>
+<p>可能是看我做了项目吧，大多数问题都是从项目入手的，我项目也做的不太好，应该说没整理好，没讲清楚也没体现技术，这也和我平时做项目能用就行的想法有关系。</p>
+<p>确实对旧项目没有做过优化，做新功能的时候技术选型也有问题，就是他说的项目用到了才匆匆忙忙去学。</p>
+<p>准备面试的时候都是在看 js 基础相关的，比较奇怪的是问了好多优化的东西，js 反而一点没问，后面又说我基础不太好（虽然确实是不太好），以为一面会问很多基础，没想到都没怎么问</p>
+<p>其实面着面着就知道自己凉了，总觉得对面已经招够了，也不太有兴趣问下去的感觉</p>
+</blockquote>
 
         
         <br />
