@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Performance Benchmarking and Optimizing Hyperledger Fabric Blockchain Platform - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#INTRODUCTION"><span class="toc-text">INTRODUCTION</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#II-BACKGROUND-HYPERLEDGER-FABRIC-ARCHITECTURE-amp-CONFIGURATION-PARAMETERS"><span class="toc-text">II. BACKGROUND: HYPERLEDGER FABRIC ARCHITECTURE &amp; CONFIGURATION PARAMETERS</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Performance Benchmarking and Optimizing Hyperledger Fabric Blockchain Platform
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-04 16:53:39</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#翻译" title="翻译">翻译</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#精读" title="精读">精读</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><blockquote>
+<p>The rise in popularity of permissioned blockchain platforms in recent time is significant. Hyperledger Fabric is one such permissioned blockchain platform and one of the Hyperledger projects hosted by the Linux Foundation.</p>
+<p>The Fabric comprises of various components such as smart-contracts, endorsers, committers, validators, and orderers.</p>
+<p>As the performance of blockchain platform is a major concern for enterprise applications, in this work, we perform a comprehensive empirical study to characterize the performance of Hyperledger Fabric and identify potential performance bottlenecks to gain a better understanding of the system.</p>
+</blockquote>
+<p>最近一段时间，许可链平台的流行度显着上升。 Hyperledger Fabric 是一种这样的许可链平台，也是 Linux 基金会托管的 Hyperledger 项目之一。</p>
+<p>Fabric 由各种组件组成，例如智能合约，背书节点，提交节点，验证节点和排序节点。</p>
+<p>由于区块链平台的性能是企业应用程序的主要关注点，因此在这项工作中，我们进行了全面的实证研究，以表征 Hyperledger Fabric 的性能并确定潜在的性能瓶颈，以更好地了解系统。</p>
+<blockquote>
+<p>We follow a two-phased approach.</p>
+<p>In the first phase, our goal is to understand the impact of various configuration parameters such as block size, endorsement policy, channels, resource allocation, state database choice on the transaction throughput &amp; latency to provide various guidelines on configuring these parameters.</p>
+<p>In addition, we also aim to identify performance bottlenecks and hotspots. We observed that (1) endorsement policy verification, (2) sequential policy validation of transactions in a block, and (3) state validation and commit (with CouchDB) were the three major bottlenecks.</p>
+</blockquote>
+<p>我们遵循两阶段的方法。</p>
+<p>在第一阶段，我们的目标是了解各种配置参数（例如块大小、背书策略、通道、资源配置、状态数据库选择）对交易吞吐量和延迟的影响，以提供有关配置这些参数的各种指导。</p>
+<p>此外，我们还旨在确定性能瓶颈和热点。 我们观察到（1）背书策略验证，（2）块中交易的顺序策略验证，（3）状态验证和提交（使用 CouchDB）是三个主要瓶颈。</p>
+<blockquote>
+<p>In the second phase, we focus on optimizing Hyperledger Fabric v1.0 based on our observations.</p>
+<p>We introduced and studied various simple optimizations such as aggressive caching for endorsement policy verification in the cryptography component (3× improvement in the performance) and parallelizing endorsement policy verification (7× improvement). </p>
+<p>Further, we enhanced and measured the effect of an existing bulk read/write optimization for CouchDB during state validation &amp; commit phase (2.5× improvement). </p>
+<p>By combining all three optimizations, we improved the overall throughput by 16× (i.e., from 140 tps to 2250 tps).</p>
+</blockquote>
+<p>在第二阶段，我们将根据我们的观察优化 Hyperledger Fabric v1.0。</p>
+<p>我们介绍并研究各种简单的优化方法，例如在加密组件中进行背书策略验证的主动缓存（性能提高了 3 倍）和并行化背书策略验证（提高 7 倍）。</p>
+<p>此外，我们在验证和提交阶段期间增强并测量了现有的针对 CouchDB 批量读写优化的效果（提高 2.5 倍）。</p>
+<p>通过结合这 3 个优化，我们将整体吞吐量提升了 16 倍，即从 140 tps 到 2250 tps。</p>
+<h1 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h1><blockquote>
+<p>Blockchain technologies initially gained popularity as they were seen as a way to get rid of the intermediary and decentralize the system. Since then, blockchain has witnessed a growing interest from different domains and use cases. A blockchain is a shared, distributed ledger that records transactions and is maintained by multiple nodes in the network where nodes do not trust each other. Each node holds the identical copy of the ledger which is usually represented as a chain of blocks, with each block being a logical sequence of transactions. Each block encloses the hash of its immediate previous block, thereby guaranteeing the immutability of ledger.</p>
+</blockquote>
+<p>区块链最初开始流行是因为它们被认为是一种摆脱中介和去中心化系统的方式。从那之后，区块链见证了来自不同领域和用例日益增长的兴趣。</p>
+<p>区块链是一个共享的、分布式的账本，它记录交易并由网络中互不信任的多个节点共同维护。每个节点都拥有该账本的相同副本，账本通常由区块链表示，每个区块都是交易的逻辑顺序。每个交易都包含前一个区块的哈希，从而保证了账本的不可篡改。</p>
+<blockquote>
+<p>Blockchain is often hailed as a new breed of database systems, in essence being a distributed transaction processing system where the nodes are not trusted and the system needs to achieve Byzantine fault tolerance. Blockchain provides serializability, immutability, and cryptographic verifiability without a single point of trust unlike a database system; properties that have triggered blockchain adoption in a wide variety of industries.</p>
+</blockquote>
+<p>区块链通常被誉为一种新型的数据库系统，本质上是一个分布式的交易处理系统，其中的节点不受信任，并且这个系统需要实现拜占庭容错。与数据库系统不同，区块链在没有单一信任点的情况下提供了可串行性、不可篡改性和加密可验证性；引发区块链在众多行业中采用的特性。</p>
+<blockquote>
+<p>A blockchain network can be either permissionless or permissioned. </p>
+<p>In a permissionless network or public network such as Bitcoin, Ethereum, anyone can join the network to perform transactions. Due to a large number of nodes in a public network, a proof-of-work consensus approach is used to order transactions and create a block.</p>
+<p>In a permissioned network, the identity of each participant is known and authenticated cryptographically such that blockchain can store who performed which transaction. In addition, such a network can have extensive access control mechanisms built-in to limit who can (a) read &amp; append to ledger data, (b) issue transactions, (c) administer participation in the blockchain network.</p>
+</blockquote>
+<p>区块链网络可以是未经许可的或经过许可的。</p>
+<p>在未经许可的网络或公共网络（例如比特币、以太坊）中，任何人都可以加入网络以执行交易。由于公共网络中有大量节点，因此采用工作量证明共识算法来对交易进行排序并创建一个区块。</p>
+<p>在经过许可的网络中，每个参与者的身份都是已知的，通过密码验证，区块链可以存储谁执行了哪个交易。此外，这样的网络可以内置广泛的网络控制机制来限制谁可以（a）读取并添加账本数据，（b）发送交易，（c）管理参与区块链网络。</p>
+<blockquote>
+<p>A permissioned network is highly suitable for enterprise applications that require authenticated participants. Each node in a permissioned network can be owned by different organizations. Further, enterprise applications need complex data models and expressibility which can be supported using smart-contracts. Enterprises find value in being able to integrate diverse systems without having to build a centralized solution and to bring a level of trust among untrusting parties or to bring in a trusted third-party. Trade Finance and Food Safety are examples of blockchain applications where participants see value in visibility advantages it offers as compared to the existing loosely coupled centralized systems.</p>
+</blockquote>
+<p>许可网络非常适合需要验证参与者身份的企业应用程序。 许可网络中的每个节点可以由不同的组织拥有。 此外，企业应用程序需要复杂的数据模型和可表达性，可以使用智能合约来支持它们。 企业发现了能够集成各种系统而无需构建集中式解决方案并在非信任方之间建立信任度或引入受信任的第三方的价值。 贸易金融和食品安全是区块链应用的例子，与现有的松散耦合的集中式系统相比，参与者在其可见性优势中看到了价值。</p>
+<blockquote>
+<p>There is a lot of concern about the performance of permissioned blockchain platforms and their ability to handle a huge volume of transactions at low latency. Another concern is the richness of language to describe the transactions. Different blockchain platforms such as Quorum, Corda address these concerns using different techniques derived from the distributed systems domain. Hyperledger Fabric is an enterprise-grade open-source permissioned blockchain platform which has a modular design and a high degree of specifiability through trust models and pluggable components. Fabric is currently being used in many different use cases such as Global Trade Digitization, SecureKey, Everledger and is the focus of our performance study.</p>
+</blockquote>
+<p>对于许可链平台的性能及其以低延迟处理大量事务的能力，存在很多担忧。 另一个问题是描述交易的语言丰富。 Quorum，Corda 等不同的区块链平台使用源自分布式系统领域的不同技术来解决这些问题。Hyperledger Fabric 是企业级开源许可链平台，具有模块化设计，并通过信任模型和可插拔组件实现高度可定制性。 目前，Fabric 已在许多不同的用例中使用，例如全球贸易数字化，SecureKey，Everledger，这是我们性能研究的重点。</p>
+<blockquote>
+<p>Fabric consists of various components such as endorsers, ordering service, and committers. Further, it constitutes various phases in processing a transaction such as endorsement phase, ordering phase, validation and commit phase. Due to numerous components and phases, Fabric provides various configurable parameters such as block size, endorsement policy, channels, state database. Hence, one of the main challenges in setting up an efficient blockchain network is finding the right set of values for these parameters. For e.g., depending on the application and requirements, one might need to answer the following questions:</p>
+<ul>
+<li><p>What should be the block size to achieve a lower latency?</p>
+</li>
+<li><p>How many channels can be created and what should be</p>
+<p>  the resource allocation?</p>
+</li>
+<li><p>What types of endorsement policy is more efficient?</p>
+</li>
+<li><p>How much is the performance difference between</p>
+<p>  GoLevelDB and CocuhDB when it is used as the</p>
+<p>  state database?</p>
+</li>
+</ul>
+</blockquote>
+<p>Fabric 由各种组件组成，例如智能合约，背书节点，提交节点，验证节点和排序节点。此外，它还构成了处理交易的各个阶段，例如背书阶段，排序阶段，验证和提交阶段。由于组件和阶段众多，Fabric 提供了各种可配置的参数，例如块大小，背书策略，通道，状态数据库。因此，建立有效的区块链网络的主要挑战之一是为这些参数找到正确的值集。例如，根据应用和要求，可能需要回答以下问题：</p>
+<ul>
+<li>达到较低延迟的块大小应该是多少？</li>
+<li>可以创建多少个通道，应该怎么分配资源？</li>
+<li>哪种类型的认可政策更有效？</li>
+<li>GoLevelDB 和 CocuhDB 用作状态数据库时它们之间的性能差异有多少？</li>
+</ul>
+<blockquote>
+<p>To answer above questions and to identify the performance bottlenecks, we perform a comprehensive empirical study of Fabric v1.0 with various configurable parameters. Specifically, our three major contributions are listed below.</p>
+<ol>
+<li>We conducted a comprehensive empirical study of Fabric platform by varying values assigned to the five major parameters by conducting over 1000s of experiments. As a result, we provide six guidelines on configuring these parameters to attain the maximum performance.</li>
+<li>We identified three major performance bottlenecks: (i) crypto operations, (ii) serial validation of transactions in a block, and (iii) multiple REST API calls to CouchDB.</li>
+<li>Introduced and studied three simple optimizations to improve the overall performance by 16× (i.e., from 140 tps to 2250 tps) for a single channel environment.</li>
+</ol>
+</blockquote>
+<p>为了回答上述问题并确定性能瓶颈，我们对 Fabric v1.0 的各种可配置参数的进行了全面的实证研究。 具体来说，以下是我们的三大贡献。</p>
+<ol>
+<li>我们通过进行1000多次实验，通过改变分配给五个主要参数的值，对Fabric 平台进行了全面的实证研究。 最终，我们提供了六种有关配置这些参数的准则以获得最佳性能。</li>
+<li>我们确定了三个主要的性能瓶颈：（i）加密操作，（ii）块中交易的串行验证以及（iii）对 CouchDB 的多个 REST API 调用。</li>
+<li>引入并研究了三种简单的优化方法，针对单个通道环境将整体性能提高16倍（即从 140 tps 到 2250 tps）。</li>
+</ol>
+<h1 id="II-BACKGROUND-HYPERLEDGER-FABRIC-ARCHITECTURE-amp-CONFIGURATION-PARAMETERS"><a href="#II-BACKGROUND-HYPERLEDGER-FABRIC-ARCHITECTURE-amp-CONFIGURATION-PARAMETERS" class="headerlink" title="II. BACKGROUND: HYPERLEDGER FABRIC ARCHITECTURE &amp; CONFIGURATION PARAMETERS"></a>II. BACKGROUND: HYPERLEDGER FABRIC ARCHITECTURE &amp; CONFIGURATION PARAMETERS</h1><blockquote>
+<p>The Hyperledger Fabric is an implementation of permissioned blockchain system which has many unique properties suited for enterprise-class applications. It can run arbitrary smart contracts (a.k.a chaincodes) implemented in Go/JAVA/Nodejs language. It supports an application specifiable trust model for transaction validation and a pluggable consensus protocol to name a few. A Fabric network consists of different types of entities, peer nodes, ordering service nodes and clients, belonging to different organizations. Each of these has an identity on the network which is provided by a Membership Service Provider (MSP), typically associated with an organization. All entities in the network have visibility to identities of all organizations and can verify them.</p>
+</blockquote>
+<p>Hyperledger Fabric 是许可区块链系统的实现，具有许多适合企业级应用程序的独特属性。 它可以运行以 Go / JAVA / Nodejs 语言实现的任意智能合约（也称为链码）。 它支持用于事务验证的应用程序特定的信任模型和可插拔的共识协议等。 Fabric 网络由属于不同组织的不同类型的实体，对等节点，订购服务节点和客户端组成。 这些中的每一个在网络上都有一个身份，该身份由通常与组织相关联的成员资格服务提供商（MSP）提供。 网络中的所有实体都可以查看所有组织的身份，并可以对其进行验证。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
