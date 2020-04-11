@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成果"><span class="toc-text">成果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化前"><span class="toc-text">优化前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化后"><span class="toc-text">优化后</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具"><span class="toc-text">工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看"><span class="toc-text">查看</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack-文件分离"><span class="toc-text">Webpack 文件分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bundle-splitting"><span class="toc-text">Bundle splitting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-1"><span class="toc-text">配置</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成果"><span class="toc-text">成果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化前"><span class="toc-text">优化前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化后"><span class="toc-text">优化后</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具"><span class="toc-text">工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看"><span class="toc-text">查看</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Webpack-文件分离"><span class="toc-text">Webpack 文件分离</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bundle-splitting"><span class="toc-text">Bundle splitting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-1"><span class="toc-text">配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逐个击破"><span class="toc-text">逐个击破</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Echarts"><span class="toc-text">Echarts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#monaco"><span class="toc-text">monaco</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -128,7 +128,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-03 19:24:25</span></span>
+        <span class="attr">发布于：<span>2020-04-07 19:24:25</span></span>
         
         <span class="attr">标签：/
         
@@ -156,7 +156,7 @@
 <h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run server</span><br></pre></td></tr></table></figure>
 
 <p>重新启动之后访问 <a href="http://127.0.0.1:8888" target="_blank" rel="noopener">http://127.0.0.1:8888</a> 就是可视化的图了</p>
-<h2 id="Webpack-文件分离"><a href="#Webpack-文件分离" class="headerlink" title="Webpack 文件分离"></a>Webpack 文件分离</h2><p>Webpack 文件分离包括两个部分，一个是 Bundle 的分离，一个是 Code 代码的分离:</p>
+<h1 id="Webpack-文件分离"><a href="#Webpack-文件分离" class="headerlink" title="Webpack 文件分离"></a>Webpack 文件分离</h1><p>Webpack 文件分离包括两个部分，一个是 Bundle 的分离，一个是 Code 代码的分离:</p>
 <ul>
 <li>Bundle splitting: 实际上就是创建多个更小的文件，并行加载，以获得更好的缓存效果；主要的作用就是使浏览器并行下载，提高下载速度。并且运用浏览器缓存，只有代码被修改，文件名中的哈希值改变了才会去再次加载。</li>
 <li>Code splitting: 只加载用户最需要的部分，其余的代码都遵从懒加载的策略；主要的作用就是加快页面加载速度，不加载不必要加载的东西。</li>
@@ -169,6 +169,37 @@
 <p>最后配置匹配的依赖以及分离出的文件名格式</p>
 <p>另外，我们还将运行时代码分离出来，这块代码还可以配合 <strong>InlineManifestWebpackPlugin</strong> 直接插入到 HTML 文件中。这里我们将这个配置设置成 single，即将所有chunk的运行代码打包到一个文件中</p>
 </blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200407143915100.png" alt="image-20200407143915100" style="zoom:50%;">
+
+<p>现在可以看到 app.js 被拆解成很多个单独的包，这些包在加载时可以并行下载，提高下载速度。</p>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200407144235648.png" alt="image-20200407144235648" style="zoom:50%;">
+
+<h1 id="逐个击破"><a href="#逐个击破" class="headerlink" title="逐个击破"></a>逐个击破</h1><h2 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h2><p>项目里用到的只有 bar 这个图形，所以按需载入即可。</p>
+<ul>
+<li><code>/src/plugins</code>  下新建文件 <code>echarts.js</code>：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">'echarts/lib/echarts'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/chart/bar'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/component/legend'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> echarts</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用到 Echarts 的组件中：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">'@/plugins/echarts'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.52 M -&gt; 830.76 KB</li>
+</ul>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200407144602273.png" alt="image-20200407144602273" style="zoom:50%;">
+
+<h2 id="monaco"><a href="#monaco" class="headerlink" title="monaco"></a>monaco</h2><p>这个是代码编辑器，用到的地方比较多，本来想像 echarts 一样按需引入，但是引入完之后依旧非常大，考虑用 CDN 加速，参考：</p>
+<p><a href="https://github.com/microsoft/monaco-editor/blob/master/docs/integrate-amd-cross.md" target="_blank" rel="noopener">https://github.com/microsoft/monaco-editor/blob/master/docs/integrate-amd-cross.md</a></p>
+<p><a href="https://www.cnblogs.com/XHappyness/p/9708102.html" target="_blank" rel="noopener">https://www.cnblogs.com/XHappyness/p/9708102.html</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html</span></span><br><span class="line"></span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"https://cdn.bootcss.com/monaco-editor/0.20.0/min/vs/loader.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">      require.config(&#123; paths: &#123; 'vs': 'https:/</span><span class="regexp">/cdn.bootcss.com/m</span>onaco-editor/<span class="number">0.20</span><span class="number">.0</span>/min/vs<span class="string">' &#125;&#125;);</span></span><br><span class="line"><span class="string">      window.MonacoEnvironment = &#123;</span></span><br><span class="line"><span class="string">        getWorkerUrl: function(workerId, label) &#123;</span></span><br><span class="line"><span class="string">          return `data:text/javascript;charset=utf-8,$&#123;encodeURIComponent(`</span></span><br><span class="line"><span class="string">            self.MonacoEnvironment = &#123;</span></span><br><span class="line"><span class="string">              baseUrl: '</span>https:<span class="comment">//cdn.bootcss.com/monaco-editor/0.20.0/min/'</span></span><br><span class="line">            &#125;;</span><br><span class="line">            importScripts(<span class="string">'https://cdn.bootcss.com/monaco-editor/0.20.0/min/vs/base/worker/workerMain.js'</span>);<span class="string">`</span></span><br><span class="line"><span class="string">          )&#125;`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="built_in">require</span>([<span class="string">"vs/editor/editor.main"</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    ···</span><br><span class="line">    chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">        config.module</span><br><span class="line">            .rule(<span class="string">'html'</span>)</span><br><span class="line">            .test(<span class="regexp">/\.html$/</span>)</span><br><span class="line">            .use(<span class="string">'html-loader'</span>)</span><br><span class="line">            .loader(<span class="string">'html-loader'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ···</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    ...</span><br><span class="line">    externals: &#123;</span><br><span class="line">      <span class="string">'monaco-editor'</span>: <span class="string">'monaco-editor'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>折腾了大半天总算可以，使用的时候需要 <code>window.monaco.editor.create(...)</code></p>
 
         
         <br />
