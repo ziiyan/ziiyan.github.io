@@ -195,7 +195,7 @@
 <blockquote>
 <p>There is a lot of concern about the performance of permissioned blockchain platforms and their ability to handle a huge volume of transactions at low latency. Another concern is the richness of language to describe the transactions. Different blockchain platforms such as Quorum, Corda address these concerns using different techniques derived from the distributed systems domain. Hyperledger Fabric is an enterprise-grade open-source permissioned blockchain platform which has a modular design and a high degree of specifiability through trust models and pluggable components. Fabric is currently being used in many different use cases such as Global Trade Digitization, SecureKey, Everledger and is the focus of our performance study.</p>
 </blockquote>
-<p>对于许可链平台的性能及其以低延迟处理大量事务的能力，存在很多担忧。 另一个问题是描述交易的语言丰富。 Quorum，Corda 等不同的区块链平台使用源自分布式系统领域的不同技术来解决这些问题。Hyperledger Fabric 是企业级开源许可链平台，具有模块化设计，并通过信任模型和可插拔组件实现高度可定制性。 目前，Fabric 已在许多不同的用例中使用，例如全球贸易数字化，SecureKey，Everledger，这是我们性能研究的重点。</p>
+<p>对于许可链平台的性能及其以低延迟处理大量交易的能力，存在很多担忧。 另一个问题是描述交易的语言丰富。 Quorum，Corda 等不同的区块链平台使用源自分布式系统领域的不同技术来解决这些问题。Hyperledger Fabric 是企业级开源许可链平台，具有模块化设计，并通过信任模型和可插拔组件实现高度可定制性。 目前，Fabric 已在许多不同的用例中使用，例如全球贸易数字化，SecureKey，Everledger，这是我们性能研究的重点。</p>
 <blockquote>
 <p>Fabric consists of various components such as endorsers, ordering service, and committers. Further, it constitutes various phases in processing a transaction such as endorsement phase, ordering phase, validation and commit phase. Due to numerous components and phases, Fabric provides various configurable parameters such as block size, endorsement policy, channels, state database. Hence, one of the main challenges in setting up an efficient blockchain network is finding the right set of values for these parameters. For e.g., depending on the application and requirements, one might need to answer the following questions:</p>
 <ul>
@@ -267,7 +267,7 @@
 <p>An Ordering Service Node (OSN), participate in the consensus protocol and cuts block of transactions which is delivered to the peers by a gossip communication protocol. The structure of a block in Fabric v1.0 is shown in Figure2. The ordering service is modular and supports a pluggable consensus mechanism. By default, a serial ordering (i.e., consensus) is achieved using an underlying Kafka/Zookeeper cluster. OSNs publish transactions to kafka topics and leverages the ordered and immutable nature of records in kafka topic to generate a unique ordered sequence of transactions in a block. A block is cut, when either a maximum number of new transactions, since the last block cut, are added added or a configured timeout since the last block cut has occurred. When any one condition is satisfied, an OSN, publishes a time-to-cut marker and cut a block of all transactions message offsets since the last time-to-cut message offset. The block is then delivered to the peer nodes.</p>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200406145423347.png" alt="image-20200406145423347" style="zoom:50%;">
 </blockquote>
-<p>排序服务节点（OSN）参与共识协议和“削减”交易块，该交易通过 Gossip 通信协议传递给对等节点。 Fabric v1.0 中的块结构如图所示。 排序服务是模块化的，并支持可插入的共识机制。 默认使用基础的 Kafka / Zookeeper 集群实现序列排序（即共识）。 OSN 将事务发布到 kafka topic，并利用 kafka topic 中记录的有序和不变性在一个块中生成唯一的有序交易序列。 当添加了自上次切块以来最大数量的新交易，或者自上次切块发生以来的配置超时时，该块被切掉。当满足任何一个条件时，OSN 会发布一个截止时间标记，并切掉自上次截止时间消息偏移以来所有交易消息偏移组成的块。 然后将该块传递到对等节点。</p>
+<p>排序服务节点（OSN）参与共识协议和“削减”交易块，该交易通过 Gossip 通信协议传递给对等节点。 Fabric v1.0 中的块结构如图所示。 排序服务是模块化的，并支持可插入的共识机制。 默认使用基础的 Kafka / Zookeeper 集群实现序列排序（即共识）。 OSN 将交易发布到 kafka topic，并利用 kafka topic 中记录的有序和不变性在一个块中生成唯一的有序交易序列。 当添加了自上次切块以来最大数量的新交易，或者自上次切块发生以来的配置超时时，该块被切掉。当满足任何一个条件时，OSN 会发布一个截止时间标记，并切掉自上次截止时间消息偏移以来所有交易消息偏移组成的块。 然后将该块传递到对等节点。</p>
 <h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><blockquote>
 <p>The client application is responsible for putting together a transaction proposal as shown in Figure2. </p>
 <p>The client submits the transaction proposal to 1-or-more peers simultaneously for collecting proposal responses with endorsements to satisfy the endorsement policy. </p>
@@ -331,7 +331,7 @@
 <h4 id="MVCC-Validation"><a href="#MVCC-Validation" class="headerlink" title="MVCC Validation"></a>MVCC Validation</h4><blockquote>
 <p>As the name implies, the Multi-Version Concurrency Control check ensures that the versions of keys read by a transaction during the endorsement phase are same as their current state in the local ledger at commit time. This is similar to a read-write conflict check done for concurrency control, and is performed sequentially on all the valid transactions in the block (as marked by VSCC validation). If the read-set versions do not match, denoting that a concurrent previous (as-in earlier in this block or before) transaction modified the data read and was since (it’s endorsement) successfully committed, the transaction is marked invalid. To ensure that no phantom reads occur, for range queries, the query is re-executed and compares the hashes of results (which is also stored as part of read-set captured during endorsement).</p>
 </blockquote>
-<p>顾名思义，“多版本并发控制”检查确保交易在背书阶段读取的密钥版本与提交时本地账本中的当前状态相同。 这类似于为进行并发控制而进行的读写冲突检查，并且对块中的所有有效交易按顺序执行（由 VSCC 验证标记）。 如果读取的版本不匹配，表示并发的先前（在此块中较早或之前）的交易修改了读取的数据，并且是由于（背书）成功提交的，则该事务被标记为无效。 为确保不发生幻读，对于范围查询，将重新执行查询并比较结果的哈希值（也将其存储为背书期间捕获的读取集的一部分）。</p>
+<p>顾名思义，“多版本并发控制”检查确保交易在背书阶段读取的密钥版本与提交时本地账本中的当前状态相同。 这类似于为进行并发控制而进行的读写冲突检查，并且对块中的所有有效交易按顺序执行（由 VSCC 验证标记）。 如果读取的版本不匹配，表示并发的先前（在此块中较早或之前）的交易修改了读取的数据，并且是由于（背书）成功提交的，则该交易被标记为无效。 为确保不发生幻读，对于范围查询，将重新执行查询并比较结果的哈希值（也将其存储为背书期间捕获的读取集的一部分）。</p>
 <h4 id="Ledger-Update-Phase"><a href="#Ledger-Update-Phase" class="headerlink" title="Ledger Update Phase"></a>Ledger Update Phase</h4><blockquote>
 <p>As the last step of transaction processing, the ledger is updated by appending the block to the local ledger. The StateDB, which holds the current state of all keys is updated with the write-sets of valid transactions (as marked by MVCC validation). These updates to the StateDB are performed atomically for a block of transactions and applies the updates to bring the StateDB to the state after all transaction in the block have been processed.</p>
 </blockquote>
@@ -415,7 +415,7 @@
 <blockquote>
 <p>Since one of the major goal of this work is to identify performance bottlenecks, our load generator spans multiple clients each stresses the system by continuously generating transactions instead of following a distribution model (say, Poisson). Each client also sends proposal requests in parallel and collates endorsements. The transactions are submitted asynchronously to achieve the specified rate without waiting for commits. However, the benchmark framework tracks commit using our tools named <em>fetch-block</em> to calculate throughput and latency. Further, we instrumented the Fabric source code to collect fine-grained latency such as MVCC latency and others latencies. For multi-channel experiments, all organizations and all its peers join the channel. While other combinations are possible, we believe our approach will stress test the system.</p>
 </blockquote>
-<p>由于这项工作的主要目标之一是确定性能瓶颈，因此我们的负载生成器跨越多个客户端，每个客户端通过连续生成交易而不是遵循分发模型（例如 Poisson）来给系统施加压力。 每个客户还并行发送提案请求并收集背书。 为了达到指定的速率，交易是异步提交的，无需等待提交。 然而，基准框架使用名为 fetch-block 的工具来跟踪提交，以计算吞吐量和延迟。 此外，我们检测了 Fabric 源代码，以收集细粒度的延迟，例如 MVCC 延迟和其他延迟。 对于多渠道实验，所有组织及其所有对等节点都加入了通道。 尽管其他组合也是可能的，但我们认为我们的方法将对系统进行压力测试。</p>
+<p>由于这项工作的主要目标之一是确定性能瓶颈，因此我们的负载生成器跨越多个客户端，每个客户端通过连续生成交易而不是遵循分发模型（例如 Poisson）来给系统施加压力。 每个客户还并行发送提案请求并收集背书。 为了达到指定的速率，交易是异步提交的，无需等待提交。 然而，基准框架使用名为 fetch-block 的工具来跟踪提交，以计算吞吐量和延迟。 此外，我们检测了 Fabric 源代码，以收集细粒度的延迟，例如 MVCC 延迟和其他延迟。 对于多通道实验，所有组织及其所有对等节点都加入了通道。 尽管其他组合也是可能的，但我们认为我们的方法将对系统进行压力测试。</p>
 <h2 id="A-Setup-and-Workloads"><a href="#A-Setup-and-Workloads" class="headerlink" title="A. Setup and Workloads"></a>A. Setup and Workloads</h2><blockquote>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200406170256066.png" alt="image-20200406170256066" style="zoom:50%;">
 
@@ -428,12 +428,12 @@
 <p>Another common pattern is for a chaincode to read-and-write a small set of keys, like read a JSON document, update a field and write it back. We model these as read-writes of 1, 3 and 5 keys. As we have modeled our benchmark to imitate real world blockchain applications in production, we have not considered other macro benchmarks.</p>
 </blockquote>
 <p>在缺乏区块链标准基准的情况下，我们通过调查基于 Fabric 的 12 种内部客户解决方案的不同案例，建立了自己的基准。 我们确定了通用的定义模式，数据模型和全面的要求。 </p>
-<p>循环模式之一是，每次链码调用都只对一个资产或数据单元进行操作，并将标识符传递给它。 查询逻辑由高层应用程序层完成，通常无需查询区块链数据。 在我们的基准中，此模式被建模为简单的只写事务（1w，3w 和 5w 表示写入的密钥数）。 </p>
+<p>循环模式之一是，每次链码调用都只对一个资产或数据单元进行操作，并将标识符传递给它。 查询逻辑由高层应用程序层完成，通常无需查询区块链数据。 在我们的基准中，此模式被建模为简单的只写交易（1w，3w 和 5w 表示写入的密钥数）。 </p>
 <p>另一种常见模式是链码读写少量密钥，例如读取 JSON文档，更新字段并将其写回。 我们将这些模型建模为 1、3和 5 键的读写。 由于我们已经建立了基准模型来模拟生产中的现实世界中的区块链应用程序，因此我们没有考虑其他宏观基准。</p>
 <h1 id="V-EXPERIMENTAL-RESULTS"><a href="#V-EXPERIMENTAL-RESULTS" class="headerlink" title="V. EXPERIMENTAL RESULTS"></a>V. EXPERIMENTAL RESULTS</h1><blockquote>
 <p>In this section, we study the impact of various configurable parameters listed in §II-C on the performance of Hyperledger Fabric. The throughput and transaction latency presented in this section are averaged over multiple runs. In total, we conducted more than 1000s of experiments.</p>
 </blockquote>
-<p>在本节中，我们研究 §II-C 中列出的各种可配置参数对 Hyperledger Fabric 性能的影响。 本节介绍的吞吐量和事务延迟是多次运行的平均值。我们总共进行了 1000 多次实验。</p>
+<p>在本节中，我们研究 §II-C 中列出的各种可配置参数对 Hyperledger Fabric 性能的影响。 本节介绍的吞吐量和交易延迟是多次运行的平均值。我们总共进行了 1000 多次实验。</p>
 <h2 id="A-Impact-of-Transaction-Arrival-Rate-and-Block-Size"><a href="#A-Impact-of-Transaction-Arrival-Rate-and-Block-Size" class="headerlink" title="A. Impact of Transaction Arrival Rate and Block Size"></a>A. Impact of Transaction Arrival Rate and Block Size</h2><blockquote>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200406181747147.png" alt="image-20200406181747147" style="zoom:50%;">
 
@@ -442,7 +442,7 @@
 
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200406170227600.png" alt="image-20200406170227600" style="zoom:50%;">
 </blockquote>
-<p>图 4 绘制了不同事务到达速率下各种块大小的平均吞吐量和延迟。 </p>
+<p>图 4 绘制了不同交易到达速率下各种块大小的平均吞吐量和延迟。 </p>
 <p>表 II 列出了使用的各种交易到达率和块大小。</p>
 <p>有关其他参数，请参阅表 I。</p>
 <h3 id="Observation-1"><a href="#Observation-1" class="headerlink" title="Observation 1:"></a>Observation 1:</h3><blockquote>
@@ -462,7 +462,7 @@
 <p>The reason is that with an increase in the block size, the block creation time at the orderer increased and hence, on average, a transaction had to wait at the orderer for a little longer. For e.g., when the transaction arrival rate was 100 tps, for the block size of 50 and 100, the block creation rate was 2 and 1 block(s) per second, respectively, causing latency to double.</p>
 </blockquote>
 <p><em>对于低于饱和点的到达率，随着块大小的增加，等待时间会增加</em>。 例如，当到达速率为 50 tps 时，随着块大小从 10 增加到 100，交易延迟增加了 5 倍，从 242 毫秒增加到 1250 毫秒。 </p>
-<p>原因是随着块大小的增加，排序节点的块创建时间增加，因此，平均而言，每个交易必须在排序节点等待更长的时间。 例如，当事务到达速率为 100 tps时，对于 50 和 100 的块大小，块创建速率分别为每秒 2 个和 每秒 1 个，从而导致等待时间加倍。</p>
+<p>原因是随着块大小的增加，排序节点的块创建时间增加，因此，平均而言，每个交易必须在排序节点等待更长的时间。 例如，当交易到达速率为 100 tps时，对于 50 和 100 的块大小，块创建速率分别为每秒 2 个和 每秒 1 个，从而导致等待时间加倍。</p>
 <h3 id="Observation-3"><a href="#Observation-3" class="headerlink" title="Observation 3:"></a>Observation 3:</h3><blockquote>
 <p><em>For an arrival rate greater than the saturation point, with an increase in the block size, the latency decreased.</em> For e.g., when the arrival rate was 150 tps, with an increase in block size from 10 to 200, the transaction latency decreased from 14 secs to 10 secs. </p>
 <p>This is because the time taken to validate and commit a block of size n was always lesser than the time taken to validate and commit m blocks each of size n/m. As a result, throughput also increased by m 3.5%. </p>
@@ -481,11 +481,11 @@
 <p><em>Even at the peak throughput, the resources utilization was very low</em>. With an increase in the arrival rate from 25 to 175 tps, the avg CPU utilization merely increased from 1.4% to 6.7%. The reason is that the CPU intensive task performed during VSCC validation phase of a block (i.e., verification of signatures set against endorsement policy for each transaction) processed only one transaction at a time. Due to this serial execution, only one vCPU was utilized.</p>
 </blockquote>
 <p><em>即使在峰值吞吐量下，资源利用率也很低</em>。 随着到达速度从 25 tps 增加到 175 tps，平均 CPU 利用率仅从 1.4％ 增加到 6.7％。 </p>
-<p>原因是，在一个块的 VSCC 验证阶段（即，针对每个交易的根据背书策略进行的验签）执行的 CPU 密集型任务一次仅处理一个事务。 由于串行执行，因此仅使用了一个 vCPU。</p>
+<p>原因是，在一个块的 VSCC 验证阶段（即，针对每个交易的根据背书策略进行的验签）执行的 CPU 密集型任务一次仅处理一个交易。 由于串行执行，因此仅使用了一个 vCPU。</p>
 <h3 id="Guideline-1"><a href="#Guideline-1" class="headerlink" title="Guideline 1:"></a>Guideline 1:</h3><blockquote>
 <p>When the transaction arrival rate is expected to be lower than the saturation point, to achieve a lower transaction latency for applications, always use a lower block size. In such cases, the throughput will match the arrival rate.</p>
 </blockquote>
-<p>当预计交易到达率低于饱和点时，要实现较低的应用程序事务延迟，请始终使用较小的块大小。 在这种情况下，吞吐量将与到达速率匹配。</p>
+<p>当预计交易到达率低于饱和点时，要实现较低的应用程序交易延迟，请始终使用较小的块大小。 在这种情况下，吞吐量将与到达速率匹配。</p>
 <h3 id="Guideline-2"><a href="#Guideline-2" class="headerlink" title="Guideline 2:"></a>Guideline 2:</h3><blockquote>
 <p>When the transaction arrival rate is expected to be high, to achieve a higher throughput and a lower transaction latency, always use a higher block size.</p>
 </blockquote>
@@ -493,7 +493,7 @@
 <h3 id="Action-Item-1"><a href="#Action-Item-1" class="headerlink" title="Action Item 1:"></a>Action Item 1:</h3><blockquote>
 <p>CPU resources are under-utilized. A potential optimization would be to process multiple transactions at a time during the VSCC validation phase as shown in §VI-B.</p>
 </blockquote>
-<p>CPU资源利用不足。 潜在的优化将是在 VSCC 验证阶段一次处理多个事务，如 §VI-B 所示。</p>
+<p>CPU资源利用不足。 潜在的优化将是在 VSCC 验证阶段一次处理多个交易，如 §VI-B 所示。</p>
 <h2 id="B-Impact-of-Endorsement-Policy"><a href="#B-Impact-of-Endorsement-Policy" class="headerlink" title="B. Impact of Endorsement Policy"></a>B. Impact of Endorsement Policy</h2><blockquote>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200406185423203.png" alt="image-20200406185423203" style="zoom:50%;">
 
@@ -584,7 +584,7 @@
 <p>Further, a higher proportion of total submitted transactions became invalid due to MVCC conflicts. The is because of the lower block commit rate at less powerful peers as compared to powerful peers. Due to the different block height at peers (refer to Figure 10(b)), there was a mismatch of key’s version in the read-set collected. As a result, MVCC conflicts occurred during the state validation which invalidated transactions.</p>
 </blockquote>
 <p><em>在中等负载下，即使为 8 个中的 2 个节点分配的 vCPU 数量少于通道数，性能也会下降</em>。例如，当仅为 2 个对等节点分配 2 个 vCPU 时（其他具有 32 个vCPU），仅写交易的吞吐量从 848 tps 减少到 417 tps（2倍），而读写操作减少到307 tps（2.7倍）。</p>
-<p>减少的原因有两个：支持能力较弱的节点背书请求超时，以及专门针对读/写事务的 MVCC 发生冲突。</p>
+<p>减少的原因有两个：支持能力较弱的节点背书请求超时，以及专门针对读/写交易的 MVCC 发生冲突。</p>
 <p>图10（a）描绘了由于读写交易的 MVCC 冲突而导致的背书请求超时，有效交易和无效交易。随着能力较弱节点的数量增加，背书请求超时也增加了。</p>
 <p>此外，由于 MVCC 冲突，提交的交易中有较高比例变得无效。这是因为与功能强大的节点相比，功能较弱的对等节点的块提交率较低。由于对等节点的块高度不同（请参见图10（b）），因此收集的读取集中的密钥版本不匹配。结果，在状态验证期间发生了 MVCC 冲突，使交易无效。</p>
 <blockquote>
@@ -602,14 +602,14 @@
 <h3 id="Action-Item-3"><a href="#Action-Item-3" class="headerlink" title="Action Item 3:"></a>Action Item 3:</h3><blockquote>
 <p>Processing transactions within a channel and across channels can be improved to better utilize additional CPU power as shown in §VI-B.</p>
 </blockquote>
-<p>如 §VI-B 所示，可以改进通道内和通道间的事务处理，以更好地利用额外的 CPU 功能。</p>
+<p>如 §VI-B 所示，可以改进通道内和通道间的交易处理，以更好地利用额外的 CPU 功能。</p>
 <h2 id="D-Impact-of-Ledger-Database"><a href="#D-Impact-of-Ledger-Database" class="headerlink" title="D. Impact of Ledger Database"></a>D. Impact of Ledger Database</h2><blockquote>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200408111402250.png" alt="image-20200408111402250" style="zoom:50%;">
 
 <p>Figure 11 plots the average throughput and latency over multiple transaction arrival rates for both GoLevelDB and CouchDB with different transaction complexities. Table VII presents various databases, transaction complexity and arrival rate used. For other parameters, refer to Table I.</p>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200408111414932.png" alt="image-20200408111414932" style="zoom:50%;">
 </blockquote>
-<p>图 11 绘制了具有不同事务复杂性的 GoLevelDB 和 CouchDB 在多个交易到达率上的平均吞吐量和延迟。 表 VII 列出了使用的各种数据库，交易复杂性和到达率。 有关其他参数，请参阅表 I。</p>
+<p>图 11 绘制了具有不同交易复杂性的 GoLevelDB 和 CouchDB 在多个交易到达率上的平均吞吐量和延迟。 表 VII 列出了使用的各种数据库，交易复杂性和到达率。 有关其他参数，请参阅表 I。</p>
 <h3 id="Observation-10"><a href="#Observation-10" class="headerlink" title="Observation 10:"></a>Observation 10:</h3><blockquote>
 <p><em>The Fabric transaction throughput with GoLevelDB as state database was 3*× *greater than CouchDB</em>. The maximum throughput achieved with GoLevelDB on a single channel was 140 tps (refer to Figure 4) while with CouchDB, it was only 50 tps (refer to Figure 11(b)). </p>
 <p>Further, with an increase in the transaction complexity, i.e., for multiple writes, the throughput with CouchDB dropped from 50 tps to 18 tps while no such impact with GoLevelDB (refer to Figure 11(a)). The reason for significant performance differences between CouchDB and GoLevelDB is that the latter is an embedded database to peer process while former is accessed using REST APIs over a secure HTTP. As a result, the endorsement latency, VSCC latency, MVCC latency and the ledger update latency was higher with CouchDB as compared to the GoLevelDB as shown in Figure 12(a) &amp; (b). With CouchDB, the VSCC latency increased compared to the GoLevelDB as the peer accessed state database using a REST API call for every transaction to retrieve the endorsement policy of the chaincode on which the transaction was simulated. Similarly, the MVCC latency also increased with CouchDB.</p>
@@ -640,11 +640,11 @@
 <p>To validate our hypothesis, we performed experiments by disabling the lock acquisition on the whole database during the endorsement phase and final ledger update. The side effect of such action was only providing <em>non-repeatable read isolation level</em> at that chaincode. As our transaction was only writing keys, such side effect did not affect the database consistency. Figure 12(d) shows the improvement in endorsement phase. The average endorsement latency reduced from 800 ms to 40 ms, validating our hypothesis.</p>
 </blockquote>
 <p>结果，随着每个交易的写入次数的增加，账本更新等待时间增加了（请参见图12（b））。 由于上述三个耗时的串行操作，我们推测提交者将锁锁定在数据库上的时间更长，从而增加了背书延迟。 </p>
-<p>为了验证我们的假设，我们通过在背书阶段和最终账本更新期间禁用整个数据库的锁获取来进行实验。 此类操作的副作用是在该链码上只提供了“不可重复的读取隔离级别”。 由于我们的事务只是写密钥，因此这种副作用不会影响数据库的一致性。 图12（d）显示了背书阶段的改进。 平均背书等待时间从 800ms 减少到 40ms，验证了我们的假设。</p>
+<p>为了验证我们的假设，我们通过在背书阶段和最终账本更新期间禁用整个数据库的锁获取来进行实验。 此类操作的副作用是在该链码上只提供了“不可重复的读取隔离级别”。 由于我们的交易只是写密钥，因此这种副作用不会影响数据库的一致性。 图12（d）显示了背书阶段的改进。 平均背书等待时间从 800ms 减少到 40ms，验证了我们的假设。</p>
 <h3 id="Observation-12"><a href="#Observation-12" class="headerlink" title="Observation 12:"></a>Observation 12:</h3><blockquote>
 <p><em>Only with an increase in the number of reads per transaction, the MVCC latency increased</em> as shown in Figure 12(c). This is because with an increase in the number of items in the read set, the number of GET REST API calls to CouchDB increased during MVCC validation phase. With an increase in the number of writes, MVCC latency did not increase as shown in Figure 12(b) because it only checks whether any read keys has been modified.</p>
 </blockquote>
-<p>如图12（c）所示，<em>仅随着每个事务读取次数的增加，MVCC 延迟才增加</em>。 这是因为随着读取集中项目的数量增加，在 MVCC 验证阶段，对 CouchDB 的 GET REST API 调用数量也增加了。 随着写入次数的增加，MVCC 延迟并没有增加，如图 12（b）所示，因为它仅检查是否已修改任何读取密钥。</p>
+<p>如图12（c）所示，<em>仅随着每个交易读取次数的增加，MVCC 延迟才增加</em>。 这是因为随着读取集中项目的数量增加，在 MVCC 验证阶段，对 CouchDB 的 GET REST API 调用数量也增加了。 随着写入次数的增加，MVCC 延迟并没有增加，如图 12（b）所示，因为它仅检查是否已修改任何读取密钥。</p>
 <h3 id="Guideline-6"><a href="#Guideline-6" class="headerlink" title="Guideline 6:"></a>Guideline 6:</h3><blockquote>
 <p>GoLevelDB is a better performant option for state database. CouchDB is a better choice if rich-query support for read-only transactions is important. When using CouchDB, design the application and transaction to read/write a fewer number of keys to accomplish a task.</p>
 </blockquote>
@@ -724,29 +724,70 @@
 <blockquote>
 <p>To cut down the number of REST API calls, CouchDB suggests using bulk operations. Hence, we used the existing BatchRetrieval API in Fabric to batch load multiple keys’ version and revision number into the cache over a single GET REST API call per block. To enhance the ledger update process, we used BatchUpdate API in Fabric to commit a batch of documents using a single PUT REST API call per block. Further, we introduced a cache in VSCC to reduce the calls to CouchDB to obtain the endorsement policy of the chaincode for each transaction. In this section, we show the efficiency of these enhancements on the overall performance.</p>
 </blockquote>
-<p>为了减少 REST API 调用的数量，CouchDB 建议使用批量操作。 因此，我们使用 Fabric 中现有的 BatchRetrieval API 通过每个块一次 GET REST API 调用将多个密钥的版本和修订号批量加载到缓存中。 为了增强账本更新过程，我们在 Fabric 中使用 BatchUpdate API 通过每个块一个 PUT REST API 调用来提交一批文档。 此外，我们在 VSCC 中引入了缓存，以减少对 CouchDB 的调用，以获取每个事务的链码的背书策略。 在本节中，我们将展示这些增强功能对整体性能的效率。</p>
+<p>为了减少 REST API 调用的数量，CouchDB 建议使用批量操作。 因此，我们使用 Fabric 中现有的 BatchRetrieval API 通过每个块一次 GET REST API 调用将多个密钥的版本和修订号批量加载到缓存中。 为了增强账本更新过程，我们在 Fabric 中使用 BatchUpdate API 通过每个块一个 PUT REST API 调用来提交一批文档。 此外，我们在 VSCC 中引入了缓存，以减少对 CouchDB 的调用，以获取每个交易的链码的背书策略。 在本节中，我们将展示这些增强功能对整体性能的效率。</p>
 <blockquote>
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200410114711286.png" alt="image-20200410114711286" style="zoom:50%;">
 
 <p>Figure 17 plots the throughput and latency when running a CouchDB as the state database with the bulk read/write optimization. For comparison against the non-bulk read/write, refer to Figure 11(b) and Figure 12. The performance increased significantly from 50 tps to 115 tps (i.e., by 2.3×) for transactions with a single write. For multiple writes (3-w &amp; 5-w), the throughput increased from 26 tps to 100 tps (i.e., 3.8× for 3-w), and 18 tps to 90 tps (i.e., 5× for 5-w). We noticed similar improvements for read-write transactions.</p>
 </blockquote>
-<p>图 17 绘制了运行 CouchDB 作为具有批量读/写优化的状态数据库时的吞吐量和延迟。 为了与非批量读取/写入进行比较，请参考图11（b）和图12。对于一次写入的事务，性能从 50 tps 显着提高到 115 tps（即，提高了 2.3 倍）。 对于多次写入（ 3-w 和 5-w），吞吐量从 26 tps 增加到 100 tps（即 3-w为3-x），从 18 tps 增加到 90 tps（即 5-w 为 5 倍）。 我们注意到读写交易也有类似的改进。</p>
+<p>图 17 绘制了运行 CouchDB 作为状态数据库时批量读/写优化的吞吐量和延迟。 为了与非批量读取/写入进行比较，请参考图11（b）和图12。对于一次写入的交易，性能从 50 tps 显着提高到 115 tps（即，提高了 2.3 倍）。 对于多次写入（ 3-w 和 5-w），吞吐量从 26 tps 增加到 100 tps（即 3-w为3-x），从 18 tps 增加到 90 tps（即 5-w 为 5 倍）。 我们注意到读写交易也有类似的改进。</p>
 <blockquote>
 <p>Due to the bulk read/write optimization, the MVCC latency, ledger update latency and endorsement latency decreased as shown in Figure 17(c) and (d) as compared to Figure 12. The reduction in endorsement latency (by at least 3×) was because of the reduction in lock holding duration by the commit phase (by at least 8×). The MVCC latency for read-write transactions reduced (by at least 6×) due to a bulk reading of all keys in the read set of all transactions in a block. Note that the MVCC latency increased with the increase in the number of keys read in a bulk read. The ledger update latency of a block encompassing a higher number of writeonly transactions was higher. This is because, in read-write transactions, the MVCC validation phase itself loaded the required revision numbers into the cache (as the transaction read those keys before modification) which was not the case with write-only transactions.</p>
 </blockquote>
+<p>由于批量读/写优化，图17（c）和（d）与图 12 相比，MVCC 延迟、账本更新延迟和背书延迟减少。背书延迟减少了（至少3倍） 这是因为提交阶段的锁保持时间减少了（至少减少了8倍）。 由于块中所有交易的读取集中的所有密钥都是批量读取，因此读写交易的 MVCC 延迟减少了（至少6倍）。 注意，MVCC 延迟随着批量读取中读取的键数的增加而增加。 包含更多只写交易的块的账本更新等待时间更长。 这是因为，在读写交易中，MVCC 验证阶段本身将所需的修订号加载到缓存中（因为交易在修改之前读取了这些键），而对于只写交易则不是这种情况。</p>
 <h2 id="D-Combinations-of-Optimizations"><a href="#D-Combinations-of-Optimizations" class="headerlink" title="D. Combinations of Optimizations"></a>D. Combinations of Optimizations</h2><blockquote>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200414002047642.png" alt="image-20200414002047642" style="zoom:50%;">
+
 <p>Figure 18 plots the performance improvement achieved with all three optimizations combined. Table IX presents the number of VSCC worker threads per channel, block sizes, and other relavant parameters used for this study.</p>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200414002126408.png" alt="image-20200414002126408" style="zoom:50%;">
 </blockquote>
+<p>图 18 列出了三个优化相结合所实现的性能改进。 表 IX 列出了用于此研究的每个通道的 VSCC 工作线程数，块大小和其他相关参数。</p>
 <blockquote>
 <p>With GoLevelDB as the state database, the single channel throughput increased to 2250 tps from 140 tps (i.e., 16× improvement) due to all three optimizations – refer to Figure 18(a) and Figure 4. Similarly, with CouchDB as the state database, the singe channel throughput increased to 700 tps from 50 tps (i.e., 14× improvement) – refer to Figure 18(b) and Figure 11. With an increase in the block size, when CouchDB was the state database, we observed a lower total latency due to the reduction in the number of bulk REST API call to CouchDB (i.e, for 500 transactions, only 2 bulk REST API calls, one read call during MVCC phase and one write during commit phase, were issued when the block size was 500 as compared to 10 bulk REST API calls for a block size of 100). As a result, our guideline 1 &amp; 2 are not applicable for CouchDB with bulk read/write optimizations.</p>
 </blockquote>
+<p>使用 GoLevelDB 作为状态数据库，由于三个优化，单通道吞吐量从 140 tps 增加到了 2250 tps（即提高了16倍）–参见图18（a）和图4。类似地，使用 CouchDB 作为状态数据库 ，单通道吞吐量从 50 tps 增加到 700 tps（即提高了14倍）–参见图18（b）和图11。当 CouchDB 是状态数据库时，由于减少了对 CouchDB 的批量 REST API 调用的数量而导致的总延迟，随着块大小的增加，我们观察到更低的吞吐量（对于 500 个交易，当块大小为 500 时，仅发出 2 个批量 REST API 调用，在MVCC阶段进行一次读调用，在提交阶段进行一次写操作，而对于块大小为 100 时进行 10 次批量 REST API 调用） 。 因此，我们的准则 1 和 2 不适用于具有批量读/写优化功能的 CouchDB。</p>
 <blockquote>
 <p>Further, for 8 and 16 channels, the throughput increased to 2700 tps from 1025 tps and 1321 tps, respectively as shown in Figure 19(a). With a simpler endorsement policy, i.e., 1st AND/OR policy, the single channel throughput also increased to 2700 tps (with GoLevelDB) as shown in Figure 19(b).</p>
+<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200414003650302.png" alt="image-20200414003650302" style="zoom:50%;">
 </blockquote>
+<p>此外，对于 8 和 16 通道，吞吐量分别从 1025 tps 和 1321 tps 增加到 2700 tps，如图19（a）所示。 使用更简单的背书策略（即第一个 AND / OR 策略），单通道吞吐量也增加到了 2700 tps（使用 GoLevelDB），如图19（b）所示。</p>
 <blockquote>
 <p>Even with a throughput of 2700 tps, the average CPU utilization of a peer was only 60% and the network utilization of a peer was 1680 Mbps (send) and 240 Mbps (receive). This is because the sum of MVCC latency and ledger update latency (less CPU intensive tasks) was almost same or higher than the VSCC latency (as shown in Figure 18(c) and (d)). Due to these sequential phases, vCPUs were underutilized. One potential optimization would be to pipeline the VSCC and MVCC validation phase.</p>
 </blockquote>
-<h1 id="VII-RELATED-WORK"><a href="#VII-RELATED-WORK" class="headerlink" title="VII. RELATED WORK"></a>VII. RELATED WORK</h1><h1 id="VIII-CONCLUSION-amp-FUTURE-WORK"><a href="#VIII-CONCLUSION-amp-FUTURE-WORK" class="headerlink" title="VIII. CONCLUSION &amp; FUTURE WORK"></a>VIII. CONCLUSION &amp; FUTURE WORK</h1><h1 id="IX-ACKNOWLEDGEMENTS"><a href="#IX-ACKNOWLEDGEMENTS" class="headerlink" title="IX. ACKNOWLEDGEMENTS"></a>IX. ACKNOWLEDGEMENTS</h1>
+<p>即使吞吐量为 2700 tps，对等节点的平均 CPU 利用率也仅为 60％，网络利用率为1680 Mbps（发送）和 240 Mbps（接收）。 这是因为 MVCC 延迟和账本更新延迟的总和（较少的 CPU 密集型任务）与 VSCC 延迟几乎相同或更高（如图18（c）和（d）所示）。 由于这些顺序的阶段，vCPU 未被充分利用。 一种潜在的优化方法是管道 VSCC 和 MVCC 验证阶段。</p>
+<h1 id="VII-RELATED-WORK"><a href="#VII-RELATED-WORK" class="headerlink" title="VII. RELATED WORK"></a>VII. RELATED WORK</h1><blockquote>
+<p>There has been considerable interest in the scalability and performance characteristics of public blockchain networks and specifically the limiting factor of the consensus protocol and its security implications [31], [23].</p>
+</blockquote>
+<p>人们对公共区块链网络的可扩展性和性能特征，特别是共识协议的限制因素及其安全性有着相当大的兴趣。</p>
+<blockquote>
+<p>Also for public blockchains, [19] have looked at quantifying throughput, latency, bootstrap time and cost per transaction for the Bitcoin network based on publicly available data.</p>
+</blockquote>
+<p>同样对于公共区块链，[19] 已经研究了基于可公开获得的数据来量化比特币网络的吞吐量，等待时间，自举时间和每笔交易成本。</p>
+<blockquote>
+<p>BlockBench [22] was one of the first to look at permissioned blockchain. They present a framework for comparing performance of different blockchain platforms, namely, Ethereum, Parity and Hyperledger Fabric using a set of micro and macro benchmarks. Similar to [19] they generalize consensus, data, execution and application as 4 layers of blockchain and use the benchmarks to exercise them. They measure the overall performance in terms of throughput, latency and scalability of the platforms and draw conclusions across the 3 platforms. However, they studied the performance of Fabric v0.6, with v1.0 version bringing in a complete re-design, their observations do not hold relevance and needs re-study.</p>
+</blockquote>
+<p>BlockBench [22] 是最早研究许可区块链的人之一。 他们提出了一个框架，用于使用一组微观和宏观基准来比较不同区块链平台（以太坊，Parity 和 Hyperledger Fabric）的性能。 与 [19] 相似，他们将共识，数据，执行和应用概括为4层区块链，并使用基准对其进行了实践。 他们根据平台的吞吐量，延迟和可伸缩性来衡量整体性能，并在这三个平台上得出结论。 但是，他们研究了 Fabric v0.6 的性能，而 v1.0 版本带来了完整的重新设计，他们的观察结果没有任何意义，需要重新研究。</p>
+<blockquote>
+<p>[16] presents the design and the new architecture of Fabric, delving in-depth into its design considerations and modularity. It presents the performance of a single Bitcoin like crypto currency application on Fabric, called Fabcoin, which uses a customized VSCC to validate the Fabcoin specific transactions and avoid complex endorsements and channels. Further, they used CLI command to emulate clients, which is not realistic, instead of using a SDK [6], [8], [10]. Our work differs from theirs in that, we do a comprehensive study for different workloads keeping Fabric’s modularity and application in multiple domains in focus.</p>
+</blockquote>
+<p>[16] 介绍了 Fabric 的设计和新架构，深入研究了其设计考虑因素和模块化。 它展示了 Fabric 上单个比特币（如加密货币）应用程序的性能，称为 Fabcoin，该应用程序使用定制的 VSCC 来验证 Fabcoin 特定交易并避免复杂的认可和通道。 此外，他们使用 CLI 命令来模拟客户端，这是不现实的，而不是使用 SDK [6]，[8]，[10]。 我们的工作与他们的不同之处在于，我们针对不同的工作负载进行了全面的研究，以确保Fabric的模块化和在多个领域中的应用为重点。</p>
+<blockquote>
+<p>A note to the reader, [16] used Fabric v1.1-preview release, which incorporates all our optimizations and other additional functionalities over v1.0. However, being a minor version update much of the core functionality remains the same and our observations hold true for v1.1 and future versions based on the new architecture of Fabric.</p>
+</blockquote>
+<p>给读者的说明，[16] 使用 Fabric v1.1-preview 版本，该版本合并了我们在 v1.0 上的所有优化和其他附加功能。 但是，作为次要版本更新，大部分核心功能保持不变，并且我们的观察对于基于 Fabric 的新体系结构的 v1.1 和将来版本仍然适用。</p>
+<h1 id="VIII-CONCLUSION-amp-FUTURE-WORK"><a href="#VIII-CONCLUSION-amp-FUTURE-WORK" class="headerlink" title="VIII. CONCLUSION &amp; FUTURE WORK"></a>VIII. CONCLUSION &amp; FUTURE WORK</h1><blockquote>
+<p>In this paper, we conducted a comprehensive empirical study to understand the performance of Hyperledger Fabric, a permissioned blockchain platform, by varying values assigned to configurable parameters such as block size, endorsement policy, channels, resource allocation, and state database choices. As a result of our study, we provided six valuable guidelines on configuring these parameters and also identified three major performance bottlenecks. Hence, we introduced and studied three simple optimizations such as MSP cache, parallel VSCC validation, and bulk read/write during MVCC validation &amp; commit phase to improve the singe channel performance by 16×. Further, these three optimizations have been successfully adopted in Fabric v1.1</p>
+</blockquote>
+<p>在本文中，我们进行了一项全面的实证研究，以了解通过更改分配给可配置参数（例如区块大小，背书策略，通道，资源分配和状态数据库选择）的值来了解许可的区块链平台 Hyperledger Fabric 的性能。 作为我们研究的结果，我们提供了六种有关配置这些参数的有价值的指南，并且确定了三个主要的性能瓶颈。 因此，我们引入并研究了三种简单的优化方法，例如 MSP 缓存，并行 VSCC 验证以及 MVCC 验证和提交阶段期间的批量读/写，以将单通道性能提高 16 倍。 此外，这三个优化已在 Fabric v1.1 中成功采用</p>
+<blockquote>
+<p>As a part of future work, we will study the scalability and fault tolerant capability of Fabric by using different blockchain topologies such as different number of organizations and different number of nodes per organization. Further, we plan to quantify the impact of various consensus algorithms and number of nodes in the ordering service on the performance of different workloads. In our study, we assumed that the network is not a bottleneck. However, in the real world setup, nodes can be geographically distributed and hence, the network might play a role. In addition, the arrival rates in real world production system would be following certain distributions. Hence, we will study the performance of Fabric in Wide Area Network (WAN) with different arrival rate distributions.</p>
+</blockquote>
+<p>作为未来工作的一部分，我们将通过使用不同的区块链拓扑来研 究Fabric 的可扩展性和容错能力，例如不同的组织数量和每个组织的节点数量。 此外，我们计划量化订购服务中各种共识算法和节点数对不同工作负载性能的影响。 在我们的研究中，我们假设网络不是瓶颈。 但是，在现实世界中，节点可以在地理位置上分布，因此网络可能会发挥作用。 另外，实际生产系统中的到达率将遵循某些分布。 因此，我们将研究具有不同到达速率分布的广域网（WAN）中光纤的性能。</p>
+<h1 id="IX-ACKNOWLEDGEMENTS"><a href="#IX-ACKNOWLEDGEMENTS" class="headerlink" title="IX. ACKNOWLEDGEMENTS"></a>IX. ACKNOWLEDGEMENTS</h1><blockquote>
+<p>We wish to acknowledge our following colleagues for their valuable assistance to our work. Our proposed optimizations were successfully adopted to Fabric, thanks to fabric developers who took care of submitting patches to Fabric v1.1. Angelo De Carlo (MSP Cache), Alessandro Sorniotti (Parallel Validation). Thanks to David Enyeart, Chris Elder, Manish Sethi for their proposal on Bulk Read from CouchDB. We would like to thank Yacov Manevich for his consistent help.</p>
+</blockquote>
+<p>我们谨感谢以下同事为我们的工作提供的宝贵帮助。 我们的建议优化已成功地被 Fabric 采纳，这要归功于 Fabric开发人员负责向 Fabric v1.1 提交补丁。 Angelo De Carlo（MSP缓存），Alessandro Sorniotti（并行验证）。 感谢 David Enyeart，Chris Elder 和 Manish Sethi 提出的有关 CouchDB 批量读取的建议。 我们要感谢 Yacov Manevich 的一贯帮助。 </p>
+
         
         <br />
         <div id="comment-container">
