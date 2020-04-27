@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        canvas 入门 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#元素"><span class="toc-text">元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染上下文"><span class="toc-text">渲染上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测支持特性"><span class="toc-text">检测支持特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绘制形状"><span class="toc-text">绘制形状</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制矩形"><span class="toc-text">绘制矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制路径"><span class="toc-text">绘制路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制贝塞尔曲线"><span class="toc-text">绘制贝塞尔曲线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加样式和颜色"><span class="toc-text">添加样式和颜色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绘制文本"><span class="toc-text">绘制文本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绘制图片"><span class="toc-text">绘制图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#由零开始创建图片"><span class="toc-text">由零开始创建图片</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态的保存和恢复"><span class="toc-text">状态的保存和恢复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变形"><span class="toc-text">变形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合成"><span class="toc-text">合成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#裁剪路径"><span class="toc-text">裁剪路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动画"><span class="toc-text">动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本步骤"><span class="toc-text">基本步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制动画"><span class="toc-text">控制动画</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        canvas 入门
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-25 12:46:30</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#动画" title="动画">动画</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>2020.4.20 - 2020.4.24 搭一个官网项目，静态 1 天 + 交互 1 天 + 动画 3 天，动画主要是 css3 搞的，配合 js 修改类名来控制动画流程，目前仍有 bug。</p>
+<p>最开始就想用 canvas 然而不知道怎么下手，痛定思痛，趁周末学 QAQ</p>
+<hr>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>H5 新增的标签，可以用脚本（js）在其中绘制图像的 HTML 元素。</p>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><p>可以用 css 设置属性，但比例不一致会扭曲，建议直接用 width height 属性</p>
+<p>默认 width 300 height 150 单位 px</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span>&gt;</span>替换内容<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>不支持 canvas 的浏览器会显示替换内容，尾标签不可省略</p>
+<h2 id="渲染上下文"><a href="#渲染上下文" class="headerlink" title="渲染上下文"></a>渲染上下文</h2><p><code>&lt;canvas&gt;</code> 创建一个固定大小的画布，公开一个或多个<strong>渲染上下文</strong>（画笔），使用<strong>渲染上下文</strong>来绘制和处理要展示的内容。</p>
+<p>主要使用 2D 上下文，WebGL 使用了基于 OpenGL ES 的 3D 上下文</p>
+<h2 id="检测支持特性"><a href="#检测支持特性" class="headerlink" title="检测支持特性"></a>检测支持特性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'myCanvas'</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">	<span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">  ...</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="绘制形状"><a href="#绘制形状" class="headerlink" title="绘制形状"></a>绘制形状</h1><h2 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h2><p>原生只支持矩形绘制，其他所有图形都至少需要生成一种路径（path）</p>
+<ul>
+<li><code>fillRect(x, y, width, height)</code> 填充</li>
+<li><code>strokeRect(x, y,width, height)</code> 空心</li>
+<li><code>clearRect(x, y, width, height)</code> 清除区域</li>
+</ul>
+<h2 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h2><p><strong>路径</strong>是通过不同颜色和宽度的线段或曲线相连形成的不同形状的点的集合，每个路径都是闭合的。</p>
+<p><strong>路径绘制图形步骤：</strong></p>
+<ol>
+<li>创建路径起始点</li>
+<li>调用绘制方法绘制路径</li>
+<li>封闭路径</li>
+<li>通过描边或填充路径区域来渲染图形</li>
+</ol>
+<p><strong>绘制方法：</strong></p>
+<ul>
+<li><code>beginPath()</code> 创建路径，画笔指向路径</li>
+<li><code>moveTo(x, y)</code> 画笔移动到坐标，设置路径起始点</li>
+<li><code>closePath()</code> 闭合路径（自动连接终点和起始点），画笔指向上下文</li>
+<li><code>stroke()</code> 线条</li>
+<li><code>fill()</code> 填充</li>
+</ul>
+<p><strong>线段</strong></p>
+<ul>
+<li><code>lineTo(x, y)</code></li>
+</ul>
+<p><strong>弧形</strong></p>
+<ul>
+<li><code>arc(x, y, r, startAngle, endAngle, anticlockwise)</code> (x, y) 圆心，r 半径，startAngle 弧度到 endAngle 弧度结束，anticlockwise true 逆时针，false（默认）顺时针</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 角度换算弧度</span></span><br><span class="line"><span class="keyword">const</span> radians = (<span class="built_in">Math</span>.PI / <span class="number">180</span>) * degrees</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>arcTo(x1, y1, x2, y2, radius)</code>根据给定的控制点和半径画弧，直线连接两个点</li>
+</ul>
+<p>画一条与起始点-&gt;(x1, y1)，(x1, y1)-&gt;(x2, y2) 这两条切线相切的圆弧</p>
+<h2 id="绘制贝塞尔曲线"><a href="#绘制贝塞尔曲线" class="headerlink" title="绘制贝塞尔曲线"></a>绘制贝塞尔曲线</h2><p><strong>二次贝塞尔曲线</strong></p>
+<ul>
+<li><code>quadraticCurveTo(cp1x, cp1y, x, y)</code> (cp1x, cp1y) 控制点 (x, y) 结束点</li>
+</ul>
+<p><strong>三次次贝塞尔曲线</strong></p>
+<p><code>quadraticCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</code> </p>
+<h2 id="添加样式和颜色"><a href="#添加样式和颜色" class="headerlink" title="添加样式和颜色"></a>添加样式和颜色</h2><ul>
+<li><code>fillStyle = color</code> 填充颜色</li>
+<li><code>strokeStyle = color</code> 轮廓颜色</li>
+</ul>
+<p>color：表示 css 颜色值的字符串、渐变对象、图案对象。默认黑色。设置后保持直到重新设置。</p>
+<ul>
+<li><p><code>globalAlpha = transparencyValue</code>全局透明度</p>
+</li>
+<li><p><code>lineWidth = 1.0</code>  线宽，默认 1.0</p>
+</li>
+<li><p><code>lineCap = type</code> 线条末端样式</p>
+<ul>
+<li>butt 方形</li>
+<li>round 圆形 </li>
+<li>square方形，多了一个高度是线段厚度一半的矩形</li>
+</ul>
+</li>
+<li><p><code>lineJoin = type</code> 同一个 path 内，线条与线条之间接合处的样式</p>
+<ul>
+<li>round 圆</li>
+<li>bevel 平</li>
+<li>miter 尖（默认）</li>
+</ul>
+</li>
+<li><p>虚线</p>
+<ul>
+<li><code>setLineDash([实现长度，间隙长度])</code></li>
+<li><code>lineDashOffset</code> 偏移量</li>
+</ul>
+</li>
+</ul>
+<h1 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h1><ul>
+<li><code>fillText(text, x, y [, maxWidth])</code> 在 (x, y) 填充文本，最大宽度可选</li>
+<li><code>strokeText(text, x, y [, maxWidth])</code> 在 (x, y) 绘制边框，最大宽度可选</li>
+</ul>
+<p><strong>样式</strong></p>
+<ul>
+<li><code>font = value</code> 文本样式，同 css font 属性</li>
+<li><code>textAlign = value</code> 对齐选项<ul>
+<li>start（默认）</li>
+<li>end</li>
+<li>left</li>
+<li>right</li>
+<li>center</li>
+</ul>
+</li>
+<li><code>textBaseline = value</code> 基线对齐选项<ul>
+<li>top</li>
+<li>hanging</li>
+<li>middle</li>
+<li>alphabetic（默认）</li>
+<li>ideographic</li>
+<li>bottom</li>
+</ul>
+</li>
+<li><code>direction = value</code> 文本方向<ul>
+<li>ltr</li>
+<li>trl</li>
+<li>Inherit（默认）</li>
+</ul>
+</li>
+</ul>
+<h1 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h1><h2 id="由零开始创建图片"><a href="#由零开始创建图片" class="headerlink" title="由零开始创建图片"></a>由零开始创建图片</h2><ul>
+<li><code>drawImage(img, x, y)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.src = <span class="string">'myImage.png'</span>;</span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 加载后再绘制</span></span><br><span class="line">  ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>img 可以是DOM元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.querySelector(<span class="string">"img"</span>);</span><br><span class="line">ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>drawImage(img, x, y, width, height)</code> 图片缩放</li>
+<li><code>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</code> (sx, sy) 原图像中的点，剪裁 (sx+sWidth, sy+sHeight)；绘制到画布（dx, dy）上</li>
+</ul>
+<h1 id="状态的保存和恢复"><a href="#状态的保存和恢复" class="headerlink" title="状态的保存和恢复"></a>状态的保存和恢复</h1><ul>
+<li><code>save()</code> 存储在栈中，可以多次调用，类似于 push()</li>
+<li><code>restore()</code> 恢复，可以多次调用，类似于 pop()</li>
+</ul>
+<h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><p>使用前先保存状态便于恢复</p>
+<ul>
+<li><code>translate(x, y)</code> 移动原点到(x, y)</li>
+<li><code>rotate(angle)</code> 旋转坐标轴，顺指针</li>
+<li><code>scale(x, y)</code> x 轴和 y 轴的缩放因子</li>
+<li><code>transform(a, b, c, d, e, f)</code>  变形矩阵</li>
+</ul>
+<h1 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h1><ul>
+<li><code>globalCompositeOperation = type</code><ul>
+<li>默认：新图像+老图像（新图像在老图像上面）</li>
+<li>source-in：新图像的重叠部分</li>
+<li>Source-out：新图像的没重叠部分</li>
+<li>source-atop：老图像+重叠部分</li>
+<li>destination-over：新图像+老图像（老图像在新图像上面）</li>
+<li>destination-in：老图像的重叠部分</li>
+<li>destination-out：老图像的没重叠部分</li>
+<li>destination-atop：老图像重叠部分+新图像（新图像在老图像下面）</li>
+<li>lighter：新图像+老图像（重叠区域颜色叠加）</li>
+<li>darken：新图像+老图像（重叠区域颜色取最深）</li>
+<li>lighten：新图像+老图像（重叠区域颜色取最亮）</li>
+<li>xor：重叠部分透明</li>
+<li>copy：新图像保留，清楚其余部分</li>
+</ul>
+</li>
+</ul>
+<h1 id="裁剪路径"><a href="#裁剪路径" class="headerlink" title="裁剪路径"></a>裁剪路径</h1><ul>
+<li><code>clip()</code> 遮罩，只显示路径内的区域</li>
+</ul>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><ol>
+<li>清空 canvas<ul>
+<li>绘制每一帧动画前，要清空所有</li>
+<li>clearRect()</li>
+</ul>
+</li>
+<li>保存 canvas 状态</li>
+<li>控制动画图形<ul>
+<li>真正的绘制动画帧</li>
+</ul>
+</li>
+<li>恢复 canvas 状态</li>
+</ol>
+<h2 id="控制动画"><a href="#控制动画" class="headerlink" title="控制动画"></a>控制动画</h2><ul>
+<li><code>setInterval()</code></li>
+<li><code>setTimeout()</code></li>
+<li><code>requestAnimationFrame()</code></li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
