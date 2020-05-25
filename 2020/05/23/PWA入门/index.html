@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        PWA入门 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PWA-基本介绍"><span class="toc-text">PWA 基本介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PWA-是什么"><span class="toc-text">PWA 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWA-的优势"><span class="toc-text">PWA 的优势</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PWA-核心技术揭秘"><span class="toc-text">PWA 核心技术揭秘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web-app-manifest：应用程序清单"><span class="toc-text">web app manifest：应用程序清单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本介绍"><span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤"><span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见配置1"><span class="toc-text">常见配置1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#service-worker"><span class="toc-text">service worker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#web-worker"><span class="toc-text">web worker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-worker-基本介绍"><span class="toc-text">service worker 基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-worker-使用步骤"><span class="toc-text">service worker 使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-worker-生命周期事件"><span class="toc-text">service worker 生命周期事件</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        PWA入门
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 17:30:58</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#PWA" title="PWA">PWA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="PWA-基本介绍"><a href="#PWA-基本介绍" class="headerlink" title="PWA 基本介绍"></a>PWA 基本介绍</h1><h2 id="PWA-是什么"><a href="#PWA-是什么" class="headerlink" title="PWA 是什么"></a>PWA 是什么</h2><p>Progressive Web App，渐进式 Web 应用，提升 Web App 体验的方法，给用户原生用户的体验。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps</a></p>
+<h2 id="PWA-的优势"><a href="#PWA-的优势" class="headerlink" title="PWA 的优势"></a>PWA 的优势</h2><ul>
+<li>渐进式 - 适用于所有浏览器，不影响原 Web App 功能</li>
+<li>流畅 - 借助 Wervice Worker 在离线或者网络较差的情况下正常访问</li>
+<li>可安装 - 用户可以添加常用的 webapp 到桌面，免去应用商店下载的麻烦</li>
+<li>原生体验 - 和 app 一样，拥有首屏加载动画，可以隐藏地址栏等沉浸式体验</li>
+<li>粘性 - 通过推送离线通知等，可以让用户回流</li>
+</ul>
+<h1 id="PWA-核心技术揭秘"><a href="#PWA-核心技术揭秘" class="headerlink" title="PWA 核心技术揭秘"></a>PWA 核心技术揭秘</h1><h2 id="web-app-manifest：应用程序清单"><a href="#web-app-manifest：应用程序清单" class="headerlink" title="web app manifest：应用程序清单"></a>web app manifest：应用程序清单</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Manifest</a></p>
+<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><ul>
+<li><p>web app manifest 是 PWA 技术集合的一部分</p>
+</li>
+<li><p>web app manifest 可以让网站安装到设备的主屏幕，而不需要用户通过应用商店进行下载</p>
+</li>
+<li><p>web app manifest，在一个 <strong>JSON 文本文件</strong>中提供有关应用程序的信息（如名称、作者、图标和描述）</p>
+</li>
+<li><p>传统的 web app 入口：</p>
+<ol>
+<li><p>网址</p>
+</li>
+<li><p>书签，收藏夹</p>
+</li>
+<li><p>直接搜索</p>
+</li>
+</ol>
+</li>
+<li><p>Web app manifest</p>
+<ul>
+<li>可以添加到桌面，有唯一的图标和名称</li>
+<li>有启动时界面，避免生硬的过渡</li>
+<li>隐藏浏览器相关的 UI，比如地址栏等</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ol>
+<li><p>项目根目录下创建一个 manifes.json 文件</p>
+</li>
+<li><p>在 index.html 中引入 manifes.json 文件</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"manifest.json"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 manifest.json 文件中提供常见的配置</p>
+</li>
+<li><p>需要在 https 协议或 <a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 下访问项目</p>
+</li>
+</ol>
+<h3 id="常见配置1"><a href="#常见配置1" class="headerlink" title="常见配置1"></a>常见配置1</h3><ul>
+<li>name<ul>
+<li>应用的名称</li>
+<li>用户安装横幅提示的名称</li>
+<li>启动画面中的文字</li>
+</ul>
+</li>
+<li>short_name<ul>
+<li>应用的短名称</li>
+<li>主屏幕显示</li>
+</ul>
+</li>
+<li>start_url<ul>
+<li>设备启动应用程序时加载的 url</li>
+<li>绝对路径 / 相对路径</li>
+</ul>
+</li>
+<li>icons：图标对象数组<ul>
+<li>一般配 144x144</li>
+</ul>
+</li>
+<li>background_color：启动动画的背景颜色</li>
+<li>theme_color：应用程序的主题颜色</li>
+<li>display：app 显示模式<ul>
+<li>fullscreen</li>
+<li><strong>standalone</strong></li>
+<li>minimal-ui</li>
+</ul>
+</li>
+</ul>
+<h2 id="service-worker"><a href="#service-worker" class="headerlink" title="service worker"></a>service worker</h2><ul>
+<li>一个标准的 PWA 程序，必须包含 3 个部分<ul>
+<li>https 服务器或者 <a href="http://localhost" target="_blank" rel="noopener">http://localhost</a></li>
+<li>manifest.json</li>
+<li>service worker</li>
+</ul>
+</li>
+<li>W3C 组织在 14 年 5 月提出 service worker 这样一个 HTML5 API，主要用来做持久的离线缓存</li>
+<li>前端有很多性能优化手段（必须联网）<ul>
+<li>CDN</li>
+<li>CSS Sprite</li>
+<li>文件的合并压缩</li>
+<li>异步加载</li>
+<li>资源缓存</li>
+</ul>
+</li>
+<li>service worker 允许 web 应用在网络环境比较差或者是离线的环境下依旧可以使用</li>
+<li>service worker 可以极大的提升 web app 的用户体验</li>
+<li>service worker  是一个独立的 worker 线程，独立于当前网页进程，是一种特殊的 web worker</li>
+</ul>
+<h3 id="web-worker"><a href="#web-worker" class="headerlink" title="web worker"></a>web worker</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li>浏览器中的 JavaScript 都是运行在一个单一主线程上的，在同一时间内只能做一件事</li>
+<li>随着 web 业务不断复杂，逐渐在 JavaScript 中加了很多复杂运算过程，如果在主线程中计算，会造成性能问题</li>
+<li>W3c 提供 web worker 的 API，web worker 脱离在主线程之外，将复杂的功能独立于主线程</li>
+<li>完成后通过 postMessage 方法告诉主线程</li>
+<li>web worker 是一个独立的运行环境，不能操作 DOM 和 BOM</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
+<li>创建</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">'work.js'</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>执行复杂计算</p>
+</li>
+<li><p>通知主线程</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.postMessage(msg)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>主线程监听消息</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="service-worker-基本介绍"><a href="#service-worker-基本介绍" class="headerlink" title="service worker 基本介绍"></a>service worker 基本介绍</h3><ul>
+<li>web worker 是临时的，无法操作缓存，无法持久存储</li>
+<li>service worker 一旦被 install，就永远存在，除非被手动 unregister</li>
+<li>用到的时候可以直接唤醒，不用的时候自动睡眠</li>
+<li>可编程拦截代理请求和返回，缓存文件，缓存的文件可以被网页进程取到（包括网络离线状态）</li>
+<li>离线内容开发者可控</li>
+<li>必须在 HTTPS 环境下才能工作</li>
+<li>异步实现，内部大都是通过 Promise 实现</li>
+</ul>
+<p>![image-20200524233840196](/Users/wuziyan/Library/Application Support/typora-user-images/image-20200524233840196.png)</p>
+<h3 id="service-worker-使用步骤"><a href="#service-worker-使用步骤" class="headerlink" title="service worker 使用步骤"></a>service worker 使用步骤</h3><ol>
+<li>在 window.onload 中注册 service worker，防止与其他资源竞争</li>
+<li>navigator 对象中内置了 serviceWorker 属性</li>
+<li>service worker 在老版本的浏览器中不支持，需要进行浏览器兼容 if (‘serviceWorker’ in navigator) {}</li>
+<li>注册 service worker navigator.serviceWorker.register(‘./sw.js’)，返回一个 promise 对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker</span><br><span class="line">    	.register(<span class="string">'./sw.js'</span>)</span><br><span class="line">    	.then(<span class="function"><span class="params">resitration</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(resitration)&#125;)</span><br><span class="line">    	.catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      	<span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="service-worker-生命周期事件"><a href="#service-worker-生命周期事件" class="headerlink" title="service worker 生命周期事件"></a>service worker 生命周期事件</h3><ul>
+<li>Install 事件<ul>
+<li>注册成功触发</li>
+<li>用于缓存资源</li>
+</ul>
+</li>
+<li>activate 事件<ul>
+<li>激活时候触发</li>
+<li>用于删除陈旧资源</li>
+</ul>
+</li>
+<li>fetch 事件<ul>
+<li>发送请求时候触发</li>
+<li>用于操作缓存或者读取网络资源</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>sw.js 改变，install 事件重新触发</li>
+<li>activate 事件在 install 事件后触发<ul>
+<li>但已存在 service worker 了，那么就处于等待状态，直到当前 service worker 终止</li>
+<li>可以通过 self.skipWaiting() 方法跳过等待，返回一个 promise 对象</li>
+<li>event.waitUnitl(promise 对象)<ul>
+<li>promise 对象执行结束后才结束当前生命周期函数</li>
+<li>防止浏览器在异步操作前停止生命周期</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Service worker 激活后，会在下一次刷新页面的时候生效<ul>
+<li>可以通过 self.clients.claim() 立即获取控制权</li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

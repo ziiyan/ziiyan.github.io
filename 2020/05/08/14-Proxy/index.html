@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        14.Proxy - undefined
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proxy-实例的方法"><span class="toc-text">Proxy 实例的方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proxy-revocable"><span class="toc-text">Proxy.revocable()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#this-问题"><span class="toc-text">this 问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实例：Web-服务的客户端"><span class="toc-text">实例：Web 服务的客户端</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -116,97 +120,45 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-02-17</div>
-        <div class="post-info">
-            <a href="/2020/02/17/第4章-变量、作用域和内存问题/">
-                <h3>
-                    第四章 变量、作用域和内存问题
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        14.Proxy
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-02-15</div>
-        <div class="post-info">
-            <a href="/2020/02/15/第3章-基本概念/">
-                <h3>
-                    第三章 基本概念
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-08 15:31:18</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#ECMAScript 6 入门" title="ECMAScript 6 入门">ECMAScript 6 入门</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-02-09</div>
-        <div class="post-info">
-            <a href="/2020/02/09/第2章-在 HTML 中使用 JavaScript/">
-                <h3>
-                    第二章 在 HTML 中使用 JavaScript
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-01-16</div>
-        <div class="post-info">
-            <a href="/2020/01/16/第1章-JavaScript 简介/">
-                <h3>
-                    第一章 JavaScript 简介
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/5/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content no-indent">
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截</li>
+<li>因此提供了一种机制，可以对外界的访问进行过滤和改写</li>
+<li>Proxy 实际上重载（overload）了点运算符，即用自己的定义覆盖了语言的原始定义</li>
 </ul>
+<h1 id="Proxy-实例的方法"><a href="#Proxy-实例的方法" class="headerlink" title="Proxy 实例的方法"></a>Proxy 实例的方法</h1><h1 id="Proxy-revocable"><a href="#Proxy-revocable" class="headerlink" title="Proxy.revocable()"></a>Proxy.revocable()</h1><h1 id="this-问题"><a href="#this-问题" class="headerlink" title="this 问题"></a>this 问题</h1><h1 id="实例：Web-服务的客户端"><a href="#实例：Web-服务的客户端" class="headerlink" title="实例：Web 服务的客户端"></a>实例：Web 服务的客户端</h1>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -246,7 +198,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.xml"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
