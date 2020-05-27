@@ -128,7 +128,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-05-25 23:42:18</span></span>
+        <span class="attr">发布于：<span>2020-05-27 23:52:18</span></span>
         
         <span class="attr">标签：/
         
@@ -142,27 +142,20 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
-<p>你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。</p>
-<p>限制：</p>
-<p>1 &lt;= s 的长度 &lt;= 8</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof" target="_blank" rel="noopener">https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>字符串 <code>&quot;abc&quot;</code> ，作为数组 <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>，对数组<code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code> 的元素进行全排列，去重。</p>
-<p><code>vis</code> 标记数组对应位置是否已经使用过。</p>
-<p>递归，每次在数组中选择一个未使用的字符放入临时字符串。</p>
-<p>递归出口：临时字符串长度 = 输入字符串长度。</p>
-<p>采用 Set 去重。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> permutation = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = s.length;</span><br><span class="line">    <span class="keyword">let</span> vis = <span class="keyword">new</span> <span class="built_in">Array</span>(len).fill(<span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">const</span> dfs = <span class="function"><span class="keyword">function</span> (<span class="params">ans, str</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str.length === len) &#123;</span><br><span class="line">            ans.add(str);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">                vis[i] = <span class="literal">true</span>;</span><br><span class="line">                dfs(ans, str+s[i]);</span><br><span class="line">                vis[i] = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    dfs(ans, <span class="string">''</span>);</span><br><span class="line">    <span class="keyword">return</span> [...ans];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。</p>
+<p>提示：</p>
+<p>你可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof" target="_blank" rel="noopener">https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>写法有点暴力……效率比较差</p>
+<p><code>Array.slice(i, j)</code>截取子数组 <code>Array[i~j]</code>，<code>Math.max(...Array)</code> 取最大</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">k</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxSlidingWindow = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length === <span class="number">0</span>) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="keyword">let</span> ans = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= nums.length - k; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> tmp = nums.slice(i, i+k);</span><br><span class="line">        ans.push(<span class="built_in">Math</span>.max(...tmp));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>排列 🔗 回溯</p>
-<p>set 用法</p>
-<ul>
-<li><code>add()</code> 添加元素</li>
-<li>扩展运算符 <code>...</code><ul>
-<li>[…Set] ===&gt; Array</li>
-</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li><p>Array.slice(i, j)</p>
+</li>
+<li><p>扩展运算符 <code>...</code></p>
 </li>
 </ul>
 
