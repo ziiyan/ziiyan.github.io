@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        MDN-CSS(Cascading Style Sheets) - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-工作原理"><span class="toc-text">CSS 工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#冲突规则"><span class="toc-text">冲突规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#层叠"><span class="toc-text">层叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优先级"><span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择器"><span class="toc-text">选择器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#盒模型"><span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#外部显示类型"><span class="toc-text">外部显示类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#块级"><span class="toc-text">块级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联"><span class="toc-text">内联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中间状态"><span class="toc-text">中间状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部显示类型"><span class="toc-text">内部显示类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#盒模型-1"><span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标准盒模型"><span class="toc-text">标准盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替代（IE）盒模型"><span class="toc-text">替代（IE）盒模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#溢出"><span class="toc-text">溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#块级排版上下文（Block-Formatting-Context，BFC）"><span class="toc-text">块级排版上下文（Block Formatting Context，BFC）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-的值"><span class="toc-text">CSS 的值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数字，长度和百分比"><span class="toc-text">数字，长度和百分比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对长度单位"><span class="toc-text">绝对长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相对长度单位"><span class="toc-text">相对长度单位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ems-and-rems"><span class="toc-text">ems and rems</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色"><span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#位置"><span class="toc-text">位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串和标识符"><span class="toc-text">字符串和标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编码风格"><span class="toc-text">编码风格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法论"><span class="toc-text">方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OOCSS"><span class="toc-text">OOCSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BEM"><span class="toc-text">BEM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SASS"><span class="toc-text">SASS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义变量"><span class="toc-text">定义变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#布局"><span class="toc-text">布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常布局流（默认）"><span class="toc-text">正常布局流（默认）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#覆盖默认布局"><span class="toc-text">覆盖默认布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#弹性盒子（Flexbox）"><span class="toc-text">弹性盒子（Flexbox）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网格（Grid）"><span class="toc-text">网格（Grid）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动（float）"><span class="toc-text">浮动（float）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定位（position）"><span class="toc-text">定位（position）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#static"><span class="toc-text">static</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#relative"><span class="toc-text">relative</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#absolute"><span class="toc-text">absolute</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fixed"><span class="toc-text">fixed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sticky"><span class="toc-text">sticky</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-表格布局（table）"><span class="toc-text">CSS 表格布局（table）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#响应式设计"><span class="toc-text">响应式设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#灵活网格"><span class="toc-text">灵活网格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现代布局技术"><span class="toc-text">现代布局技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多列布局"><span class="toc-text">多列布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex"><span class="toc-text">flex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grid"><span class="toc-text">Grid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式图像"><span class="toc-text">响应式图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式排版"><span class="toc-text">响应式排版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视口元标签"><span class="toc-text">视口元标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#规则"><span class="toc-text">@规则</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        MDN-CSS(Cascading Style Sheets)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-07 14:05:20</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="CSS-工作原理"><a href="#CSS-工作原理" class="headerlink" title="CSS 工作原理"></a>CSS 工作原理</h1><ol>
+<li>浏览器载入HTML文件（比如从网络上获取）。</li>
+<li>将HTML文件转化成一个DOM（Document Object Model）。</li>
+<li>接下来，浏览器会拉取该HTML相关的大部分资源，比如嵌入到页面的图片、视频和CSS样式。JavaScript则会稍后进行处理。</li>
+<li>浏览器拉取到CSS之后会进行解析，根据选择器的不同类型（比如element、class、id等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id选择器等）应用在对应的DOM的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</li>
+<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</li>
+<li>网页展示在屏幕上（这一步被称为着色）。</li>
+</ol>
+<p><img src="https://mdn.mozillademos.org/files/11781/rendering.svg" alt="img"></p>
+<h1 id="冲突规则"><a href="#冲突规则" class="headerlink" title="冲突规则"></a>冲突规则</h1><h2 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h2><ul>
+<li>同级，后面 &gt; 前面</li>
+</ul>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><ul>
+<li><strong>千位</strong>： 如果声明在 <code>style</code> 的属性（内联样式）则该位得一分。这样的声明没有选择器，所以它得分总是1000。</li>
+<li><strong>百位</strong>： 选择器中包含ID选择器则该位得一分。</li>
+<li><strong>十位</strong>： 选择器中包含类选择器、属性选择器或者伪类则该位得一分。</li>
+<li><strong>个位</strong>：选择器中包含元素、伪元素选择器则该位得一分。</li>
+</ul>
+<blockquote>
+<p>在进行计算时不允许进行进位，例如，20 个类选择器仅仅意味着 20 个十位，而不能视为 两个百位，也就是说，无论多少个类选择器的权重叠加，都不会超过一个 ID 选择器。</p>
+</blockquote>
+<ul>
+<li><code>!important</code> 覆盖普通规则的层叠</li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li><p>有些属性可以被继承，有些不行</p>
+</li>
+<li><p>控制继承，所有属性都可以取以下三个值</p>
+<ul>
+<li><code>inherit</code> 开启继承</li>
+<li><code>initial</code> 不继承</li>
+<li><code>unset</code> 自然继承</li>
+</ul>
+</li>
+</ul>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><table>
+<thead>
+<tr>
+<th align="left">选择器</th>
+<th align="left">示例</th>
+<th align="left">学习CSS的教程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Type_selectors" target="_blank" rel="noopener">类型选择器</a></td>
+<td align="left"><code>h1 { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Type_selectors" target="_blank" rel="noopener">类型选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Universal_selectors" target="_blank" rel="noopener">通配选择器</a></td>
+<td align="left"><code>* { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#The_universal_selector" target="_blank" rel="noopener">通配选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Class_selectors" target="_blank" rel="noopener">类选择器</a></td>
+<td align="left"><code>.box { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Class_selectors" target="_blank" rel="noopener">类选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/ID_selectors" target="_blank" rel="noopener">ID选择器</a></td>
+<td align="left"><code>#unique { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#ID_Selectors" target="_blank" rel="noopener">ID选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Attribute_selectors" target="_blank" rel="noopener">标签属性选择器</a></td>
+<td align="left"><code>a[title] { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Attribute_selectors" target="_blank" rel="noopener">标签属性选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes" target="_blank" rel="noopener">伪类选择器</a></td>
+<td align="left"><code>p:first-child { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-class" target="_blank" rel="noopener">伪类</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements" target="_blank" rel="noopener">伪元素选择器</a></td>
+<td align="left"><code>p::first-line { }</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-element" target="_blank" rel="noopener">伪元素</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Descendant_combinator" target="_blank" rel="noopener">后代选择器</a></td>
+<td align="left"><code>article p</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Descendant_Selector" target="_blank" rel="noopener">后代运算符</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Child_combinator" target="_blank" rel="noopener">子代选择器</a></td>
+<td align="left"><code>article &gt; p</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Child_combinator" target="_blank" rel="noopener">子代选择器</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Adjacent_sibling_combinator" target="_blank" rel="noopener">相邻兄弟选择器</a></td>
+<td align="left"><code>h1 + p</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Adjacent_sibling" target="_blank" rel="noopener">相邻兄弟</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/General_sibling_combinator" target="_blank" rel="noopener">通用兄弟选择器</a></td>
+<td align="left"><code>h1 ~ p</code></td>
+<td align="left"><a href="https://developer.mozilla.org/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#General_sibling" target="_blank" rel="noopener">通用兄弟</a></td>
+</tr>
+</tbody></table>
+<h1 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h1><h2 id="外部显示类型"><a href="#外部显示类型" class="headerlink" title="外部显示类型"></a>外部显示类型</h2><h3 id="块级"><a href="#块级" class="headerlink" title="块级"></a>块级</h3><ul>
+<li><code>display: block</code></li>
+<li>每个盒子都会换行</li>
+<li><code>width</code> 和 <code>height</code> 属性可以发挥作用</li>
+<li><code>padding</code>、<code>margin</code>、<code>border</code> 会将其他元素从当前盒子周围“推开”</li>
+<li>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽</li>
+</ul>
+<h3 id="内联"><a href="#内联" class="headerlink" title="内联"></a>内联</h3><ul>
+<li><p><code>display: inline</code></p>
+</li>
+<li><p>盒子不会产生换行</p>
+</li>
+<li><p><code>width</code> 和 <code>height</code> 属性将不起作用</p>
+</li>
+<li><p>垂直方向的<code>padding</code>、<code>margin</code>、<code>border</code>会被应用但是不会把其他处于 <code>inline</code> 状态的盒子推开</p>
+</li>
+<li><p>水平方向的<code>padding</code>、<code>margin</code>、<code>border</code>会被应用而且也会把其他处于 <code>inline</code> 状态的盒子推开</p>
+</li>
+</ul>
+<h3 id="中间状态"><a href="#中间状态" class="headerlink" title="中间状态"></a>中间状态</h3><ul>
+<li><p><code>display: inlin-block</code></p>
+</li>
+<li><p>不会换行</p>
+</li>
+<li><p>设置<code>width</code> 和<code>height</code> 属性会生效。</p>
+</li>
+<li><p><code>padding</code>, <code>margin</code>, 以及<code>border</code> 会推开其他元素。</p>
+</li>
+</ul>
+<h2 id="内部显示类型"><a href="#内部显示类型" class="headerlink" title="内部显示类型"></a>内部显示类型</h2><ul>
+<li>flex</li>
+<li>grid</li>
+</ul>
+<h2 id="盒模型-1"><a href="#盒模型-1" class="headerlink" title="盒模型"></a>盒模型</h2><ul>
+<li><strong>Content box</strong>: 这个区域是用来显示内容</li>
+<li><strong>Padding box</strong>: 包围在内容区域外部的空白区域<ul>
+<li>不可以为负数</li>
+</ul>
+</li>
+<li><strong>Border box</strong>: 边框盒包裹内容和内边距</li>
+<li><strong>Margin box</strong>: 这是最外面的区域，是盒子和其他元素之间的空白区域<ul>
+<li>可以为负数</li>
+<li>注意<strong>外边距折叠</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h3><ul>
+<li><code>box-sizing: content-box</code></li>
+<li>width 和 height 包含 content box</li>
+</ul>
+<h3 id="替代（IE）盒模型"><a href="#替代（IE）盒模型" class="headerlink" title="替代（IE）盒模型"></a>替代（IE）盒模型</h3><ul>
+<li><p><code>box-sizing: border-box</code></p>
+</li>
+<li><p>width 和 height 包含 content box、padding box、border box</p>
+</li>
+</ul>
+<h1 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h1><h2 id="块级排版上下文（Block-Formatting-Context，BFC）"><a href="#块级排版上下文（Block-Formatting-Context，BFC）" class="headerlink" title="块级排版上下文（Block Formatting Context，BFC）"></a>块级排版上下文（Block Formatting Context，BFC）</h2><h1 id="CSS-的值"><a href="#CSS-的值" class="headerlink" title="CSS 的值"></a>CSS 的值</h1><h2 id="数字，长度和百分比"><a href="#数字，长度和百分比" class="headerlink" title="数字，长度和百分比"></a>数字，长度和百分比</h2><h3 id="绝对长度单位"><a href="#绝对长度单位" class="headerlink" title="绝对长度单位"></a>绝对长度单位</h3><table>
+<thead>
+<tr>
+<th align="left">单位</th>
+<th align="left">名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>cm</code></td>
+<td align="left">厘米</td>
+</tr>
+<tr>
+<td align="left"><code>mm</code></td>
+<td align="left">毫米</td>
+</tr>
+<tr>
+<td align="left"><code>Q</code></td>
+<td align="left">四分之一毫米</td>
+</tr>
+<tr>
+<td align="left"><code>in</code></td>
+<td align="left">英寸</td>
+</tr>
+<tr>
+<td align="left"><code>pc</code></td>
+<td align="left">十二点活字</td>
+</tr>
+<tr>
+<td align="left"><code>pt</code></td>
+<td align="left">点</td>
+</tr>
+<tr>
+<td align="left"><code>px</code></td>
+<td align="left">像素</td>
+</tr>
+</tbody></table>
+<h3 id="相对长度单位"><a href="#相对长度单位" class="headerlink" title="相对长度单位"></a>相对长度单位</h3><table>
+<thead>
+<tr>
+<th align="left">单位</th>
+<th align="left">相对于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>em</code></td>
+<td align="left">在 font-size 中使用是相对于父元素的字体大小，在其他属性中使用是相对于自身的字体大小，如 width</td>
+</tr>
+<tr>
+<td align="left"><code>ex</code></td>
+<td align="left">字符“x”的高度</td>
+</tr>
+<tr>
+<td align="left"><code>ch</code></td>
+<td align="left">数字“0”的宽度</td>
+</tr>
+<tr>
+<td align="left"><code>rem</code></td>
+<td align="left">根元素的字体大小</td>
+</tr>
+<tr>
+<td align="left"><code>lh</code></td>
+<td align="left">元素的line-height</td>
+</tr>
+<tr>
+<td align="left"><code>vw</code></td>
+<td align="left">1vw 视窗宽度的1%</td>
+</tr>
+<tr>
+<td align="left"><code>vh</code></td>
+<td align="left">1vh 视窗高度的1%</td>
+</tr>
+<tr>
+<td align="left"><code>vmin</code></td>
+<td align="left">1vmin 视窗较小尺寸的1%</td>
+</tr>
+<tr>
+<td align="left"><code>vmax</code></td>
+<td align="left">1vmax 视图大尺寸的1%</td>
+</tr>
+</tbody></table>
+<h4 id="ems-and-rems"><a href="#ems-and-rems" class="headerlink" title="ems and rems"></a>ems and rems</h4><ul>
+<li><code>em</code> 父元素字体大小</li>
+<li><code>rem</code> 根元素字体大小</li>
+</ul>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><h2 id="字符串和标识符"><a href="#字符串和标识符" class="headerlink" title="字符串和标识符"></a>字符串和标识符</h2><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h1 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h1><h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><h3 id="OOCSS"><a href="#OOCSS" class="headerlink" title="OOCSS"></a>OOCSS</h3><h3 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h3><ul>
+<li><a href="http://getbem.com/" target="_blank" rel="noopener">BEM</a> 块级元素修饰字符（Block Element Modifier）</li>
+</ul>
+<h2 id="SASS"><a href="#SASS" class="headerlink" title="SASS"></a>SASS</h2><ul>
+<li>Sass（Syntactically Awesome StyleSheets）严格缩进</li>
+<li>Scss（Sassy CSS）兼容 css 的 sass</li>
+</ul>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><p>原生css也可以</p>
+<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="正常布局流（默认）"><a href="#正常布局流（默认）" class="headerlink" title="正常布局流（默认）"></a>正常布局流（默认）</h2><h3 id="覆盖默认布局"><a href="#覆盖默认布局" class="headerlink" title="覆盖默认布局"></a>覆盖默认布局</h3><ul>
+<li>display<ul>
+<li>block、inline、inline-block 是正常布局流</li>
+<li>其他（如 grid、flex）不是</li>
+</ul>
+</li>
+<li>浮动<ul>
+<li>float</li>
+</ul>
+</li>
+<li>position<ul>
+<li>默认 static，正常布局流</li>
+</ul>
+</li>
+<li>表格布局<ul>
+<li>display: table</li>
+</ul>
+</li>
+<li>多列布局</li>
+</ul>
+<h2 id="弹性盒子（Flexbox）"><a href="#弹性盒子（Flexbox）" class="headerlink" title="弹性盒子（Flexbox）"></a>弹性盒子（Flexbox）</h2><ul>
+<li><p>一维</p>
+</li>
+<li><p><code>display: flex</code> <strong>直接子元素</strong>会按照flex进行布局</p>
+</li>
+</ul>
+<h2 id="网格（Grid）"><a href="#网格（Grid）" class="headerlink" title="网格（Grid）"></a>网格（Grid）</h2><ul>
+<li><p>二维</p>
+</li>
+<li><p><code>display: grid</code></p>
+</li>
+</ul>
+<h2 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h2><ul>
+<li>从正常布局流(normal flow)中移除</li>
+<li>其他内容会在这个被设置浮动的元素周围环绕</li>
+<li>清除浮动 <code>clear</code><ul>
+<li><code>left</code>：停止任何活动的左浮动</li>
+<li><code>right</code>：停止任何活动的右浮动</li>
+<li><code>both</code>：停止任何活动的左右浮动</li>
+</ul>
+</li>
+</ul>
+<h2 id="定位（position）"><a href="#定位（position）" class="headerlink" title="定位（position）"></a>定位（position）</h2><h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
+<li>将元素放在文档布局流的默认位置</li>
+</ul>
+<h3 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h3><ul>
+<li>相对于元素在正常的文档流中的位置移动它</li>
+</ul>
+<h3 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h3><ul>
+<li>将元素完全从页面的正常布局流中移出，类似将它单独放在一个图层中</li>
+<li>相对于该元素的<strong>最近被定位祖先元素</strong></li>
+</ul>
+<h3 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h3><ul>
+<li>相对浏览器视口固定</li>
+</ul>
+<h3 id="sticky"><a href="#sticky" class="headerlink" title="sticky"></a>sticky</h3><ul>
+<li>让元素先保持和<code>position: static</code>一样的定位</li>
+<li>当它的相对视口位置达到某一个预设值时，像<code>position: fixed</code>一样定位</li>
+</ul>
+<h2 id="CSS-表格布局（table）"><a href="#CSS-表格布局（table）" class="headerlink" title="CSS 表格布局（table）"></a>CSS 表格布局（table）</h2><p>##多列布局</p>
+<ul>
+<li>column-count</li>
+<li>column-width</li>
+<li>column-gap</li>
+<li>column-rule</li>
+</ul>
+<h1 id="响应式设计"><a href="#响应式设计" class="headerlink" title="响应式设计"></a>响应式设计</h1><ul>
+<li>RWD，responsive web design（允许Web页面适应不同屏幕宽度因素等，进行布局和外观的调整）</li>
+</ul>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> media-type <span class="keyword">and</span> (media-feature-rule) &#123;</span><br><span class="line">  <span class="comment">/* CSS rules go here */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>一个媒体类型，告诉浏览器这段代码是用在什么类型的媒体上的（例如印刷品或者屏幕）</p>
+<ul>
+<li><code>all</code></li>
+<li><code>print</code></li>
+<li><code>screen</code></li>
+<li><code>speech</code></li>
+</ul>
+</li>
+<li><p>一个媒体表达式，是一个被包含的CSS生效所需的规则或者测试</p>
+<ul>
+<li>宽和高</li>
+<li>朝向 orientation<ul>
+<li>portrait</li>
+<li>landscape</li>
+</ul>
+</li>
+<li>hover</li>
+<li>pointer</li>
+</ul>
+</li>
+<li><p>一组CSS规则，会在测试通过且媒体类型正确的时候应用</p>
+</li>
+<li><p>媒体查询匹配逻辑：与/或/非</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>移动优先</strong>设计：为窄屏设备（例如移动设备）创建一个简单的单栏布局，然后检查是否是大些的屏幕，在你知道你有足够容纳的屏幕宽度的时候，开始采用一种多栏的布局 </p>
+</blockquote>
+<h2 id="灵活网格"><a href="#灵活网格" class="headerlink" title="灵活网格"></a>灵活网格</h2><ul>
+<li>每个元素都有一个作为宽度的百分数，而且确保整个布局的和不会超过100%</li>
+</ul>
+<h2 id="现代布局技术"><a href="#现代布局技术" class="headerlink" title="现代布局技术"></a>现代布局技术</h2><h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><h3 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h3><h2 id="响应式图像"><a href="#响应式图像" class="headerlink" title="响应式图像"></a>响应式图像</h2><ul>
+<li><code>&lt;picture&gt;</code></li>
+<li><code>&lt;img&gt;</code></li>
+<li><code>srcset</code></li>
+<li><code>sizes</code></li>
+</ul>
+<h2 id="响应式排版"><a href="#响应式排版" class="headerlink" title="响应式排版"></a>响应式排版</h2><ul>
+<li>通过媒体查询改变字体大小</li>
+<li>使用视口单位实现响应式排版</li>
+</ul>
+<h2 id="视口元标签"><a href="#视口元标签" class="headerlink" title="视口元标签"></a>视口元标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>移动端浏览器因此会把视口宽度设为960像素，并以这个宽度渲染页面</li>
+<li>用设备的实际宽度 <code>device-width</code> 覆写了默认的 <code>width=960px</code></li>
+</ul>
+<h1 id="规则"><a href="#规则" class="headerlink" title="@规则"></a>@规则</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@charset" target="_blank" rel="noopener"><code>@charset</code></a>, 定义样式表使用的字符集.</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@import" target="_blank" rel="noopener"><code>@import</code></a>, 告诉 CSS 引擎引入一个外部样式表.</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@namespace" target="_blank" rel="noopener"><code>@namespace</code></a>, 告诉 CSS 引擎必须考虑XML命名空间。</li>
+<li>嵌套@规则, 是嵌套语句的子集,不仅可以作为样式表里的一个语句，也可以用在条件规则组里：<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media" target="_blank" rel="noopener"><code>@media</code></a>, 如果满足媒介查询的条件则条件规则组里的规则生效。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@page" target="_blank" rel="noopener"><code>@page</code></a>, 描述打印文档时布局的变化.</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face" target="_blank" rel="noopener"><code>@font-face</code></a>, 描述将下载的外部的字体。 </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes" target="_blank" rel="noopener"><code>@keyframes</code></a>, 描述 CSS 动画的中间步骤 . </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@supports" target="_blank" rel="noopener"><code>@supports</code></a>, 如果满足给定条件则条件规则组里的规则生效。 </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@document" target="_blank" rel="noopener"><code>@document</code></a>, 如果文档样式表满足给定条件则条件规则组里的规则生效。 <em>(推延至 CSS Level 4 规范)</em></li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
