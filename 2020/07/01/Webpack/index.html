@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Webpakc 从原理到实战 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> life kicks in right now </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>ziiyan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Webpakc-从原理到实战"><span class="toc-text">Webpakc 从原理到实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理与背景"><span class="toc-text">原理与背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解前端模块化"><span class="toc-text">理解前端模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命名空间"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块化的优点"><span class="toc-text">模块化的优点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化方案进化史"><span class="toc-text">模块化方案进化史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AMD"><span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#COMMONJS"><span class="toc-text">COMMONJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6-MOUDLE"><span class="toc-text">ES6 MOUDLE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gulp、Grunt-——-自动化构建工具"><span class="toc-text">Gulp、Grunt —— 自动化构建工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-的打包过程"><span class="toc-text">webpack 的打包过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置开发环境"><span class="toc-text">配置开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-与包管理器"><span class="toc-text">npm 与包管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#npm-install-过程"><span class="toc-text">npm install 过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建工程"><span class="toc-text">构建工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心特性"><span class="toc-text">核心特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loader-和-plugin"><span class="toc-text">loader 和 plugin</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-与前端性能"><span class="toc-text">webpack 与前端性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-性能调优"><span class="toc-text">webpack 性能调优</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打包结果优化"><span class="toc-text">打包结果优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建过程优化"><span class="toc-text">构建过程优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#预编译"><span class="toc-text">预编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缓存"><span class="toc-text">缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tree-Shaking"><span class="toc-text">Tree-Shaking</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不止-“pack”"><span class="toc-text">不止 “pack”</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> life kicks in right now </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Webpakc 从原理到实战
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-07-01 22:48:02</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Webpakc-从原理到实战"><a href="#Webpakc-从原理到实战" class="headerlink" title="Webpakc 从原理到实战"></a>Webpakc 从原理到实战</h1><ul>
+<li>理解前端模块化<ul>
+<li>发展历程</li>
+<li>不同模块化方案的实现</li>
+</ul>
+</li>
+<li>理解 webpack 打包核心思路</li>
+<li>理解 loader &amp; plugin</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>webpack 是一个现代 <strong>JavaScript</strong> 应用程序的静态模块 <strong>打包器</strong><ul>
+<li>默认只处理 Javascript</li>
+<li>逻辑多、文件多，项目的复杂度提高，所以需要打包</li>
+</ul>
+</li>
+<li>打包之外，还有“翻译”功能 —— loader</li>
+<li>加上一些小动作 —— plugin</li>
+<li>可插拔</li>
+</ul>
+<h2 id="原理与背景"><a href="#原理与背景" class="headerlink" title="原理与背景"></a>原理与背景</h2><h3 id="理解前端模块化"><a href="#理解前端模块化" class="headerlink" title="理解前端模块化"></a>理解前端模块化</h3><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>运行时 - 变量 函数 对象 可访问性</p>
+<p>作用域决定了代码中变量和其它资源的可见性</p>
+<h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><h4 id="模块化的优点"><a href="#模块化的优点" class="headerlink" title="模块化的优点"></a>模块化的优点</h4><ul>
+<li>作用域封装</li>
+<li>重用性</li>
+<li>解除耦合</li>
+</ul>
+<h3 id="模块化方案进化史"><a href="#模块化方案进化史" class="headerlink" title="模块化方案进化史"></a>模块化方案进化史</h3><h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><ul>
+<li>Asynchronous Module Definition</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'getSum'</span>, [<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">math</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'sum: '</span> + math.sum(a, b));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="COMMONJS"><a href="#COMMONJS" class="headerlink" title="COMMONJS"></a>COMMONJS</h4><ul>
+<li>服务端模块标准，不是用于浏览器环境</li>
+<li>nodejs 采用并实现部分规范</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> math = <span class="built_in">require</span>(<span class="string">'./math'</span>);</span><br><span class="line">exports.getSum = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES6-MOUDLE"><a href="#ES6-MOUDLE" class="headerlink" title="ES6 MOUDLE"></a>ES6 MOUDLE</h4><ul>
+<li>Javascript 原生支持</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math <span class="keyword">from</span> <span class="string">'./math'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Gulp、Grunt-——-自动化构建工具"><a href="#Gulp、Grunt-——-自动化构建工具" class="headerlink" title="Gulp、Grunt —— 自动化构建工具"></a>Gulp、Grunt —— 自动化构建工具</h4><ul>
+<li>打包只是自动化构建中的一部分</li>
+<li>webpack 专门针对打包，代表着模块化的流行</li>
+</ul>
+<h3 id="webpack-的打包过程"><a href="#webpack-的打包过程" class="headerlink" title="webpack 的打包过程"></a>webpack 的打包过程</h3><ul>
+<li>从入口文件开始，分析整个应用的依赖树</li>
+<li>将每个依赖模块包装起来，放到一个数组中等待调用</li>
+<li>实现模块加载的方法，并把它放到模块执行的环境中，确保模块间可以互相调用</li>
+<li>把执行入口文件的逻辑放在一个函数表达式中，并立即执行这个函数</li>
+</ul>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="配置开发环境"><a href="#配置开发环境" class="headerlink" title="配置开发环境"></a>配置开发环境</h3><h4 id="npm-与包管理器"><a href="#npm-与包管理器" class="headerlink" title="npm 与包管理器"></a>npm 与包管理器</h4><ul>
+<li>依赖<ul>
+<li>–save</li>
+<li>–dev</li>
+</ul>
+</li>
+<li>版本号<ul>
+<li>^version 中版本和小版本<ul>
+<li>^1.0.1 -&gt; 1.x.x 中取最新</li>
+</ul>
+</li>
+<li>~version 小版本<ul>
+<li>~1.0.1 -&gt; 1.0.x 中取最新</li>
+</ul>
+</li>
+<li>version: 特定版本</li>
+</ul>
+</li>
+<li>scripts</li>
+</ul>
+<h5 id="npm-install-过程"><a href="#npm-install-过程" class="headerlink" title="npm install 过程"></a>npm install 过程</h5><ul>
+<li>检查 <code>.npmrc</code> 文件：优先级为：项目级的 <code>.npmrc</code> 文件 &gt; 用户级的 <code>.npmrc</code> 文件&gt; 全局级的 <code>.npmrc</code> 文件 &gt; npm 内置的 <code>.npmrc</code> 文件</li>
+<li>检查项目中有无 <code>lock</code> 文件。</li>
+<li>无 <code>lock</code> 文件：<ul>
+<li>从 <code>npm</code> 远程仓库获取包信息</li>
+<li>根据 <code>package.json</code> 构建依赖树，构建过程：<ul>
+<li>构建依赖树时，不管其是直接依赖还是子依赖的依赖，优先将其放置在 <code>node_modules</code> 根目录。</li>
+<li>当遇到相同模块时，判断已放置在依赖树的模块版本是否符合新模块的版本范围，如果符合则跳过，不符合则在当前模块的 <code>node_modules</code> 下放置该模块。</li>
+<li>注意这一步只是确定逻辑上的依赖树，并非真正的安装，后面会根据这个依赖结构去下载或拿到缓存中的依赖包</li>
+</ul>
+</li>
+<li>在缓存中依次查找依赖树中的每个包<ul>
+<li>不存在缓存：<ul>
+<li>从 <code>npm</code> 远程仓库下载包</li>
+<li>校验包的完整性</li>
+<li>校验不通过：<ul>
+<li>重新下载</li>
+</ul>
+</li>
+<li>校验通过：<ul>
+<li>将下载的包复制到 <code>npm</code> 缓存目录</li>
+<li>将下载的包按照依赖结构解压到 <code>node_modules</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存在缓存：将缓存按照依赖结构解压到 <code>node_modules</code></li>
+</ul>
+</li>
+<li>将包解压到 <code>node_modules</code></li>
+<li>生成 <code>lock</code> 文件</li>
+</ul>
+</li>
+<li>有 <code>lock</code> 文件：<ul>
+<li>检查 <code>package.json</code> 中的依赖版本是否和 <code>package-lock.json</code> 中的依赖有冲突。</li>
+<li>如果没有冲突，直接跳过获取包信息、构建依赖树过程，开始在缓存中查找包信息，后续过程相同</li>
+</ul>
+</li>
+</ul>
+<h3 id="构建工程"><a href="#构建工程" class="headerlink" title="构建工程"></a>构建工程</h3><h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><h3 id="loader-和-plugin"><a href="#loader-和-plugin" class="headerlink" title="loader 和 plugin"></a>loader 和 plugin</h3><h2 id="webpack-与前端性能"><a href="#webpack-与前端性能" class="headerlink" title="webpack 与前端性能"></a>webpack 与前端性能</h2><h3 id="webpack-性能调优"><a href="#webpack-性能调优" class="headerlink" title="webpack 性能调优"></a>webpack 性能调优</h3><h4 id="打包结果优化"><a href="#打包结果优化" class="headerlink" title="打包结果优化"></a>打包结果优化</h4><ul>
+<li>BundleAnalyZerPlugin</li>
+</ul>
+<h4 id="构建过程优化"><a href="#构建过程优化" class="headerlink" title="构建过程优化"></a>构建过程优化</h4><ul>
+<li>利用多线程</li>
+</ul>
+<h4 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h4><h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><h4 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree-Shaking"></a>Tree-Shaking</h4><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="不止-“pack”"><a href="#不止-“pack”" class="headerlink" title="不止 “pack”"></a>不止 “pack”</h3>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
