@@ -1,148 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>life kicks in right now</title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    <title>
-        
-        第六章 面向对象程序设计 - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
-
-    
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> life kicks in right now </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>ziiyan</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解对象"><span class="toc-text">理解对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性类型"><span class="toc-text">属性类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#属性数据"><span class="toc-text">属性数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问器属性"><span class="toc-text">访问器属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义多个属性"><span class="toc-text">定义多个属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取属性的特性"><span class="toc-text">读取属性的特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建对象"><span class="toc-text">创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数模式"><span class="toc-text">构造函数模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#将构造函数当作函数"><span class="toc-text">将构造函数当作函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造函数的缺点"><span class="toc-text">构造函数的缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模式"><span class="toc-text">原型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#理解原型对象"><span class="toc-text">理解原型对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原型与-in-操作符"><span class="toc-text">原型与 in 操作符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更简单的原型语法"><span class="toc-text">更简单的原型语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原型的动态性"><span class="toc-text">原型的动态性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原型模式的缺点"><span class="toc-text">原型模式的缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合使用构造函数模型和原型模式"><span class="toc-text">组合使用构造函数模型和原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态原型模式"><span class="toc-text">动态原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生构造函数模式"><span class="toc-text">寄生构造函数模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#稳妥构造函数模式"><span class="toc-text">稳妥构造函数模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链"><span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#默认的原型"><span class="toc-text">默认的原型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#确定原型和实例的关系"><span class="toc-text">确定原型和实例的关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象字面量创建原型方法会重写原型链"><span class="toc-text">对象字面量创建原型方法会重写原型链</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原型链的缺点"><span class="toc-text">原型链的缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#借用构造函数（伪造对象-经典继承）"><span class="toc-text">借用构造函数（伪造对象&#x2F;经典继承）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合继承（伪经典继承）"><span class="toc-text">组合继承（伪经典继承）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型式继承"><span class="toc-text">原型式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生式继承"><span class="toc-text">寄生式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生组合式继承"><span class="toc-text">寄生组合式继承</span></a></li></ol></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> life kicks in right now </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        第六章 面向对象程序设计
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-02-28 01:18:54</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#JavaScript高级程序设计" title="JavaScript高级程序设计">JavaScript高级程序设计</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <ul>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">life kicks in right now</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="https://github.com/ziiyan" target="_blank" rel="noopener" class="menu-item-link">Github</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+      <main class="main">
+        <article class="post">
+  <div class="post-title">
+    <h2 class="title">第六章 面向对象程序设计</h2>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-02-28</span>
+  </div>
+  <div class="post-content">
+    <ul>
 <li>面向对象语言的标志是都有类的概念，通过类可以创建任意多个具有相同属性和方法的对象。</li>
 <li>而 ECMAScript 中没有类的概念，因此它的对象和基于类的语言中的对象有所不同。</li>
 <li>ECMAscript 对象定义：<u>无序属性的集合，其属性可以包含基本值、对象或函数。</u></li>
@@ -343,65 +242,9 @@
 <li>通过原型链的混成形式来继承方法</li>
 </ul>
 
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
+  </div>
+</article>
+      </main>
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
+  </body>
 </html>

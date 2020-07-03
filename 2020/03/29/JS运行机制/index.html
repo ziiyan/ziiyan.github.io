@@ -1,148 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>life kicks in right now</title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    <title>
-        
-        JS运行机制 - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
-
-    
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> life kicks in right now </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>ziiyan</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#区分进程和线程"><span class="toc-text">区分进程和线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器是多进程的"><span class="toc-text">浏览器是多进程的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器都包含哪些进程？"><span class="toc-text">浏览器都包含哪些进程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器多进程的优势"><span class="toc-text">浏览器多进程的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点是浏览器内核（渲染进程）"><span class="toc-text">重点是浏览器内核（渲染进程）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser进程和浏览器内核（Renderer进程）的通信过程"><span class="toc-text">Browser进程和浏览器内核（Renderer进程）的通信过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梳理浏览器内核中线程之间的关系"><span class="toc-text">梳理浏览器内核中线程之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI渲染线程与JS引擎线程互斥"><span class="toc-text">GUI渲染线程与JS引擎线程互斥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS阻塞页面加载"><span class="toc-text">JS阻塞页面加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebWorker，JS的多线程？"><span class="toc-text">WebWorker，JS的多线程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebWorker与SharedWorker"><span class="toc-text">WebWorker与SharedWorker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单梳理下浏览器渲染流程"><span class="toc-text">简单梳理下浏览器渲染流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#load事件与DOMContentLoaded事件的先后"><span class="toc-text">load事件与DOMContentLoaded事件的先后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css加载是否会阻塞dom树渲染？"><span class="toc-text">css加载是否会阻塞dom树渲染？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#普通图层和复合图层"><span class="toc-text">普通图层和复合图层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何变成复合图层（硬件加速）"><span class="toc-text">如何变成复合图层（硬件加速）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#absolute和硬件加速的区别"><span class="toc-text">absolute和硬件加速的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复合图层的作用？"><span class="toc-text">复合图层的作用？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从Event-Loop谈JS的运行机制"><span class="toc-text">从Event Loop谈JS的运行机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件循环机制进一步补充"><span class="toc-text">事件循环机制进一步补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单独说说定时器"><span class="toc-text">单独说说定时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setTimeout而不是setInterval"><span class="toc-text">setTimeout而不是setInterval</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件循环进阶：macrotask与microtask"><span class="toc-text">事件循环进阶：macrotask与microtask</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> life kicks in right now </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        JS运行机制
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-03-29 21:58:24</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <p><a href="https://mp.weixin.qq.com/s/vIKDUrbuxVNQMi_g_fiwUA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/vIKDUrbuxVNQMi_g_fiwUA</a></p>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">life kicks in right now</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="https://github.com/ziiyan" target="_blank" rel="noopener" class="menu-item-link">Github</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+      <main class="main">
+        <article class="post">
+  <div class="post-title">
+    <h2 class="title">JS运行机制</h2>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-03-29</span>
+  </div>
+  <div class="post-content">
+    <p><a href="https://mp.weixin.qq.com/s/vIKDUrbuxVNQMi_g_fiwUA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/vIKDUrbuxVNQMi_g_fiwUA</a></p>
 <h2 id="区分进程和线程"><a href="#区分进程和线程" class="headerlink" title="区分进程和线程"></a>区分进程和线程</h2><ul>
 <li>进程是 cpu 资源分配的最小单位，线程是 cpu 调度的最小单位。</li>
 <li>一个进程崩溃，不会对其他进程产生影响；而一个线程崩溃，会让同一进程内的其他线程也死掉。</li>
@@ -356,65 +255,9 @@
 <img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200330122837010.png" alt="image-20200330122837010" style="zoom:50%;">
 
 
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
+  </div>
+</article>
+      </main>
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
+  </body>
 </html>

@@ -1,151 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>life kicks in right now</title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    <title>
-        
-        Performance Benchmarking and Optimizing Hyperledger Fabric Blockchain Platform - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
-
-    
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> life kicks in right now </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>ziiyan</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-INTRODUCTION"><span class="toc-text">I. INTRODUCTION</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#II-BACKGROUND-HYPERLEDGER-FABRIC-ARCHITECTURE-amp-CONFIGURATION-PARAMETERS"><span class="toc-text">II. BACKGROUND: HYPERLEDGER FABRIC ARCHITECTURE &amp; CONFIGURATION PARAMETERS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Key-Components-in-Fabric"><span class="toc-text">A. Key Components in Fabric</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Peer"><span class="toc-text">Peer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Endorsement-Policies"><span class="toc-text">Endorsement Policies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#System-chaincodes"><span class="toc-text">System chaincodes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Channel"><span class="toc-text">Channel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ordering-Service"><span class="toc-text">Ordering Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client"><span class="toc-text">Client</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Transaction-Flow-in-Hyperledger-Fabric"><span class="toc-text">B. Transaction Flow in Hyperledger Fabric</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Endorsement-Phase"><span class="toc-text">Endorsement Phase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ordering-Phase"><span class="toc-text">Ordering Phase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Validation-Phase"><span class="toc-text">Validation Phase</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VSCC-Validation"><span class="toc-text">VSCC Validation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MVCC-Validation"><span class="toc-text">MVCC Validation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ledger-Update-Phase"><span class="toc-text">Ledger Update Phase</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Configuration-Parameters"><span class="toc-text">C. Configuration Parameters</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Block-Size"><span class="toc-text">1) Block Size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Endorsement-Policy"><span class="toc-text">2) Endorsement Policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Channel"><span class="toc-text">3) Channel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Resource-Allocation"><span class="toc-text">4) Resource Allocation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Ledger-Database"><span class="toc-text">5) Ledger Database</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#III-PROBLEM-STATEMENT"><span class="toc-text">III. PROBLEM STATEMENT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Performance-Benchmarking"><span class="toc-text">1) Performance Benchmarking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Optimization"><span class="toc-text">2) Optimization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IV-EXPERIMENTAL-METHODOLOGY"><span class="toc-text">IV. EXPERIMENTAL METHODOLOGY</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Setup-and-Workloads"><span class="toc-text">A. Setup and Workloads</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#V-EXPERIMENTAL-RESULTS"><span class="toc-text">V. EXPERIMENTAL RESULTS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Impact-of-Transaction-Arrival-Rate-and-Block-Size"><span class="toc-text">A. Impact of Transaction Arrival Rate and Block Size</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-1"><span class="toc-text">Observation 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-2"><span class="toc-text">Observation 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-3"><span class="toc-text">Observation 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-4"><span class="toc-text">Observation 4:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-5"><span class="toc-text">Observation 5:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-1"><span class="toc-text">Guideline 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-2"><span class="toc-text">Guideline 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-Item-1"><span class="toc-text">Action Item 1:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Impact-of-Endorsement-Policy"><span class="toc-text">B. Impact of Endorsement Policy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-6"><span class="toc-text">Observation 6:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-3"><span class="toc-text">Guideline 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-Item-2"><span class="toc-text">Action Item 2:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Impact-of-Channels-and-Resource-Allocation"><span class="toc-text">C. Impact of Channels and Resource Allocation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-7"><span class="toc-text">Observation 7:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-8"><span class="toc-text">Observation 8:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-9"><span class="toc-text">Observation 9:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-4"><span class="toc-text">Guideline 4:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-5"><span class="toc-text">Guideline 5:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-Item-3"><span class="toc-text">Action Item 3:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Impact-of-Ledger-Database"><span class="toc-text">D. Impact of Ledger Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-10"><span class="toc-text">Observation 10:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-11"><span class="toc-text">Observation 11:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observation-12"><span class="toc-text">Observation 12:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guideline-6"><span class="toc-text">Guideline 6:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-Item-4"><span class="toc-text">Action Item 4:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-Item-5"><span class="toc-text">Action Item 5:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Scalability-and-Fault-Tolerant"><span class="toc-text">E. Scalability and Fault Tolerant</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VI-OPTIMIZATIONS-STUDIED"><span class="toc-text">VI. OPTIMIZATIONS STUDIED</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-MSP-Cache"><span class="toc-text">A. MSP Cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Parallel-VSCC-Validation-of-a-Block"><span class="toc-text">B. Parallel VSCC Validation of a Block</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Bulk-Read-Write-During-MVCC-Validation-amp-Commit"><span class="toc-text">C. Bulk Read&#x2F;Write During MVCC Validation &amp; Commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Combinations-of-Optimizations"><span class="toc-text">D. Combinations of Optimizations</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VII-RELATED-WORK"><span class="toc-text">VII. RELATED WORK</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VIII-CONCLUSION-amp-FUTURE-WORK"><span class="toc-text">VIII. CONCLUSION &amp; FUTURE WORK</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IX-ACKNOWLEDGEMENTS"><span class="toc-text">IX. ACKNOWLEDGEMENTS</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> life kicks in right now </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        Performance Benchmarking and Optimizing Hyperledger Fabric Blockchain Platform
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-04 16:53:39</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#翻译" title="翻译">翻译</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#精读" title="精读">精读</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><blockquote>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">life kicks in right now</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="https://github.com/ziiyan" target="_blank" rel="noopener" class="menu-item-link">Github</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+      <main class="main">
+        <article class="post">
+  <div class="post-title">
+    <h2 class="title">Performance Benchmarking and Optimizing Hyperledger Fabric Blockchain Platform</h2>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-04-04</span>
+  </div>
+  <div class="post-content">
+    <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><blockquote>
 <p>The rise in popularity of permissioned blockchain platforms in recent time is significant. Hyperledger Fabric is one such permissioned blockchain platform and one of the Hyperledger projects hosted by the Linux Foundation.</p>
 <p>The Fabric comprises of various components such as smart-contracts, endorsers, committers, validators, and orderers.</p>
 <p>As the performance of blockchain platform is a major concern for enterprise applications, in this work, we perform a comprehensive empirical study to characterize the performance of Hyperledger Fabric and identify potential performance bottlenecks to gain a better understanding of the system.</p>
@@ -790,65 +686,9 @@
 </blockquote>
 <p>我们谨感谢以下同事为我们的工作提供的宝贵帮助。 我们的建议优化已成功地被 Fabric 采纳，这要归功于 Fabric开发人员负责向 Fabric v1.1 提交补丁。 Angelo De Carlo（MSP缓存），Alessandro Sorniotti（并行验证）。 感谢 David Enyeart，Chris Elder 和 Manish Sethi 提出的有关 CouchDB 批量读取的建议。 我们要感谢 Yacov Manevich 的一贯帮助。 </p>
 
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
+  </div>
+</article>
+      </main>
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
+  </body>
 </html>

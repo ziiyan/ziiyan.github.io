@@ -1,148 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>life kicks in right now</title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    <title>
-        
-        MDN-JavaScript - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
-
-    
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> life kicks in right now </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>ziiyan</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型"><span class="toc-text">原型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#proto"><span class="toc-text">_proto_</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prototype"><span class="toc-text">prototype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型式继承"><span class="toc-text">原型式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#委托"><span class="toc-text">委托</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异步"><span class="toc-text">异步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线程"><span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-是单线程的"><span class="toc-text">JavaScript 是单线程的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步代码"><span class="toc-text">异步代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-workers"><span class="toc-text">Web workers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件队列"><span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#间隔"><span class="toc-text">间隔</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端-API"><span class="toc-text">客户端 API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器-API"><span class="toc-text">浏览器 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画图"><span class="toc-text">画图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#音频与视频"><span class="toc-text">音频与视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端存储"><span class="toc-text">客户端存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统方法：cookie"><span class="toc-text">传统方法：cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新流派：Web-Storage-和-IndexedDB"><span class="toc-text">新流派：Web Storage 和 IndexedDB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Storage"><span class="toc-text">Web Storage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IndexedDB"><span class="toc-text">IndexedDB</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#未来：Cache-API"><span class="toc-text">未来：Cache API</span></a></li></ol></li></ol></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> life kicks in right now </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        MDN-JavaScript
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-06-09 23:35:41</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">life kicks in right now</a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="https://github.com/ziiyan" target="_blank" rel="noopener" class="menu-item-link">Github</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+      <main class="main">
+        <article class="post">
+  <div class="post-title">
+    <h2 class="title">MDN-JavaScript</h2>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-06-09</span>
+  </div>
+  <div class="post-content">
+    <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
 <li><code>indexOf</code> 查找子串</li>
 <li><code>slice</code> 分片</li>
 <li><code>replace</code> 替换</li>
@@ -279,65 +178,9 @@
 <li>缓存通常与 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">Service Worker API</a> 组合使用，尽管不一定非要这么做。</li>
 </ul>
 
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
+  </div>
+</article>
+      </main>
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
+  </body>
 </html>
