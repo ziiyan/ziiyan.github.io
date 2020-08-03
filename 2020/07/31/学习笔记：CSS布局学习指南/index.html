@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>学习笔记：CSS布局学习指南 | Hexo</title>
+  <meta name="description" content="1、正常文档流（Normal Flow） 没有用任何CSS来改变页面布局的网页 在正常流中，元素盒子（boxes）会基于文档的写作模式（writing mode）一个接一个地排列  1.1、通过页面结构来发挥正常文档流的优势 CSS加载失败了，用户仍然能阅读你的页面内容 阅读器会按照元素在文档中的位置来读取页面内容 内容顺序和用户预期的阅读顺序一致则不必布局 思考如何布局之前需要认真思考文档结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记：CSS布局学习指南">
+<meta property="og:url" content="http://ziiyan.github.io/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="life kicks in right now">
+<meta property="og:description" content="1、正常文档流（Normal Flow） 没有用任何CSS来改变页面布局的网页 在正常流中，元素盒子（boxes）会基于文档的写作模式（writing mode）一个接一个地排列  1.1、通过页面结构来发挥正常文档流的优势 CSS加载失败了，用户仍然能阅读你的页面内容 阅读器会按照元素在文档中的位置来读取页面内容 内容顺序和用户预期的阅读顺序一致则不必布局 思考如何布局之前需要认真思考文档结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-31T02:01:37.000Z">
+<meta property="article:modified_time" content="2020-08-01T16:14:55.360Z">
+<meta property="article:author" content="ziiyan">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://ziiyan.github.io/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ziiyan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Ziiyan</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Life kicks in right now</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>鶸挣扎记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.29px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.86px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.57px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13px;">React</a> <a href="/tags/Vue/" style="font-size: 13.57px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.71px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.29px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.43px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13.14px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.43px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13.14px;">翻译</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.43px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AFlex%E5%B8%83%E5%B1%80/" class="title">学习笔记：Flex 布局</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-02T02:00:03.000Z" itemprop="datePublished">2020-08-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="title">学习笔记：CSS布局学习指南</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-31T02:01:37.000Z" itemprop="datePublished">2020-07-31</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/27/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="title">面试准备-计算机网络</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-27T15:01:08.000Z" itemprop="datePublished">2020-07-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/27/Content-Disposition/" class="title">Content-Disposition</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-27T02:58:19.000Z" itemprop="datePublished">2020-07-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/26/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91-%E4%B8%80%E9%9D%A2%E5%87%89%E7%BB%8F/" class="title">字节跳动-产品研发-一面凉经</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-26T07:58:07.000Z" itemprop="datePublished">2020-07-26</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、正常文档流（Normal-Flow）"><span class="toc-number">1.</span> <span class="toc-text">1、正常文档流（Normal Flow）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1、通过页面结构来发挥正常文档流的优势"><span class="toc-number">1.1.</span> <span class="toc-text">1.1、通过页面结构来发挥正常文档流的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2、脱离正常文档流"><span class="toc-number">1.2.</span> <span class="toc-text">1.2、脱离正常文档流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、浮动（Float）"><span class="toc-number">2.</span> <span class="toc-text">2、浮动（Float）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1、清除浮动"><span class="toc-number">2.1.</span> <span class="toc-text">2.1、清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2、块级格式上下文（Block-Formatting-Context）"><span class="toc-number">2.2.</span> <span class="toc-text">2.2、块级格式上下文（Block Formatting Context）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3、浮动的一些遗留用法"><span class="toc-number">2.3.</span> <span class="toc-text">2.3、浮动的一些遗留用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、定位（position）"><span class="toc-number">3.</span> <span class="toc-text">3、定位（position）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1、相对定位（relative）"><span class="toc-number">3.1.</span> <span class="toc-text">3.1、相对定位（relative）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2、绝对定位（absolute）"><span class="toc-number">3.2.</span> <span class="toc-text">3.2、绝对定位（absolute）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3、固定定位（fixed）"><span class="toc-number">3.3.</span> <span class="toc-text">3.3、固定定位（fixed）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4、粘性定位（sticky）"><span class="toc-number">3.4.</span> <span class="toc-text">3.4、粘性定位（sticky）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、弹性布局（Flex-Layout）"><span class="toc-number">4.</span> <span class="toc-text">4、弹性布局（Flex Layout）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1、弹性盒子的轴（axis）"><span class="toc-number">4.1.</span> <span class="toc-text">4.1、弹性盒子的轴（axis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2、方向和次序"><span class="toc-number">4.2.</span> <span class="toc-text">4.2、方向和次序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-一些Flex的属性"><span class="toc-number">4.3.</span> <span class="toc-text">4.3. 一些Flex的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、网格布局（Grid-Layout）"><span class="toc-number">5.</span> <span class="toc-text">5、网格布局（Grid Layout）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1、关于网格的一些术语"><span class="toc-number">5.1.</span> <span class="toc-text">5.1、关于网格的一些术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2、网格的自动排列规则"><span class="toc-number">5.2.</span> <span class="toc-text">5.2、网格的自动排列规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3、基于行-列的基本定位方法"><span class="toc-number">5.3.</span> <span class="toc-text">5.3、基于行&#x2F;列的基本定位方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4、通过命名区域来定位元素"><span class="toc-number">5.4.</span> <span class="toc-text">5.4、通过命名区域来定位元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、显示顺序和文档顺序（visual-and-document-order）"><span class="toc-number">6.</span> <span class="toc-text">6、显示顺序和文档顺序（visual and document order）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、盒模型的生成（box-generation）"><span class="toc-number">7.</span> <span class="toc-text">7、盒模型的生成（box generation）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1、不生成盒子或内容（display-none）"><span class="toc-number">7.1.</span> <span class="toc-text">7.1、不生成盒子或内容（display: none）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-不生成该元素，但是生成其所有子元素（display-contents）"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 不生成该元素，但是生成其所有子元素（display: contents）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、对齐"><span class="toc-number">8.</span> <span class="toc-text">8、对齐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、多栏布局（多列布局）"><span class="toc-number">9.</span> <span class="toc-text">9、多栏布局（多列布局）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1、设置栏的宽度"><span class="toc-number">9.1.</span> <span class="toc-text">9.1、设置栏的宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2、设置栏的数目"><span class="toc-number">9.2.</span> <span class="toc-text">9.2、设置栏的数目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3、间距和栏规则"><span class="toc-number">9.3.</span> <span class="toc-text">9.3、间距和栏规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4、允许元素横跨多栏"><span class="toc-number">9.4.</span> <span class="toc-text">9.4、允许元素横跨多栏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、碎片化（Fragmentation）"><span class="toc-number">10.</span> <span class="toc-text">10、碎片化（Fragmentation）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">11.</span> <span class="toc-text">reference</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-学习笔记：CSS布局学习指南" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      学习笔记：CSS布局学习指南
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="article-date">
+	  <time datetime="2020-07-31T02:01:37.000Z" itemprop="datePublished">2020-07-31</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/CSS/" rel="tag">CSS</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1、正常文档流（Normal-Flow）"><a href="#1、正常文档流（Normal-Flow）" class="headerlink" title="1、正常文档流（Normal Flow）"></a>1、正常文档流（Normal Flow）</h2><ul>
+<li>没有用任何CSS来改变页面布局的网页</li>
+<li>在正常流中，元素盒子（boxes）会基于文档的写作模式（writing mode）一个接一个地排列</li>
+</ul>
+<h3 id="1-1、通过页面结构来发挥正常文档流的优势"><a href="#1-1、通过页面结构来发挥正常文档流的优势" class="headerlink" title="1.1、通过页面结构来发挥正常文档流的优势"></a>1.1、通过页面结构来发挥正常文档流的优势</h3><ul>
+<li>CSS加载失败了，用户仍然能阅读你的页面内容</li>
+<li>阅读器会按照元素在文档中的位置来读取页面内容</li>
+<li>内容顺序和用户预期的阅读顺序一致则不必布局</li>
+<li><strong>思考如何布局之前需要认真思考文档结构</strong></li>
+</ul>
+<h3 id="1-2、脱离正常文档流"><a href="#1-2、脱离正常文档流" class="headerlink" title="1.2、脱离正常文档流"></a>1.2、脱离正常文档流</h3><ul>
+<li>一旦你有了一个结构良好的页面，你就需要去决定如何利用它并将它变为我们需要的布局结构</li>
+</ul>
+<h2 id="2、浮动（Float）"><a href="#2、浮动（Float）" class="headerlink" title="2、浮动（Float）"></a>2、浮动（Float）</h2><ul>
+<li>浮动被用来将盒子（box）置于左侧或右侧，同时让内容环绕其展示</li>
+</ul>
+<h3 id="2-1、清除浮动"><a href="#2-1、清除浮动" class="headerlink" title="2.1、清除浮动"></a>2.1、清除浮动</h3><ul>
+<li>一旦你对一个元素应用了浮动，所有接下来的元素都会环绕它直到内容处于它下方且开始应用正常文档流</li>
+<li>当你不想要某个元素受到其之前的浮动元素影响时，为其添加<code>clear</code>属性即可</li>
+<li>最常见的清除浮动的hack方案是：在容器内添加一个CSS伪元素，并将其<code>clear</code>属性设置为both</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2、块级格式上下文（Block-Formatting-Context）"><a href="#2-2、块级格式上下文（Block-Formatting-Context）" class="headerlink" title="2.2、块级格式上下文（Block Formatting Context）"></a>2.2、块级格式上下文（Block Formatting Context）</h3><ul>
+<li>清除浮动的另一个方法是在容器内创建BFC</li>
+<li>一个BFC元素完全包裹住了它内部的所有元素，包括内部的浮动元素，保证浮动元素不会超出其底部</li>
+<li>创建BFC的方式有很多种，其中最常用的一种清除浮动的方式是为元素设置除visible（默认）之外的<code>overflow</code>属性值</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>副作用：滚动条</li>
+<li>为了使清除浮动的意图更加直观，并且避免BFC的负面影响，你可以使用<code>flow-root</code>作为<code>display</code>属性的值</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flow-root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3、浮动的一些遗留用法"><a href="#2-3、浮动的一些遗留用法" class="headerlink" title="2.3、浮动的一些遗留用法"></a>2.3、浮动的一些遗留用法</h3><ul>
+<li>在新的布局方式出现以前，<code>float</code>经常会被用来创建多栏布局</li>
+<li>不建议再使用</li>
+</ul>
+<h2 id="3、定位（position）"><a href="#3、定位（position）" class="headerlink" title="3、定位（position）"></a>3、定位（position）</h2><ul>
+<li><p>当处于正常文档流时，元素的<code>position</code>属性为<code>static</code></p>
+</li>
+<li><p>当改变元素的position属性时，通常情况下也会设置一些偏移量（top / left / bottom / right）来使元素相对于参照点进行一定的移动</p>
+</li>
+<li><p>不同的position值会产生不同的参照点</p>
+</li>
+</ul>
+<h3 id="3-1、相对定位（relative）"><a href="#3-1、相对定位（relative）" class="headerlink" title="3.1、相对定位（relative）"></a>3.1、相对定位（relative）</h3><ul>
+<li>参照位：元素在正常文档流中的位置</li>
+<li>保留正常文档流中的位置</li>
+</ul>
+<h3 id="3-2、绝对定位（absolute）"><a href="#3-2、绝对定位（absolute）" class="headerlink" title="3.2、绝对定位（absolute）"></a>3.2、绝对定位（absolute）</h3><ul>
+<li>参照位：position 不为 static 的父元素</li>
+<li>从正常文档流中移除</li>
+</ul>
+<h3 id="3-3、固定定位（fixed）"><a href="#3-3、固定定位（fixed）" class="headerlink" title="3.3、固定定位（fixed）"></a>3.3、固定定位（fixed）</h3><ul>
+<li>参照位：视口</li>
+<li>从正常文档流中移除</li>
+</ul>
+<h3 id="3-4、粘性定位（sticky）"><a href="#3-4、粘性定位（sticky）" class="headerlink" title="3.4、粘性定位（sticky）"></a>3.4、粘性定位（sticky）</h3><ul>
+<li>让元素在页面滚动时如同在正常流中，但当其滚动到相对于视口的某个特定位置时就会固定在屏幕上，如同fixed一般<ul>
+<li>导航</li>
+<li>菜单</li>
+</ul>
+</li>
+<li>比较新，有兼容性问题</li>
+</ul>
+<h2 id="4、弹性布局（Flex-Layout）"><a href="#4、弹性布局（Flex-Layout）" class="headerlink" title="4、弹性布局（Flex Layout）"></a>4、弹性布局（Flex Layout）</h2><ul>
+<li>一维布局（按行或者列）</li>
+<li>使用<code>display: flex</code>来将元素变为弹性布局</li>
+<li>直接子元素会变为弹性项（flex item），并按行排列</li>
+</ul>
+<h3 id="4-1、弹性盒子的轴（axis）"><a href="#4-1、弹性盒子的轴（axis）" class="headerlink" title="4.1、弹性盒子的轴（axis）"></a>4.1、弹性盒子的轴（axis）</h3><ul>
+<li>主轴：通过设置 <code>flex-direction</code> 属性<ul>
+<li><code>row</code> (默认)</li>
+<li><code>column</code></li>
+</ul>
+</li>
+<li>交叉轴：与主轴垂直</li>
+</ul>
+<h3 id="4-2、方向和次序"><a href="#4-2、方向和次序" class="headerlink" title="4.2、方向和次序"></a>4.2、方向和次序</h3><ul>
+<li>通过设置<code>flex-direction</code> 属性来改变主轴方向<ul>
+<li><code>row-reverse</code></li>
+<li><code>column-reverse</code></li>
+</ul>
+</li>
+<li>也可以通过设置 <code>order</code> 属性，改变某一个弹性项的顺序</li>
+</ul>
+<h3 id="4-3-一些Flex的属性"><a href="#4-3-一些Flex的属性" class="headerlink" title="4.3. 一些Flex的属性"></a>4.3. 一些Flex的属性</h3><ul>
+<li>控制弹性项在主轴上空间大小<ul>
+<li>flex-grow：如果为正数，允许拉伸，值越大拉伸比例越大</li>
+<li>flex-shrink：如果为正数，元素溢出容器时会进行收缩，值越大压缩越多</li>
+<li>flex-basis：为弹性项设置初始大小<ul>
+<li>大多数情况下容器元素大小不会正好被分为许多初始大小的项，而是可能有一些不足或剩余空间。<code>flex-grow</code>和<code>flow-shrink</code>属性允许我们在容器大小不足或有空余时控制各个弹性项的大小</li>
+</ul>
+</li>
+<li>简写 <code>flex: [flex-grow] [flex-shrink] [flex-basis]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="5、网格布局（Grid-Layout）"><a href="#5、网格布局（Grid-Layout）" class="headerlink" title="5、网格布局（Grid Layout）"></a>5、网格布局（Grid Layout）</h2><ul>
+<li>二维布局（按行和列）</li>
+<li><code>grid: grid</code></li>
+<li>使用<code>grid-template-columns</code>和<code>grid-template-rows</code>属性来控制网格中的行与列，默认值为<code>auto</code><ul>
+<li>常用的模式是为网格制定列宽度，但是允许网格按需添加行</li>
+</ul>
+</li>
+<li><code>fr</code>是一种弹性单位，它可以指定网格容器内的空间被如何划分</li>
+</ul>
+<h3 id="5-1、关于网格的一些术语"><a href="#5-1、关于网格的一些术语" class="headerlink" title="5.1、关于网格的一些术语"></a>5.1、关于网格的一些术语</h3><ul>
+<li><code>inline axis</code> </li>
+<li><code>block axis</code></li>
+<li><code>grid line</code></li>
+<li><code>grid cell</code></li>
+<li><code>grid area</code></li>
+</ul>
+<h3 id="5-2、网格的自动排列规则"><a href="#5-2、网格的自动排列规则" class="headerlink" title="5.2、网格的自动排列规则"></a>5.2、网格的自动排列规则</h3><ul>
+<li>网格容器的直接子元素就会开始将它们自己一个一个地放置在网格的单元格中</li>
+<li>网格中任何没有被进行定位的直接子元素都会根据自动排列规则进行放置</li>
+</ul>
+<h3 id="5-3、基于行-列的基本定位方法"><a href="#5-3、基于行-列的基本定位方法" class="headerlink" title="5.3、基于行/列的基本定位方法"></a>5.3、基于行/列的基本定位方法</h3><ul>
+<li>定位网格元素最简单的方式是使用基于行/列（line）的定位方法，只需告诉浏览器从哪一排到哪一排来进行合并<ul>
+<li><code>grid-column-start</code></li>
+<li><code>grid-column-end</code></li>
+<li><code>grid-row-start</code></li>
+<li><code>grid-row-end</code></li>
+<li>缩写 <code>grid-column: [start] / [end]</code>、<code>grid-row: [start] / [end]</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5-4、通过命名区域来定位元素"><a href="#5-4、通过命名区域来定位元素" class="headerlink" title="5.4、通过命名区域来定位元素"></a>5.4、通过命名区域来定位元素</h3><ul>
+<li><code>grid-area</code> 设置元素名字</li>
+<li><code>grid-template-areas</code> 设置布局方式</li>
+<li><code>.</code> 空出单元格</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">    <span class="attribute">grid-area</span>: a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">    <span class="attribute">grid-area</span>: b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">    <span class="attribute">grid-area</span>: c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">    <span class="attribute">grid-template-areas</span>: </span><br><span class="line">     <span class="string">"a a b b"</span></span><br><span class="line">     <span class="string">"a a c c"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、显示顺序和文档顺序（visual-and-document-order）"><a href="#6、显示顺序和文档顺序（visual-and-document-order）" class="headerlink" title="6、显示顺序和文档顺序（visual and document order）"></a>6、显示顺序和文档顺序（visual and document order）</h2><ul>
+<li>从上到下的阅读顺序来组织文档顺序</li>
+<li>会有助于可读性和CSS的布局方式</li>
+</ul>
+<h2 id="7、盒模型的生成（box-generation）"><a href="#7、盒模型的生成（box-generation）" class="headerlink" title="7、盒模型的生成（box generation）"></a>7、盒模型的生成（box generation）</h2><ul>
+<li>写在网页里的任何东西都会生成一个盒子（box）</li>
+</ul>
+<h3 id="7-1、不生成盒子或内容（display-none）"><a href="#7-1、不生成盒子或内容（display-none）" class="headerlink" title="7.1、不生成盒子或内容（display: none）"></a>7.1、不生成盒子或内容（<code>display: none</code>）</h3><ul>
+<li>不会被展示，并且不会保留其本该占有的空间</li>
+</ul>
+<h3 id="7-2-不生成该元素，但是生成其所有子元素（display-contents）"><a href="#7-2-不生成该元素，但是生成其所有子元素（display-contents）" class="headerlink" title="7.2 不生成该元素，但是生成其所有子元素（display: contents）"></a>7.2 不生成该元素，但是生成其所有子元素（<code>display: contents</code>）</h3><ul>
+<li>自身的盒子不生成但所有的子元素都会照常生成<ul>
+<li>如果希望一个弹性布局或网格布局中的非直接子元素能应用这些布局，这就会非常有用</li>
+</ul>
+</li>
+</ul>
+<h2 id="8、对齐"><a href="#8、对齐" class="headerlink" title="8、对齐"></a>8、对齐</h2><ul>
+<li><code>justify-content</code></li>
+<li><code>align-content</code></li>
+<li><code>place-content</code></li>
+<li><code>justify-items</code></li>
+<li><code>align-items</code></li>
+<li><code>place-items</code></li>
+<li><code>justify-self</code></li>
+<li><code>align-self</code></li>
+<li><code>place-self</code></li>
+<li><code>row-gap</code></li>
+<li><code>column-gap</code></li>
+<li><code>gap</code></li>
+</ul>
+<h2 id="9、多栏布局（多列布局）"><a href="#9、多栏布局（多列布局）" class="headerlink" title="9、多栏布局（多列布局）"></a>9、多栏布局（多列布局）</h2><ul>
+<li>支持创建多栏的布局类型</li>
+<li>当展示一组高度不同的卡片或产品时多栏布局也非常有用</li>
+</ul>
+<h3 id="9-1、设置栏的宽度"><a href="#9-1、设置栏的宽度" class="headerlink" title="9.1、设置栏的宽度"></a>9.1、设置栏的宽度</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">column-width</span>: <span class="number">300px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2、设置栏的数目"><a href="#9-2、设置栏的数目" class="headerlink" title="9.2、设置栏的数目"></a>9.2、设置栏的数目</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">column-count</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-3、间距和栏规则"><a href="#9-3、间距和栏规则" class="headerlink" title="9.3、间距和栏规则"></a>9.3、间距和栏规则</h3><ul>
+<li><code>column-gap</code> 间距<ul>
+<li>默认 <code>1em</code></li>
+</ul>
+</li>
+<li><code>column-rule</code> 两栏间规则，类似 border，不占用空间<ul>
+<li><code>column-rule-width</code></li>
+<li><code>column-rule-color</code></li>
+<li><code>column-rule-style</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-4、允许元素横跨多栏"><a href="#9-4、允许元素横跨多栏" class="headerlink" title="9.4、允许元素横跨多栏"></a>9.4、允许元素横跨多栏</h3><ul>
+<li><code>column-span</code><ul>
+<li><code>all</code></li>
+<li><code>none</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="10、碎片化（Fragmentation）"><a href="#10、碎片化（Fragmentation）" class="headerlink" title="10、碎片化（Fragmentation）"></a>10、碎片化（Fragmentation）</h2><ul>
+<li><code>break-inside: avoid</code>：确保卡片不会被截为两半分到不同的栏</li>
+<li><code>reak-after: avoid</code>：元素后禁止断行</li>
+</ul>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ul>
+<li><a href="https://juejin.im/post/6844903634849759239" target="_blank" rel="noopener">一篇全面的CSS布局学习指南 [译]</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://ziiyan.github.io/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" title="学习笔记：CSS布局学习指南" target="_blank" rel="external">http://ziiyan.github.io/2020/07/31/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9ACSS%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ziiyan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ziiyan" target="_blank"><span class="text-dark">Ziiyan</span><small class="ml-1x">Life kicks in right now</small></a></h3>
+        <div>因上努力，果上随缘</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/08/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AFlex%E5%B8%83%E5%B1%80/" title="学习笔记：Flex 布局"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/07/27/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="面试准备-计算机网络"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '25953118',
+    clientSecret: 'wzy574542379',
+    repo: 'https://github.com/ziiyan',
+    owner: 'ziiyan',
+    admin: ['ziiyan'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
