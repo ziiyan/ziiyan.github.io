@@ -17,21 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Generator函数的语法 | life kicks in right now</title>
-  <meta name="description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
+  <title>面试准备：数组 | life kicks in right now</title>
+  <meta name="description" content="1、数组去重 最笨的办法双层 for 循环 先排序，相邻比较  1.1、indexOf 1arr.indexOf(searchElement[, fromIndex])  indexOf()方法返回在数组中可以找到一个给定元素的第一个索引 如果不存在，则返回 -1  123456789function unique(arr) &amp;#123;  let result &#x3D; [];  for (let i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Generator函数的语法">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="面试准备：数组">
+<meta property="og:url" content="http://ziiyan.github.io/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
+<meta property="og:description" content="1、数组去重 最笨的办法双层 for 循环 先排序，相邻比较  1.1、indexOf 1arr.indexOf(searchElement[, fromIndex])  indexOf()方法返回在数组中可以找到一个给定元素的第一个索引 如果不存在，则返回 -1  123456789function unique(arr) &amp;#123;  let result &#x3D; [];  for (let i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-21T09:18:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T13:40:13.754Z">
+<meta property="article:published_time" content="2020-08-05T06:10:37.000Z">
+<meta property="article:modified_time" content="2020-08-05T07:31:48.902Z">
 <meta property="article:author" content="ziiyan">
-<meta property="article:tag" content="ECMAScript 6 入门">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -297,21 +298,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generator-函数的语法"><span class="toc-number">1.</span> <span class="toc-text">Generator 函数的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-表达式"><span class="toc-number">1.1.2.</span> <span class="toc-text">yield 表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next-方法的参数"><span class="toc-number">1.2.</span> <span class="toc-text">next 方法的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for…of-循环"><span class="toc-number">1.3.</span> <span class="toc-text">for…of 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-prototype-throw"><span class="toc-number">1.4.</span> <span class="toc-text">Generator.prototype.throw()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-prototype-return"><span class="toc-number">1.5.</span> <span class="toc-text">Generator.prototype.return()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next-、throw-、return-的共同点"><span class="toc-number">1.6.</span> <span class="toc-text">next()、throw()、return() 的共同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yield-表达式-1"><span class="toc-number">1.7.</span> <span class="toc-text">yield* 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为对象属性的-Generator-函数"><span class="toc-number">1.8.</span> <span class="toc-text">作为对象属性的 Generator 函数</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、数组去重"><span class="toc-number">1.</span> <span class="toc-text">1、数组去重</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1、indexOf"><span class="toc-number">1.1.</span> <span class="toc-text">1.1、indexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2、includes"><span class="toc-number">1.2.</span> <span class="toc-text">1.2、includes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3、reduce"><span class="toc-number">1.3.</span> <span class="toc-text">1.3、reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4、Map"><span class="toc-number">1.4.</span> <span class="toc-text">1.4、Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5、Set"><span class="toc-number">1.5.</span> <span class="toc-text">1.5、Set</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、判断数组"><span class="toc-number">2.</span> <span class="toc-text">2、判断数组</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-18-Generator函数的语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-面试准备：数组去重" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Generator函数的语法
+      面试准备：数组
     </h1>
   
 
@@ -319,122 +320,88 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" class="article-date">
-	  <time datetime="2020-03-21T09:18:23.000Z" itemprop="datePublished">2020-03-21</time>
+	<a href="/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="article-date">
+	  <time datetime="2020-08-05T06:10:37.000Z" itemprop="datePublished">2020-08-05</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a>
+	<a class="article-tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Generator-函数的语法"><a href="#Generator-函数的语法" class="headerlink" title="Generator 函数的语法"></a>Generator 函数的语法</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li>异步编程解决方案，语法行为与传统函数完全不同</li>
-<li>理解<ul>
-<li>语法上，Generator 函数是一个状态机，封装了多个内部状态<ul>
-<li>执行 Generator 函数会返回一个遍历器对象<ul>
-<li>遍历器对象可以依次遍历 Generator 函数内部的每一个状态</li>
+        <h2 id="1、数组去重"><a href="#1、数组去重" class="headerlink" title="1、数组去重"></a>1、数组去重</h2><ul>
+<li>最笨的办法双层 for 循环</li>
+<li>先排序，相邻比较</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>形式上，Generator 函数是一个普通函数<ul>
-<li>两个特征<ul>
-<li><code>function</code> 关键字与函数名之间有一个星号，星号位置和空格位置的先后关系没有规定</li>
-<li>函数体内部使用 <code>yield</code> 表达式，定义不同的内部状态</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">helloWorldGenerator</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'world'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'ending'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 三个状态</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hw = helloWorldGenerator();</span><br><span class="line"><span class="comment">// 调用</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-1、indexOf"><a href="#1-1、indexOf" class="headerlink" title="1.1、indexOf"></a>1.1、indexOf</h3><blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.indexOf(searchElement[, fromIndex])</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>调用 Generator 函数后，该函数并不执行，返回一个指向内部状态的指针对象（iterator Object）</li>
-<li>调用遍历器对象的 <code>next</code> 方法，使得指针移向下一个状态<ul>
-<li>也就是说，每次调用 <code>next</code> 方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个 <code>yield</code> 表达式（或 <code>return</code> 语句）</li>
-<li>换言之，Generator 函数是分段执行的，<code>yield</code> 表达式是暂停执行的标记，<code>next</code> 方法恢复执行</li>
-</ul>
-</li>
-<li><code>next</code> 返回一个对象<ul>
-<li>属性 <code>value</code> 是当前 <code>yield</code> 表达式的值</li>
-<li>属性 <code>done</code> 表示遍历是否结束</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'hello', done: false &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'world', done: false &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'ending', done: true &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><ul>
-<li><code>next</code> 方法的运行逻辑<ul>
-<li>遇到 <code>yield</code> 表达式，就暂停执行，并将紧跟在 <code>yield</code> 后面的表达式的值作为对象的 <code>value</code> 属性返回</li>
-<li>下次调用 <code>yield</code> 时，再继续往下执行，直到遇到下一个 <code>yield</code> 表达式</li>
-<li>如果没有遇到新的表达式，就一直运行到 <code>return</code>，并将 <code>return</code> 语句后面的表达式的值作为对象的 <code>value</code> 属性</li>
-<li>如果没有<code>return</code> 语句，则返回对象的 <code>value</code> 属性值为 <code>undefined</code></li>
-</ul>
-</li>
-<li><code>yield</code> 表达式后面的表达式，只有调用 <code>next</code> 方法、内部指针指向该语句时才会执行<ul>
-<li>给 JavaScript 提供了手动<strong>惰性求值</strong>的语法功能</li>
-</ul>
-</li>
-<li>不用 <code>yield</code> 的情况下，Generator 就是一个单纯的暂缓执行函数</li>
-<li><code>yield</code> 只能用在 Generator 函数里面，其它地方会报错</li>
-<li><code>yield</code> 如果用在另一个表达式中，必须放在括号里面</li>
-<li><code>yield</code> 用做函数参数或放在赋值表达式右边，不用括号</li>
-</ul>
-<h2 id="next-方法的参数"><a href="#next-方法的参数" class="headerlink" title="next 方法的参数"></a>next 方法的参数</h2><blockquote>
-<p>这节没看懂</p>
+<p><code>indexOf()</code>方法返回在数组中可以找到一个给定元素的第一个索引</p>
+<p>如果不存在，则返回 -1</p>
 </blockquote>
-<ul>
-<li><code>yield</code> 表达式本身没有返回值，或者说总是返回 <code>undefined</code></li>
-<li><code>next</code> 方法可以带一个参数，该参数会被当作上一个 <code>yield</code> 表达式的返回值</li>
-</ul>
-<h2 id="for…of-循环"><a href="#for…of-循环" class="headerlink" title="for…of 循环"></a>for…of 循环</h2><ul>
-<li><code>for...of</code> 循环自动遍历 Generator 函数运行时生成的 <code>Iterator</code> 对象，此时不需要调用 <code>next</code> 方法</li>
-<li>斐波那契</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fibonacci</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [prev, curr] = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    <span class="keyword">yield</span> curr;</span><br><span class="line">    [prev, curr] = [curr, prev + curr];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> fibonacci()) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &gt; <span class="number">1000</span>) <span class="keyword">break</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (result.indexOf(arr[i]) === <span class="number">-1</span>) &#123;</span><br><span class="line">      result.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Generator-prototype-throw"><a href="#Generator-prototype-throw" class="headerlink" title="Generator.prototype.throw()"></a>Generator.prototype.throw()</h2><ul>
-<li><code>throw</code> 方法可以在函数体外抛出错误，在函数体内捕获<ul>
-<li>前提是必须进行过一次 <code>next</code> 方法</li>
-<li>捕获后会自动执行一次 <code>next</code> 方法，不影响下次遍历</li>
+<h3 id="1-2、includes"><a href="#1-2、includes" class="headerlink" title="1.2、includes"></a>1.2、includes</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!result.includes(arr[i])) &#123;</span><br><span class="line">      result.push(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3、reduce"><a href="#1-3、reduce" class="headerlink" title="1.3、reduce"></a>1.3、reduce</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre, cur</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> pre.includes(cur) ? pre : [...pre, cur]</span><br><span class="line">  &#125;, [])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4、Map"><a href="#1-4、Map" class="headerlink" title="1.4、Map"></a>1.4、Map</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!map.has(arr[i])) &#123;</span><br><span class="line">      map.set(arr[i]);</span><br><span class="line">      result.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5、Set"><a href="#1-5、Set" class="headerlink" title="1.5、Set"></a>1.5、Set</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)];</span><br><span class="line">  <span class="comment">// Array.from(new Set(arr))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么要搭配扩展运算符和 Array.from？<ul>
+<li>Set 返回的是一个类数组对象</li>
 </ul>
 </li>
-<li>如果 Generator 函数内部没有部署 <code>try...catch</code> 代码块，那么错误会被外部的 <code>try...catch</code> 代码块捕获</li>
-<li>如果都没有，那么程序将报错，直接中断执行</li>
+<li>什么是类数组对象？<ul>
+<li>可以<strong>通过索引属性访问元素</strong>并且<strong>拥有 length</strong> 属性的对象</li>
+<li>区别：<strong>类数组对象不能直接使用数组的方法</strong></li>
+<li>可以通过 <code>Function.call</code> 或者 <code>Function.apply</code> 方法来间接调用<ul>
+<li>例如 <code>Array.prototype.push.call()</code></li>
 </ul>
-<h2 id="Generator-prototype-return"><a href="#Generator-prototype-return" class="headerlink" title="Generator.prototype.return()"></a>Generator.prototype.return()</h2><ul>
-<li>返回给定的值，并终结遍历 Generator 函数</li>
+</li>
+<li>arguments</li>
+<li>document.getElementsXXX()</li>
 </ul>
-<h2 id="next-、throw-、return-的共同点"><a href="#next-、throw-、return-的共同点" class="headerlink" title="next()、throw()、return() 的共同点"></a>next()、throw()、return() 的共同点</h2><ul>
-<li>作用都是让 Generator 函数恢复执行，使用不同的语句替换 <code>yield</code> 表达式</li>
-<li><code>next()</code> 是将 <code>yield</code> 表达式替换成一个值</li>
-<li><code>throw()</code> 是将 <code>yield</code> 表达式替换成一个 <code>throw</code> 语句</li>
-<li><code>return()</code> 是将 <code>yield</code> 表达式替换成一个 <code>return</code> 语句</li>
+</li>
 </ul>
-<h2 id="yield-表达式-1"><a href="#yield-表达式-1" class="headerlink" title="yield* 表达式"></a>yield* 表达式</h2><ul>
-<li>在一个 Generator 函数里面执行另一个 Generator 函数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'a'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'b'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">yield</span>* foo();</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'a'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'b'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> foo()) &#123;</span><br><span class="line">    <span class="keyword">yield</span> v;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> bar()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "x"</span></span><br><span class="line"><span class="comment">// "a"</span></span><br><span class="line"><span class="comment">// "b"</span></span><br><span class="line"><span class="comment">// "y"</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、判断数组"><a href="#2、判断数组" class="headerlink" title="2、判断数组"></a>2、判断数组</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arr instanceof Array</td>
+<td>检测构造函数的 prototype 是否出现在对象的原型链中</td>
+</tr>
+<tr>
+<td>Array.isArray(arr)</td>
+<td></td>
+</tr>
+<tr>
+<td>Object.prototype.toString.call(arr)===”[object Array]”</td>
+<td>对象都有内部属性 <code>[[Class]]</code> 表示对象的分类，无法直接访问，通过 <strong>Object.prototype.toString()</strong>访问，但一般 <code>toString</code> 都被重写了，所以需要 <code>call</code></td>
+</tr>
+<tr>
+<td>arr.constructor === Array</td>
+<td></td>
+</tr>
+</tbody></table>
 
-<ul>
-<li>从语法角度看，如果<code>yield</code>表达式后面跟的是一个遍历器对象，需要在<code>yield</code>表达式后面加上星号，就会执行这个遍历器</li>
-<li>任何数据结构只要有 Iterator 接口，就可以被<code>yield*</code>遍历</li>
-</ul>
-<h2 id="作为对象属性的-Generator-函数"><a href="#作为对象属性的-Generator-函数" class="headerlink" title="作为对象属性的 Generator 函数"></a>作为对象属性的 Generator 函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  * myGeneratorMethod() &#123;</span><br><span class="line">    ···</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  myGeneratorMethod: <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ···</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -443,7 +410,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator函数的语法" target="_blank" rel="external">http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/</a>
+      <a href="http://ziiyan.github.io/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" title="面试准备：数组" target="_blank" rel="external">http://ziiyan.github.io/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -490,12 +457,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="Set和Map数据结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/08/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" title="面试准备：垂直居中"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/21/16-Promise%E5%AF%B9%E8%B1%A1/" title="Promise对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/08/02/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AFlex%E5%B8%83%E5%B1%80/" title="学习笔记：Flex 布局"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

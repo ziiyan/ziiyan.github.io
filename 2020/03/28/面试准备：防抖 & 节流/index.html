@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Generator函数的语法 | life kicks in right now</title>
-  <meta name="description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
+  <title>面试准备：防抖 &amp; 节流 | life kicks in right now</title>
+  <meta name="description" content="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Antwan-Dmy&#x2F;p&#x2F;10714445.html 1、防抖 debounce 防止抖动，避免把一次事件误认为多次 场景 连续点击按钮导致发送多次相同请求 调整浏览器窗口大小，监听事件 实时文本编辑器，无更改一秒后再保存   防抖重在清零 clearTimeout(timer)  123456789function debounce(fn, ms)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Generator函数的语法">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="面试准备：防抖 &amp; 节流">
+<meta property="og:url" content="http://ziiyan.github.io/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
+<meta property="og:description" content="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Antwan-Dmy&#x2F;p&#x2F;10714445.html 1、防抖 debounce 防止抖动，避免把一次事件误认为多次 场景 连续点击按钮导致发送多次相同请求 调整浏览器窗口大小，监听事件 实时文本编辑器，无更改一秒后再保存   防抖重在清零 clearTimeout(timer)  123456789function debounce(fn, ms)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-21T09:18:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T13:40:13.754Z">
+<meta property="article:published_time" content="2020-03-28T13:55:35.000Z">
+<meta property="article:modified_time" content="2020-08-05T09:04:46.780Z">
 <meta property="article:author" content="ziiyan">
-<meta property="article:tag" content="ECMAScript 6 入门">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -297,21 +297,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generator-函数的语法"><span class="toc-number">1.</span> <span class="toc-text">Generator 函数的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-表达式"><span class="toc-number">1.1.2.</span> <span class="toc-text">yield 表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next-方法的参数"><span class="toc-number">1.2.</span> <span class="toc-text">next 方法的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for…of-循环"><span class="toc-number">1.3.</span> <span class="toc-text">for…of 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-prototype-throw"><span class="toc-number">1.4.</span> <span class="toc-text">Generator.prototype.throw()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-prototype-return"><span class="toc-number">1.5.</span> <span class="toc-text">Generator.prototype.return()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next-、throw-、return-的共同点"><span class="toc-number">1.6.</span> <span class="toc-text">next()、throw()、return() 的共同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yield-表达式-1"><span class="toc-number">1.7.</span> <span class="toc-text">yield* 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为对象属性的-Generator-函数"><span class="toc-number">1.8.</span> <span class="toc-text">作为对象属性的 Generator 函数</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、防抖-debounce"><span class="toc-number">1.</span> <span class="toc-text">1、防抖 debounce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、节流-throttle"><span class="toc-number">2.</span> <span class="toc-text">2、节流 throttle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">3.</span> <span class="toc-text">reference</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-18-Generator函数的语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-面试准备：防抖 &amp; 节流" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Generator函数的语法
+      面试准备：防抖 &amp; 节流
     </h1>
   
 
@@ -319,122 +319,60 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" class="article-date">
-	  <time datetime="2020-03-21T09:18:23.000Z" itemprop="datePublished">2020-03-21</time>
+	<a href="/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/" class="article-date">
+	  <time datetime="2020-03-28T13:55:35.000Z" itemprop="datePublished">2020-03-28</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a>
+	<a class="article-tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Generator-函数的语法"><a href="#Generator-函数的语法" class="headerlink" title="Generator 函数的语法"></a>Generator 函数的语法</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li>异步编程解决方案，语法行为与传统函数完全不同</li>
-<li>理解<ul>
-<li>语法上，Generator 函数是一个状态机，封装了多个内部状态<ul>
-<li>执行 Generator 函数会返回一个遍历器对象<ul>
-<li>遍历器对象可以依次遍历 Generator 函数内部的每一个状态</li>
+        <p><a href="https://www.cnblogs.com/Antwan-Dmy/p/10714445.html" target="_blank" rel="noopener">https://www.cnblogs.com/Antwan-Dmy/p/10714445.html</a></p>
+<h2 id="1、防抖-debounce"><a href="#1、防抖-debounce" class="headerlink" title="1、防抖 debounce"></a>1、防抖 debounce</h2><ul>
+<li>防止抖动，避免把一次事件误认为多次</li>
+<li>场景<ul>
+<li>连续点击按钮导致发送多次相同请求</li>
+<li>调整浏览器窗口大小，监听事件</li>
+<li>实时文本编辑器，无更改一秒后再保存</li>
 </ul>
 </li>
+<li><strong>防抖重在清零 <code>clearTimeout(timer)</code></strong></li>
 </ul>
-</li>
-<li>形式上，Generator 函数是一个普通函数<ul>
-<li>两个特征<ul>
-<li><code>function</code> 关键字与函数名之间有一个星号，星号位置和空格位置的先后关系没有规定</li>
-<li>函数体内部使用 <code>yield</code> 表达式，定义不同的内部状态</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">helloWorldGenerator</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'world'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'ending'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 三个状态</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hw = helloWorldGenerator();</span><br><span class="line"><span class="comment">// 调用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    clearTimeout(timer);</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn(...args);</span><br><span class="line">    &#125;, ms);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>调用 Generator 函数后，该函数并不执行，返回一个指向内部状态的指针对象（iterator Object）</li>
-<li>调用遍历器对象的 <code>next</code> 方法，使得指针移向下一个状态<ul>
-<li>也就是说，每次调用 <code>next</code> 方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个 <code>yield</code> 表达式（或 <code>return</code> 语句）</li>
-<li>换言之，Generator 函数是分段执行的，<code>yield</code> 表达式是暂停执行的标记，<code>next</code> 方法恢复执行</li>
+<h2 id="2、节流-throttle"><a href="#2、节流-throttle" class="headerlink" title="2、节流 throttle"></a>2、节流 throttle</h2><ul>
+<li>节省水流，控制事件发生的频率，限制流量</li>
+<li>场景<ul>
+<li>scroll 事件，每隔一秒计算一次位置</li>
+<li>浏览器播放事件，每隔一秒一算一次进度</li>
+<li>input 框实时搜索，每隔一秒发送一次请求（也可以防抖，看需求）</li>
 </ul>
 </li>
-<li><code>next</code> 返回一个对象<ul>
-<li>属性 <code>value</code> 是当前 <code>yield</code> 表达式的值</li>
-<li>属性 <code>done</code> 表示遍历是否结束</li>
+<li><strong>节流重在加锁 <code>timer=timeout</code></strong></li>
 </ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'hello', done: false &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'world', done: false &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'ending', done: true &#125;</span></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      f(...args)</span><br><span class="line">      timer = <span class="literal">null</span>;</span><br><span class="line">    &#125;, ms)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><ul>
-<li><code>next</code> 方法的运行逻辑<ul>
-<li>遇到 <code>yield</code> 表达式，就暂停执行，并将紧跟在 <code>yield</code> 后面的表达式的值作为对象的 <code>value</code> 属性返回</li>
-<li>下次调用 <code>yield</code> 时，再继续往下执行，直到遇到下一个 <code>yield</code> 表达式</li>
-<li>如果没有遇到新的表达式，就一直运行到 <code>return</code>，并将 <code>return</code> 语句后面的表达式的值作为对象的 <code>value</code> 属性</li>
-<li>如果没有<code>return</code> 语句，则返回对象的 <code>value</code> 属性值为 <code>undefined</code></li>
-</ul>
-</li>
-<li><code>yield</code> 表达式后面的表达式，只有调用 <code>next</code> 方法、内部指针指向该语句时才会执行<ul>
-<li>给 JavaScript 提供了手动<strong>惰性求值</strong>的语法功能</li>
-</ul>
-</li>
-<li>不用 <code>yield</code> 的情况下，Generator 就是一个单纯的暂缓执行函数</li>
-<li><code>yield</code> 只能用在 Generator 函数里面，其它地方会报错</li>
-<li><code>yield</code> 如果用在另一个表达式中，必须放在括号里面</li>
-<li><code>yield</code> 用做函数参数或放在赋值表达式右边，不用括号</li>
-</ul>
-<h2 id="next-方法的参数"><a href="#next-方法的参数" class="headerlink" title="next 方法的参数"></a>next 方法的参数</h2><blockquote>
-<p>这节没看懂</p>
-</blockquote>
-<ul>
-<li><code>yield</code> 表达式本身没有返回值，或者说总是返回 <code>undefined</code></li>
-<li><code>next</code> 方法可以带一个参数，该参数会被当作上一个 <code>yield</code> 表达式的返回值</li>
-</ul>
-<h2 id="for…of-循环"><a href="#for…of-循环" class="headerlink" title="for…of 循环"></a>for…of 循环</h2><ul>
-<li><code>for...of</code> 循环自动遍历 Generator 函数运行时生成的 <code>Iterator</code> 对象，此时不需要调用 <code>next</code> 方法</li>
-<li>斐波那契</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fibonacci</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [prev, curr] = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    <span class="keyword">yield</span> curr;</span><br><span class="line">    [prev, curr] = [curr, prev + curr];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> fibonacci()) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &gt; <span class="number">1000</span>) <span class="keyword">break</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Generator-prototype-throw"><a href="#Generator-prototype-throw" class="headerlink" title="Generator.prototype.throw()"></a>Generator.prototype.throw()</h2><ul>
-<li><code>throw</code> 方法可以在函数体外抛出错误，在函数体内捕获<ul>
-<li>前提是必须进行过一次 <code>next</code> 方法</li>
-<li>捕获后会自动执行一次 <code>next</code> 方法，不影响下次遍历</li>
-</ul>
-</li>
-<li>如果 Generator 函数内部没有部署 <code>try...catch</code> 代码块，那么错误会被外部的 <code>try...catch</code> 代码块捕获</li>
-<li>如果都没有，那么程序将报错，直接中断执行</li>
-</ul>
-<h2 id="Generator-prototype-return"><a href="#Generator-prototype-return" class="headerlink" title="Generator.prototype.return()"></a>Generator.prototype.return()</h2><ul>
-<li>返回给定的值，并终结遍历 Generator 函数</li>
-</ul>
-<h2 id="next-、throw-、return-的共同点"><a href="#next-、throw-、return-的共同点" class="headerlink" title="next()、throw()、return() 的共同点"></a>next()、throw()、return() 的共同点</h2><ul>
-<li>作用都是让 Generator 函数恢复执行，使用不同的语句替换 <code>yield</code> 表达式</li>
-<li><code>next()</code> 是将 <code>yield</code> 表达式替换成一个值</li>
-<li><code>throw()</code> 是将 <code>yield</code> 表达式替换成一个 <code>throw</code> 语句</li>
-<li><code>return()</code> 是将 <code>yield</code> 表达式替换成一个 <code>return</code> 语句</li>
-</ul>
-<h2 id="yield-表达式-1"><a href="#yield-表达式-1" class="headerlink" title="yield* 表达式"></a>yield* 表达式</h2><ul>
-<li>在一个 Generator 函数里面执行另一个 Generator 函数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'a'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'b'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">yield</span>* foo();</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'a'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'b'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'x'</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> foo()) &#123;</span><br><span class="line">    <span class="keyword">yield</span> v;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'y'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> bar()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "x"</span></span><br><span class="line"><span class="comment">// "a"</span></span><br><span class="line"><span class="comment">// "b"</span></span><br><span class="line"><span class="comment">// "y"</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>从语法角度看，如果<code>yield</code>表达式后面跟的是一个遍历器对象，需要在<code>yield</code>表达式后面加上星号，就会执行这个遍历器</li>
-<li>任何数据结构只要有 Iterator 接口，就可以被<code>yield*</code>遍历</li>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ul>
+<li><p><a href="https://www.cnblogs.com/Antwan-Dmy/p/10714445.html" target="_blank" rel="noopener">2019 面试准备 - JS 防抖与节流 (超级 重要!!!!!)</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/ckDxGqXn5rhus_JnwjtQFA" target="_blank" rel="noopener">【滴滴】什么是防抖和节流，他们的应用场景有哪些</a></p>
+</li>
 </ul>
-<h2 id="作为对象属性的-Generator-函数"><a href="#作为对象属性的-Generator-函数" class="headerlink" title="作为对象属性的 Generator 函数"></a>作为对象属性的 Generator 函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  * myGeneratorMethod() &#123;</span><br><span class="line">    ···</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  myGeneratorMethod: <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ···</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <div class="article-footer">
@@ -443,7 +381,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator函数的语法" target="_blank" rel="external">http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/</a>
+      <a href="http://ziiyan.github.io/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/" title="面试准备：防抖 &amp; 节流" target="_blank" rel="external">http://ziiyan.github.io/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -490,12 +428,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="Set和Map数据结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/03/29/JS%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" title="JS运行机制"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/21/16-Promise%E5%AF%B9%E8%B1%A1/" title="Promise对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/03/28/23-24-module/" title="module"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
