@@ -17,16 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2020/1 | life kicks in right now</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="life kicks in right now">
-<meta property="og:url" content="http://ziiyan.github.io/archives/2020/01/index.html">
+  <title>面试准备：虚拟DOM | life kicks in right now</title>
+  <meta name="description" content="真实 DOM 解析流程 检查 HTML 并构建 DOM 检查 CSS 构建 CSSOM 结合 DOM &amp; CSSOM，构建 Render 树 每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标 根据 render 树和节点坐标，调用每个节点的 paint 方法，绘制页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试准备：虚拟DOM">
+<meta property="og:url" content="http://ziiyan.github.io/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/index.html">
 <meta property="og:site_name" content="life kicks in right now">
+<meta property="og:description" content="真实 DOM 解析流程 检查 HTML 并构建 DOM 检查 CSS 构建 CSSOM 结合 DOM &amp; CSSOM，构建 Render 树 每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标 根据 render 树和节点坐标，调用每个节点的 paint 方法，绘制页面">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-11T01:02:38.000Z">
+<meta property="article:modified_time" content="2020-08-11T01:56:49.118Z">
 <meta property="article:author" content="ziiyan">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/archives/2020/01/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -288,49 +294,203 @@
 
   
   
+<aside class="sidebar sidebar-toc" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#真实-DOM-解析流程"><span class="toc-number">1.</span> <span class="toc-text">真实 DOM 解析流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点"><span class="toc-number">1.1.</span> <span class="toc-text">注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">2.</span> <span class="toc-text">references</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2020/1</h1>
-	      <p class="text-muted">共 1 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-面试准备：虚拟DOM" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      面试准备：虚拟DOM
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/" class="article-date">
+	  <time datetime="2020-08-11T01:02:38.000Z" itemprop="datePublished">2020-08-11</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="真实-DOM-解析流程"><a href="#真实-DOM-解析流程" class="headerlink" title="真实 DOM 解析流程"></a>真实 DOM 解析流程</h2><ol>
+<li>检查 HTML 并构建 DOM</li>
+<li>检查 CSS 构建 CSSOM</li>
+<li>结合 DOM &amp; CSSOM，构建 Render 树<ul>
+<li>每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象</li>
+<li>render 对象构成 render 树</li>
+</ul>
+</li>
+<li>根据 render 树确定节点坐标</li>
+<li>根据 render 树和节点坐标，调用每个节点的 paint 方法，绘制页面</li>
+</ol>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>DOM 树渐进构建，不必等整个 HTML 解析完</li>
+<li>Render 树、DOM 树、CSSOM 树构建并不完全独立，可能会交叉</li>
+<li>CSS 从右往左解析，嵌套标签越多，解析越慢</li>
+</ul>
+<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><ul>
+<li><a href="https://juejin.im/post/6844903895467032589" target="_blank" rel="noopener">深入剖析：Vue核心之虚拟DOM</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://ziiyan.github.io/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/" title="面试准备：虚拟DOM" target="_blank" rel="external">http://ziiyan.github.io/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ziiyan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ziiyan" target="_blank"><span class="text-dark">Ziiyan</span><small class="ml-1x">Life kicks in right now</small></a></h3>
+        <div>因上努力，果上随缘</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+           
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/archives/2020" class="archive-year">2020</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/08/07/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AReact/" title="学习笔记：React"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2020/01/16/%E7%AC%AC1%E7%AB%A0-JavaScript%20%E7%AE%80%E4%BB%8B/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-01-16T15:22:54.000Z" itemprop="datePublished">2020-01-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 第一章 JavaScript 简介
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-  
-    </div></div></div></section>
-  
 
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -383,6 +543,31 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '25953118',
+    clientSecret: 'wzy574542379',
+    repo: 'https://github.com/ziiyan',
+    owner: 'ziiyan',
+    admin: ['ziiyan'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
 
 
 
