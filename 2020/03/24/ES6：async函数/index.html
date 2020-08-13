@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Symbol | life kicks in right now</title>
-  <meta name="description" content="Symbol概述 ES5 的对象属性名都是字符串，容易造成属性名冲突 原始数据类型 Symbol 表示独一无二的值 通过 Symbol 函数生成 不能使用 new 命令 可以接受参数，作为变量的描述，用来区分 如果参数是对象，先调用该对象的 toString 方法      12let s &#x3D; Symbol();typeof s	&#x2F;&#x2F; &quot;symbol&quot;   现在，对象的属性名可以有两种类型  字符">
+  <title>ES6：async函数 | life kicks in right now</title>
+  <meta name="description" content="async 函数含义 async 使异步操作变得更加方便，Generator 的语法糖  将 Generator 函数的星号（*）替换成 async，将 yield 替换成 await  async 对 Generator 函数的改进：  内置执行器，会自动执行 Generator 需要 co 模块才能自动执行 或者调用 next 手动执行   更好的语义 更广的适用性 await 后面可以是 P">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Symbol">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/18/12-Symbol/index.html">
+<meta property="og:title" content="ES6：async函数">
+<meta property="og:url" content="http://ziiyan.github.io/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="Symbol概述 ES5 的对象属性名都是字符串，容易造成属性名冲突 原始数据类型 Symbol 表示独一无二的值 通过 Symbol 函数生成 不能使用 new 命令 可以接受参数，作为变量的描述，用来区分 如果参数是对象，先调用该对象的 toString 方法      12let s &#x3D; Symbol();typeof s	&#x2F;&#x2F; &quot;symbol&quot;   现在，对象的属性名可以有两种类型  字符">
+<meta property="og:description" content="async 函数含义 async 使异步操作变得更加方便，Generator 的语法糖  将 Generator 函数的星号（*）替换成 async，将 yield 替换成 await  async 对 Generator 函数的改进：  内置执行器，会自动执行 Generator 需要 co 模块才能自动执行 或者调用 next 手动执行   更好的语义 更广的适用性 await 后面可以是 P">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-18T13:15:15.000Z">
-<meta property="article:modified_time" content="2020-03-18T15:18:13.926Z">
+<meta property="article:published_time" content="2020-03-24T13:15:56.000Z">
+<meta property="article:modified_time" content="2020-08-13T08:56:50.690Z">
 <meta property="article:author" content="ziiyan">
 <meta property="article:tag" content="ECMAScript 6 入门">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/18/12-Symbol/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -297,21 +297,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Symbol"><span class="toc-number">1.</span> <span class="toc-text">Symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-prototype-description"><span class="toc-number">1.2.</span> <span class="toc-text">Symbol.prototype.description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为属性名的-Symbol"><span class="toc-number">1.3.</span> <span class="toc-text">作为属性名的 Symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例：消除魔术字符串"><span class="toc-number">1.4.</span> <span class="toc-text">实例：消除魔术字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性名的遍历"><span class="toc-number">1.5.</span> <span class="toc-text">属性名的遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-for-，Symbol-keyFor"><span class="toc-number">1.6.</span> <span class="toc-text">Symbol.for()，Symbol.keyFor()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例：模块的-Singleton-模式"><span class="toc-number">1.7.</span> <span class="toc-text">实例：模块的 Singleton 模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置的-Symbol-值"><span class="toc-number">1.8.</span> <span class="toc-text">内置的 Symbol 值</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#async-函数"><span class="toc-number">1.</span> <span class="toc-text">async 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#含义"><span class="toc-number">1.1.</span> <span class="toc-text">含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-number">1.2.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.3.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顶层-await"><span class="toc-number">1.4.</span> <span class="toc-text">顶层 await</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-12-Symbol" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-ES6：async函数" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Symbol
+      ES6：async函数
     </h1>
   
 
@@ -319,8 +319,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/18/12-Symbol/" class="article-date">
-	  <time datetime="2020-03-18T13:15:15.000Z" itemprop="datePublished">2020-03-18</time>
+	<a href="/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/" class="article-date">
+	  <time datetime="2020-03-24T13:15:56.000Z" itemprop="datePublished">2020-03-24</time>
 	</a>
 </span>
         
@@ -333,126 +333,85 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/18/12-Symbol/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
-<li>ES5 的对象属性名都是字符串，容易造成属性名冲突</li>
-<li>原始数据类型 <code>Symbol</code> 表示独一无二的值</li>
-<li>通过 <code>Symbol</code> 函数生成<ul>
-<li>不能使用 <code>new</code> 命令</li>
-<li>可以接受参数，作为变量的描述，用来区分<ul>
-<li>如果参数是对象，先调用该对象的 <code>toString</code> 方法</li>
-</ul>
+        <h1 id="async-函数"><a href="#async-函数" class="headerlink" title="async 函数"></a>async 函数</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><ul>
+<li><p>async 使异步操作变得更加方便，Generator 的语法糖</p>
 </li>
-</ul>
+<li><p>将 Generator 函数的星号（*）替换成 async，将 yield 替换成 await</p>
 </li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">typeof</span> s	<span class="comment">// "symbol"</span></span><br></pre></td></tr></table></figure>
-
+<li><p>async 对 Generator 函数的改进：</p>
 <ul>
-<li><p>现在，对象的属性名可以有两种类型</p>
+<li>内置执行器，会自动执行<ul>
+<li>Generator 需要 co 模块才能自动执行</li>
+<li>或者调用 next 手动执行</li>
+</ul>
+</li>
+<li>更好的语义</li>
+<li>更广的适用性<ul>
+<li>await 后面可以是 Promise 对象和原始类型的值（数值、字符串和布尔值，会自动转成立即 resolved 的 Promise 对象）</li>
+</ul>
+</li>
+<li>返回值是 Promise</li>
+</ul>
+</li>
+<li><p>async 可以看作多个异步操作，包装成的一个 Promise 对象，而 await 命令就是内部 then 命令的语法糖</p>
+</li>
+</ul>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><ul>
+<li>async 函数返回一个 Promise 对象，可以使用 <code>then</code> 方法添加回调函数</li>
+<li>当函数执行的时候，一旦遇到 <code>await</code> 就会先返回，等到异步操作完成，再接着执行函数体内后面的语句</li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li><p>返回 Promise 对象</p>
 <ul>
-<li>字符串</li>
-<li>Symbol 类型</li>
+<li><code>async</code> 函数内部 <code>return</code> 语句返回值，会成为 <code>then</code> 方法回调函数的参数</li>
+<li><code>async</code> 函数内部抛出错误，会导致返回的 Promise 对象变为 <code>reject</code> 状态</li>
 </ul>
 </li>
-<li><p>Symbol 值不能与其他类型的值进行运算，会报错</p>
-</li>
-<li><p>可以转为字符串和布尔值(true)，但不能转为数值</p>
-</li>
-</ul>
-<h2 id="Symbol-prototype-description"><a href="#Symbol-prototype-description" class="headerlink" title="Symbol.prototype.description"></a>Symbol.prototype.description</h2><ul>
-<li>创建 Symbol 的时候，可以添加一个描述</li>
-<li>读取描述需要将 Symbol 显式转为字符串</li>
-<li>ES2019 提供  <code>description</code> 属性，返回 Symbol 描述</li>
-</ul>
-<h2 id="作为属性名的-Symbol"><a href="#作为属性名的-Symbol" class="headerlink" title="作为属性名的 Symbol"></a>作为属性名的 Symbol</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  [mySymbol]: <span class="string">'Hello!'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; <span class="attr">value</span>: <span class="string">'Hello!'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上写法都得到同样结果</span></span><br><span class="line">a[mySymbol] <span class="comment">// "Hello!"</span></span><br></pre></td></tr></table></figure>
-
+<li><p>Promise 对象的状态变化</p>
 <ul>
-<li>Symbol 值作为对象属性名时，不能用点运算符，因为点运算符后面总是字符串<ul>
-<li><strong>要放在方括号中定义</strong></li>
+<li><code>async</code> 函数返回的 Promise 对象，必须等到内部所有 <code>await</code> 命令后面的 Promise 对象执行完，才会发生状态改变</li>
+<li>除非 <code>return</code> 或抛出错误</li>
+<li>也就是说，只有 <code>async</code> 函数内部的异步操作执行完，才会执行 <code>then</code> 方法指定的回调函数</li>
 </ul>
 </li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">const</span> a = &#123;&#125;;</span><br><span class="line">a.mySymbol = <span class="string">'Hello'</span>;</span><br><span class="line">a[mySymbol]	<span class="comment">// undefined</span></span><br><span class="line">a[<span class="string">'mySymbol'</span>] <span class="comment">// 'Hello'</span></span><br></pre></td></tr></table></figure>
-
+<li><p>await 命令</p>
 <ul>
-<li>Symbol 值作为属性名时，该属性是公开属性，不是私有属性</li>
+<li>如果 await 后面是一个 <code>thenable</code> 对象（定义了 <code>then</code> 方法的对象），会将其同等于 Promise 对象</li>
+<li>任何一个 <code>await</code> 语句后面的 Promise 对象变为 <code>reject</code> 状态，整个 <code>async</code> 函数都会中断执行<ul>
+<li>可以在 <code>async</code>  内部进行错误处理，catch 错误就不会影响后续执行</li>
 </ul>
-<h2 id="实例：消除魔术字符串"><a href="#实例：消除魔术字符串" class="headerlink" title="实例：消除魔术字符串"></a>实例：消除魔术字符串</h2><blockquote>
-<p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
-</blockquote>
+</li>
+</ul>
+</li>
+<li><p>注意点</p>
 <ul>
-<li>等于哪个值并不重要，只要确保不会跟其他属性的值冲突即可，就很适合改用 Symbol 值</li>
-</ul>
-<h2 id="属性名的遍历"><a href="#属性名的遍历" class="headerlink" title="属性名的遍历"></a>属性名的遍历</h2><ul>
-<li><p>Symbol 作为属性名，遍历对象的时候不会出现在<code>for...in</code>、<code>for...of</code>循环中</p>
+<li><p>最好把 <code>await</code> 命令放在 <code>try...catch</code> 代码块中</p>
+</li>
+<li><p>多个 <code>await</code> 命令后面的异步操作，如果不存在继发关系，最好同时触发，比较不耗时</p>
 <ul>
-<li>可以利用这个特性，为对象定义非私有、只希望内部使用的方法</li>
-</ul>
-</li>
-<li><p>不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>JSON.stringify()</code> 返回</p>
-</li>
-<li><p><code>Object.getOwnPropertySymbols()</code>方法，可以获取指定对象的所有 Symbol 属性名</p>
-<ul>
-<li>该方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值</li>
-</ul>
-</li>
-<li><p><code>Reflect.ownKeys(object)</code>方法可以返回所有类型的键名，包括常规键名和 Symbol 键名</p>
+<li><pre><code class="js"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);
+<span class="comment">// 或</span>
+<span class="keyword">let</span> fooPromise = getFoo();
+<span class="keyword">let</span> barPromise = getBar();
+<span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;
+<span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;
+&lt;!--￼<span class="number">0</span>--&gt;
+</code></pre>
 </li>
 </ul>
-<h2 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h2><ul>
-<li><code>Symbol.for(&#39;string&#39;)</code> 检查是否有以 <code>string</code> 作为名称的 Symbol 值，有则返回，没有则新建，并注册到全局</li>
-<li><code>Symbol()</code>写法没有登记机制</li>
-<li><code>Symbol.keyFor(变量名)</code>方法返回一个已登记的 Symbol 类型值的<code>key</code></li>
-</ul>
-<h2 id="实例：模块的-Singleton-模式"><a href="#实例：模块的-Singleton-模式" class="headerlink" title="实例：模块的 Singleton 模式"></a>实例：模块的 Singleton 模式</h2><ul>
-<li>Singleton 模式（单例模式）指的是调用一个类，任何时候返回到都是同一个实例</li>
-</ul>
-<h2 id="内置的-Symbol-值"><a href="#内置的-Symbol-值" class="headerlink" title="内置的 Symbol 值"></a>内置的 Symbol 值</h2><ul>
-<li>Symbol.hasInstance<ul>
-<li>指向一个内部方法</li>
-<li>当其他对象使用<code>instanceof</code>运算符，会调用这个方法</li>
-<li>比如，<code>foo instanceof Foo</code>在语言内部，实际调用的是<code>Foo[Symbol.hasInstance](foo)</code></li>
+</li>
 </ul>
 </li>
-<li>Symbol.isConcatSpreadable<ul>
-<li>等于一个布尔值</li>
-<li>表示该对象用于<code>Array.prototype.concat()</code>时，是否可以展开</li>
 </ul>
-</li>
-<li>Symbol.species<ul>
-<li>指向一个构造函数，创建衍生对象时使用该属性</li>
-</ul>
-</li>
-<li>Symbol.match<ul>
-<li>指向一个函数</li>
-<li>如果该属性存在，调用它并返回方法的返回值</li>
-</ul>
-</li>
-<li>Symbol.replace<ul>
-<li>指向一个方法</li>
-<li>当该对象被<code>String.prototype.replace</code>方法调用时，会返回该方法的返回值</li>
-</ul>
-</li>
-<li>Symbol.search<ul>
-<li>指向一个方法</li>
-<li>当该对象被<code>String.prototype.search</code>方法调用时，会返回该方法的返回值</li>
-</ul>
-</li>
-<li>Symbol.split<ul>
-<li>指向一个方法</li>
-<li>当该对象被<code>String.prototype.split</code>方法调用时，会返回该方法的返回值</li>
-</ul>
-</li>
-<li>Symbol.iterator</li>
-<li>Symbol.toPrimitive</li>
-<li>Symbol.toStringTag</li>
-<li>SYmbol.unscopables</li>
+<h2 id="顶层-await"><a href="#顶层-await" class="headerlink" title="顶层 await"></a>顶层 await</h2><ul>
+<li>语法提案</li>
+<li>借用 <code>await</code> 解决模块异步加载的问题</li>
 </ul>
 
       
@@ -463,7 +422,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/18/12-Symbol/" title="Symbol" target="_blank" rel="external">http://ziiyan.github.io/2020/03/18/12-Symbol/</a>
+      <a href="http://ziiyan.github.io/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/" title="ES6：async函数" target="_blank" rel="external">http://ziiyan.github.io/2020/03/24/ES6%EF%BC%9Aasync%E5%87%BD%E6%95%B0/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -510,12 +469,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/21/16-Promise%E5%AF%B9%E8%B1%A1/" title="Promise对象"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/03/24/ES6%EF%BC%9AClass%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%92%8C%E7%BB%A7%E6%89%BF/" title="ES6：Class的基本语法和继承"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/18/8-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/" title="函数的扩展"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/03/24/Vue%E5%9F%BA%E7%A1%80/" title="Vue 常考知识点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

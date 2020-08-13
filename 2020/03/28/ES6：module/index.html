@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Set和Map数据结构 | life kicks in right now</title>
-  <meta name="description" content="Set 和 Map 数据结构Set基本用法 类似于数组，但成员的值都是唯一的 不会发生类型转换，所以 5 和 “5” 不同 两个 NaN 是相等的，这和 &#x3D;&#x3D;&#x3D; 不同 两个对象总是不想等   Set 构造函数可以接受一个数组（或具有 iterable 接口的其他数据结构）作为参数  123456789const s &#x3D; new Set();[2, 3, 5, 4, 5, 2, 2].forEach">
+  <title>ES6：module | life kicks in right now</title>
+  <meta name="description" content="Module 的语法概述 CommonJS 模块就是对象，输入时必须查找对象属性  12345678&#x2F;&#x2F; CommonJS模块let &amp;#123; stat, exists, readFile &amp;#125; &#x3D; require(&#39;fs&#39;);&#x2F;&#x2F; 等同于let _fs &#x3D; require(&#39;fs&#39;);let stat &#x3D; _fs.stat;let exists &#x3D; _fs.exists;let re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Set和Map数据结构">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:title" content="ES6：module">
+<meta property="og:url" content="http://ziiyan.github.io/2020/03/28/ES6%EF%BC%9Amodule/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="Set 和 Map 数据结构Set基本用法 类似于数组，但成员的值都是唯一的 不会发生类型转换，所以 5 和 “5” 不同 两个 NaN 是相等的，这和 &#x3D;&#x3D;&#x3D; 不同 两个对象总是不想等   Set 构造函数可以接受一个数组（或具有 iterable 接口的其他数据结构）作为参数  123456789const s &#x3D; new Set();[2, 3, 5, 4, 5, 2, 2].forEach">
+<meta property="og:description" content="Module 的语法概述 CommonJS 模块就是对象，输入时必须查找对象属性  12345678&#x2F;&#x2F; CommonJS模块let &amp;#123; stat, exists, readFile &amp;#125; &#x3D; require(&#39;fs&#39;);&#x2F;&#x2F; 等同于let _fs &#x3D; require(&#39;fs&#39;);let stat &#x3D; _fs.stat;let exists &#x3D; _fs.exists;let re">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T05:34:01.000Z">
-<meta property="article:modified_time" content="2020-03-22T15:55:15.358Z">
+<meta property="article:published_time" content="2020-03-28T10:51:28.000Z">
+<meta property="article:modified_time" content="2020-08-13T08:57:09.211Z">
 <meta property="article:author" content="ziiyan">
 <meta property="article:tag" content="ECMAScript 6 入门">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/03/28/ES6%EF%BC%9Amodule/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -297,21 +297,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Set-和-Map-数据结构"><span class="toc-number">1.</span> <span class="toc-text">Set 和 Map 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-number">1.1.</span> <span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-实例的属性和方法"><span class="toc-number">1.1.2.</span> <span class="toc-text">Set 实例的属性和方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WeakSet"><span class="toc-number">1.2.</span> <span class="toc-text">WeakSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-number">1.3.</span> <span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例的属性和操作方法"><span class="toc-number">1.3.2.</span> <span class="toc-text">实例的属性和操作方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与其他数据结构的互相转换"><span class="toc-number">1.3.3.</span> <span class="toc-text">与其他数据结构的互相转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WeakMap"><span class="toc-number">1.4.</span> <span class="toc-text">WeakMap</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Module-的语法"><span class="toc-number">1.</span> <span class="toc-text">Module 的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#严格模式"><span class="toc-number">1.2.</span> <span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#export-命令"><span class="toc-number">1.3.</span> <span class="toc-text">export 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-命令"><span class="toc-number">1.4.</span> <span class="toc-text">import 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块的整体加载"><span class="toc-number">1.5.</span> <span class="toc-text">模块的整体加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#export-default-命令"><span class="toc-number">1.6.</span> <span class="toc-text">export default 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#export-与-import-的复合写法"><span class="toc-number">1.7.</span> <span class="toc-text">export 与 import 的复合写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import"><span class="toc-number">1.8.</span> <span class="toc-text">import()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Module-的加载实现"><span class="toc-number">2.</span> <span class="toc-text">Module 的加载实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器加载"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统方法"><span class="toc-number">2.1.1.</span> <span class="toc-text">传统方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载规则"><span class="toc-number">2.1.2.</span> <span class="toc-text">加载规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-模块与-CommonJS-模块的差异"><span class="toc-number">2.2.</span> <span class="toc-text">ES6 模块与 CommonJS 模块的差异</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-13-Set和Map数据结构" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-ES6：module" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Set和Map数据结构
+      ES6：module
     </h1>
   
 
@@ -319,8 +319,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-date">
-	  <time datetime="2020-03-22T05:34:01.000Z" itemprop="datePublished">2020-03-22</time>
+	<a href="/2020/03/28/ES6%EF%BC%9Amodule/" class="article-date">
+	  <time datetime="2020-03-28T10:51:28.000Z" itemprop="datePublished">2020-03-28</time>
 	</a>
 </span>
         
@@ -333,136 +333,117 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/28/ES6%EF%BC%9Amodule/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Set-和-Map-数据结构"><a href="#Set-和-Map-数据结构" class="headerlink" title="Set 和 Map 数据结构"></a>Set 和 Map 数据结构</h1><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
-<li>类似于数组，但成员的值都是唯一的<ul>
-<li>不会发生类型转换，所以 5 和 “5” 不同</li>
-<li>两个 NaN 是相等的，这和 <code>===</code> 不同</li>
-<li>两个对象总是不想等</li>
+        <h1 id="Module-的语法"><a href="#Module-的语法" class="headerlink" title="Module 的语法"></a>Module 的语法</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>CommonJS 模块就是对象，输入时必须查找对象属性</li>
 </ul>
-</li>
-<li><code>Set</code> 构造函数可以接受一个数组（或具有 iterable 接口的其他数据结构）作为参数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].forEach(<span class="function"><span class="params">x</span> =&gt;</span> s.add(x));</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2 3 5 4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> stat = _fs.stat;</span><br><span class="line"><span class="keyword">let</span> exists = _fs.exists;</span><br><span class="line"><span class="keyword">let</span> readfile = _fs.readfile;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>Array.from 可以将 Set 结构转为数组</p>
+<p>整体加载<code>fs</code>模块（即加载<code>fs</code>的所有方法），生成一个对象（<code>_fs</code>），然后再从这个对象上面读取 3 个方法。这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。</p>
 </blockquote>
-<h3 id="Set-实例的属性和方法"><a href="#Set-实例的属性和方法" class="headerlink" title="Set 实例的属性和方法"></a>Set 实例的属性和方法</h3><ul>
-<li><p>属性</p>
 <ul>
-<li><code>Set.prototype.constructor</code> 构造函数</li>
-<li><code>Set.prototype.size</code> 返回 <code>Set</code> 实例的成员总数</li>
+<li>ES6 模块不是对象，而是通过<code>export</code>命令显式指定输出的代码，再通过<code>import</code>命令输入</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码的实质是从<code>fs</code>模块加载 3 个方法，其他方法不加载</li>
+<li>这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高</li>
+<li>这也导致了没法引用 ES6 模块本身，因为它不是对象。</li>
+</ul>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><ul>
+<li>ES6 的模块自动采用严格模式，不管你有没有在模块头部加上<code>&quot;use strict&quot;;</code></li>
+<li>限制<ul>
+<li>变量必须声明后再使用</li>
+<li>函数的参数不能有同名属性，否则报错</li>
+<li>不能使用<code>with</code>语句</li>
+<li>不能对只读属性赋值，否则报错</li>
+<li>不能使用前缀 0 表示八进制数，否则报错</li>
+<li>不能删除不可删除的属性，否则报错</li>
+<li>不能删除变量<code>delete prop</code>，会报错，只能删除属性<code>delete global[prop]</code></li>
+<li><code>eval</code>不会在它的外层作用域引入变量</li>
+<li><code>eval</code>和<code>arguments</code>不能被重新赋值</li>
+<li><code>arguments</code>不会自动反映函数参数的变化</li>
+<li>不能使用<code>arguments.callee</code></li>
+<li>不能使用<code>arguments.caller</code></li>
+<li>禁止<code>this</code>指向全局对象</li>
+<li>不能使用<code>fn.caller</code>和<code>fn.arguments</code>获取函数调用的堆栈</li>
+<li>增加了保留字（比如<code>protected</code>、<code>static</code>和<code>interface</code>）</li>
 </ul>
 </li>
-<li><p>方法</p>
-<ul>
-<li><p>操作方法</p>
-<ul>
-<li><code>Set.prototype.add(value)</code> 添加某个值，返回 Set 结构本身</li>
-<li><code>Set.prototype.delete(value)</code> 删除某个值，返回布尔表示是否成功</li>
-<li><code>Set.prototype.has(value)</code> 返回布尔值，表示是否为 <code>Set</code> 成员</li>
-<li><code>Set.prototype.clear(value)</code>清空，没有返回值</li>
+<li>ES6 模块之中，顶层的<code>this</code>指向<code>undefined</code>，即不应该在顶层代码使用<code>this</code></li>
 </ul>
-</li>
-<li><p>遍历方法</p>
-<ul>
-<li><p><code>Set.prototype.keys()</code> 返回键名，遍历器对象</p>
-</li>
-<li><p><code>Set.prototype.values()</code> 返回键值，遍历器对象</p>
+<h2 id="export-命令"><a href="#export-命令" class="headerlink" title="export 命令"></a>export 命令</h2><ul>
+<li>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取</li>
+<li>如果希望外部能够读取模块内部的某个变量，就必须使用<code>export</code>关键字输出该变量</li>
+<li>通常情况下，<code>export</code>输出的变量就是本来的名字，但是可以使用<code>as</code>关键字重命名。重命名后，可以用不同的名字输出两次</li>
+<li><code>export</code>语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值</li>
+</ul>
 <blockquote>
-<p>Set 结构没有键名，只有键值（或者说键名键值都是同一个值），所以 keys 方法和 values 方法一样</p>
+<p><code>export</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错，下一节的<code>import</code>命令也是如此。这是因为处于条件代码块之中，就没法做静态优化了，违背了 ES6 模块的设计初衷</p>
 </blockquote>
-</li>
-<li><p><code>Set.prototype.entries()</code> 返回键值对，遍历器对象</p>
-</li>
-<li><p><code>Set.prototype.forEach()</code> 使用回调函数遍历每个成员</p>
-</li>
+<h2 id="import-命令"><a href="#import-命令" class="headerlink" title="import 命令"></a>import 命令</h2><ul>
+<li><code>import</code>命令要使用<code>as</code>关键字，将输入的变量重命名</li>
+<li><code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口</li>
+<li>如果是对象，属性可修改，但不建议这样做</li>
+<li><code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行<ul>
+<li>本质是，<code>import</code>命令是编译阶段执行的，在代码运行之前</li>
 </ul>
 </li>
+<li>由于<code>import</code>是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构</li>
 </ul>
-</li>
+<h2 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h2><ul>
+<li><code>import * (as xxx) from &#39;...&#39;</code></li>
 </ul>
-<h2 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h2><ul>
-<li>类似 Set</li>
-<li>成员只能是对象<ul>
-<li>弱引用，垃圾回收机制不考虑 WeakSet 的引用，可能会随时被清空</li>
+<h2 id="export-default-命令"><a href="#export-default-命令" class="headerlink" title="export default 命令"></a>export default 命令</h2><ul>
+<li><code>export default xxx</code> 不需要大括号，<code>import xxx from &#39;...&#39;</code> 也不需要大括号</li>
 </ul>
-</li>
-<li>不可遍历</li>
+<blockquote>
+<p><code>export default</code>命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此<code>export default</code>命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应<code>export default</code>命令</p>
+</blockquote>
+<ul>
+<li>本质上，<code>export default</code>就是输出一个叫做<code>default</code>的变量或方法，然后系统允许你为它取任意名字</li>
 </ul>
-<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
-<li>类似于对象，是键值对的集合</li>
-<li>对象的键只能是字符串，Map 的键不限制类型</li>
-<li><code>Map</code> 构造函数可接受数组，数组成员表示一个键值对（任何具有 Iterator 接口，且每个成员都是一个双元素的数组的数据结构，例如 Set 和 Map）</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'zhangsan'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">])</span><br><span class="line"><span class="comment">// 实际上执行</span></span><br><span class="line"><span class="keyword">const</span> items = [</span><br><span class="line">  [<span class="string">'name'</span>, <span class="string">'zhangsan'</span>],</span><br><span class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">items.forEach(</span><br><span class="line">	([key, value]) =&gt; map.set(key, value)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="export-与-import-的复合写法"><a href="#export-与-import-的复合写法" class="headerlink" title="export 与 import 的复合写法"></a>export 与 import 的复合写法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">'my_module'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以简单理解为</span></span><br><span class="line"><span class="keyword">import</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">'my_module'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125;;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>多次赋值一个键，会覆盖</li>
-<li>读取一个未知的键，返回 <code>undefined</code></li>
-<li>对于对象，地址相同 Map 结构才视为同一个键</li>
-<li>对于简单类型，值严格相等 <code>===</code> 就是一个键</li>
+<li>写成一行以后，<code>foo</code>和<code>bar</code>实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，当前模块不能直接使用<code>foo</code>和<code>bar</code></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set([<span class="string">'a'</span>], <span class="number">555</span>);</span><br><span class="line">map.get([<span class="string">'a'</span>]) <span class="comment">//	undefined</span></span><br><span class="line"><span class="comment">// ['a'] 是实例，这里两个实例 ['a'] 内存地址不同</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="实例的属性和操作方法"><a href="#实例的属性和操作方法" class="headerlink" title="实例的属性和操作方法"></a>实例的属性和操作方法</h3><ul>
-<li>属性<ul>
-<li><code>size</code></li>
+<h2 id="import"><a href="#import" class="headerlink" title="import()"></a>import()</h2><ul>
+<li><code>import</code>和<code>export</code>命令只能在模块的顶层，不能在代码块之中</li>
+<li>有利于编译器提高效率，但也导致无法在运行时加载模块</li>
+<li>ES2020 提案引入 <code>import()</code> 函数支持动态加载模块</li>
 </ul>
-</li>
-<li>方法<ul>
-<li>操作方法<ul>
-<li><code>Map.prototype.set(key, value)</code><ul>
-<li>返回当前 <code>Map</code> 对象，可以采用链式写法</li>
+<h1 id="Module-的加载实现"><a href="#Module-的加载实现" class="headerlink" title="Module 的加载实现"></a>Module 的加载实现</h1><h2 id="浏览器加载"><a href="#浏览器加载" class="headerlink" title="浏览器加载"></a>浏览器加载</h2><h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><ul>
+<li>浏览器是同步加载 JavaScript 脚本，即渲染引擎遇到<code>&lt;script&gt;</code>标签就会停下来，等到执行完脚本，再继续向下渲染。如果是外部脚本，还必须加入脚本下载的时间</li>
+<li>如果脚本体积很大，下载和执行的时间就会很长，因此造成浏览器堵塞，用户会感觉到浏览器“卡死”了，没有任何响应。这显然是很不好的体验，所以浏览器允许脚本异步加载</li>
+<li><code>&lt;script&gt;</code> 标签打开 defer 或 async 属性，脚本就会异步加载。渲染引擎遇到这一行命令，就会开始下载外部脚本，但不会等它下载和执行，而是直接执行后面的命令</li>
 </ul>
-</li>
-<li><code>Map.prototype.get(key)</code></li>
-<li><code>Map.prototype.has(key)</code></li>
-<li><code>Map.prototype.delete(key)</code></li>
-<li><code>Map.prototype.clear(key)</code></li>
+<blockquote>
+<p><code>defer</code>与<code>async</code>的区别是：<code>defer</code>要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；<code>async</code>一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。</p>
+<p>一句话，<code>defer</code>是“渲染完再执行”，<code>async</code>是“下载完就执行”。</p>
+<p>另外，如果有多个<code>defer</code>脚本，会按照它们在页面出现的顺序加载，而多个<code>async</code>脚本是不能保证加载顺序的</p>
+</blockquote>
+<h3 id="加载规则"><a href="#加载规则" class="headerlink" title="加载规则"></a>加载规则</h3><ul>
+<li>浏览器加载 ES6 模块，也使用 <code>&lt;script&gt;</code> 标签，但是要加入 <code>type=&quot;module&quot;</code> 属性</li>
+<li><code>module</code> 属性都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了``标签的<code>defer</code>属性</li>
 </ul>
-</li>
-<li>遍历方法<ul>
-<li><code>Map.prototype.keys()</code></li>
-<li><code>Map.prototype.values()</code></li>
-<li><code>Map.prototype.entries()</code></li>
-<li><code>Map.prototype.forEach()</code></li>
+<h2 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h2><ul>
+<li>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用<ul>
+<li>一旦输出一个值，模块内部的变化就影响不到这个值</li>
 </ul>
 </li>
+<li>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口<ul>
+<li>生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值</li>
+<li>ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块</li>
 </ul>
 </li>
-<li>Map 本身没有 <code>map</code> 和 <code>filter</code> 方法，需要结合数组</li>
-</ul>
-<h3 id="与其他数据结构的互相转换"><a href="#与其他数据结构的互相转换" class="headerlink" title="与其他数据结构的互相转换"></a>与其他数据结构的互相转换</h3><ul>
-<li><p>Map -&gt; 数组</p>
-<ul>
-<li><code>[...map]</code></li>
-</ul>
-</li>
-<li><p>数组 -&gt; Map</p>
-<ul>
-<li><code>new Map(array)</code></li>
-</ul>
-</li>
-<li><p>Map -&gt; 对象</p>
-</li>
-<li><p>对象 -&gt; Map</p>
-</li>
-<li><p>Map -&gt; JSON</p>
-</li>
-<li><p>JSON -&gt; Map</p>
-</li>
-</ul>
-<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><ul>
-<li>类似 Map</li>
-<li>键名只能对象（除了 null）</li>
-<li>指向的对象不计入垃圾回收机制</li>
 </ul>
 
       
@@ -473,7 +454,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="Set和Map数据结构" target="_blank" rel="external">http://ziiyan.github.io/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
+      <a href="http://ziiyan.github.io/2020/03/28/ES6%EF%BC%9Amodule/" title="ES6：module" target="_blank" rel="external">http://ziiyan.github.io/2020/03/28/ES6%EF%BC%9Amodule/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -520,12 +501,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/22/17-Iterator%E5%92%8Cfor-of%E5%BE%AA%E7%8E%AF/" title="Iterator和for...of循环"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/03/28/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%98%B2%E6%8A%96%20&%20%E8%8A%82%E6%B5%81/" title="面试准备：防抖 &amp; 节流"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator函数的语法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/03/25/%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="原型 &amp; 原型链"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

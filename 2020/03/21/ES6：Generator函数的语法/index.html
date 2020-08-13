@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Generator函数的语法 | life kicks in right now</title>
+  <title>ES6：Generator函数的语法 | life kicks in right now</title>
   <meta name="description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Generator函数的语法">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="ES6：Generator函数的语法">
+<meta property="og:url" content="http://ziiyan.github.io/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="life kicks in right now">
 <meta property="og:description" content="Generator 函数的语法简介基本概念 异步编程解决方案，语法行为与传统函数完全不同 理解 语法上，Generator 函数是一个状态机，封装了多个内部状态 执行 Generator 函数会返回一个遍历器对象 遍历器对象可以依次遍历 Generator 函数内部的每一个状态     形式上，Generator 函数是一个普通函数 两个特征 function 关键字与函数名之间有一个星号，星号位">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-21T09:18:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T13:40:13.754Z">
+<meta property="article:modified_time" content="2020-08-13T08:57:01.993Z">
 <meta property="article:author" content="ziiyan">
 <meta property="article:tag" content="ECMAScript 6 入门">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -304,14 +304,14 @@
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-18-Generator函数的语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-ES6：Generator函数的语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Generator函数的语法
+      ES6：Generator函数的语法
     </h1>
   
 
@@ -319,7 +319,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" class="article-date">
+	<a href="/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" class="article-date">
 	  <time datetime="2020-03-21T09:18:23.000Z" itemprop="datePublished">2020-03-21</time>
 	</a>
 </span>
@@ -333,7 +333,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
@@ -443,7 +443,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator函数的语法" target="_blank" rel="external">http://ziiyan.github.io/2020/03/21/18-Generator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/</a>
+      <a href="http://ziiyan.github.io/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="ES6：Generator函数的语法" target="_blank" rel="external">http://ziiyan.github.io/2020/03/21/ES6%EF%BC%9AGenerator%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -490,12 +490,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/22/13-Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="Set和Map数据结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/03/22/ES6%EF%BC%9ASet%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="ES6：Set和Map数据结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/21/16-Promise%E5%AF%B9%E8%B1%A1/" title="Promise对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/03/21/ES6%EF%BC%9APromise%E5%AF%B9%E8%B1%A1/" title="ES6：Promise对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
