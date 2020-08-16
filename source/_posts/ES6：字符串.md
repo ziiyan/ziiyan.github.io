@@ -1,0 +1,191 @@
+---
+title: ES6：字符串的扩展
+date: 2020-03-17 00:43:37
+tags: ECMAScript 6 入门
+---
+
+# 字符串的扩展
+
+## 字符的 Unicode 表示法
+
+* ES6 加强了对 Unicode 的支持，允许采用 `\uxxxx` 形式表示一个字符，`xxxx` 表示字符的 Unicode 码点
+* 限制码点在 `\u0000` ~ `\uFFFF` 之间的字符，超出范围必须用两个双字节的形式表示
+
+```js
+"\uD842\uDFB7"
+// "𠮷"
+
+"\u20BB7"
+// " 7"
+// JavaScript 会理解成 \u20BB+7
+// \u20BB 不可打印，输出空格
+```
+
+* 只要将码点放入大括号，就能正确解读
+
+```js
+"\u{20BB7}"
+// "𠮷"
+```
+
+> 对编码仍然是一窍不通……
+
+## 字符串的遍历器接口
+
+* ES6 对字符串添加了遍历器接口（详见《Iterator》一章），使得字符串可以被 `for...of` 循环便利
+* 除了遍历字符串，遍历器最大的优点是可以识别大于 `0xFFFF` 的码点
+
+## 直接输入 U+2028 和 U+2029
+
+* JavaScript 字符串允许直接输入字符，以及输入字符的转义形式
+
+```js
+'中' === '\u4e2d'
+```
+
+* 规定不能在字符串里直接使用，只能用转义形式
+	* U+005C：反斜杠
+	* U+000D：回车
+	* U+2028：行分隔符
+	* U+2029：段分隔符
+	* U+000A：换行符
+* JSON 允许使用 U+2028、U+2029
+	* `JSON.parse()` 解析这两个会报错
+	* 为了兼容 JSON，ES2019 支持直接输入这两个
+
+## JSON.stringify() 的改造
+
+* 根据标准，JSON 数据必须是 UTF-8 编码，但是现在的 `JSON.stringify()` 有可能返回不符合 UTF-8 标准的字符串
+
+> UTF-8 标准规定，`0xD800` 到 `0xDFFF` 之间的码点必须配对使用
+
+* `JSON.stringify()` 可能返回 `0xD800` 到 `0xDFFF` 之间的单个码点
+* 为了确保返回的是合法的 UTF-8 字符，如果遇到`0xD800`到`0xDFFF`之间的单个码点，或者不存在的配对形式，它会返回转义字符串，留给应用自己决定下一步的处理
+
+## 模板字符串
+
+* 增强版的字符串，用反引号（`）标识
+* 可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入 `${变量}`
+
+```js
+let name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
+```
+
+* 反引号需要反斜杠转义
+* 保留空格和缩进，可以用 `trim()` 方法消除
+* 如果变量的值不是字符串，将按照一般的规则转为字符串
+	* 比如，大括号中是一个对象，将默认调用对象的`toString`方法
+
+## 标签模板
+
+* 模版字符串跟在一个函数名后面，该函数将被调用来处理这个模版字符串
+
+```js
+alert`hello`
+// 等同于
+alert(['hello'])
+```
+
+* 标签模版其实不是模版，而是函数调用的一种特殊形式
+	* "标签" 指的是函数，跟在后面的模版字符串是参数
+* 如果有参数，函数会依次受到多个参数
+
+```js
+function tag(stringArr, ...values) {
+  // ...
+}
+
+let a = 5;
+let b = 10;
+
+tag`Hello ${a + b} world ${a + b}`;
+//等同于
+tag(['Hello ', ' world ', ''], 15, 50);
+```
+
+* 作用
+	* 过滤 HTML 字符串，防止用户输入恶意内容
+	* 多语言转换
+	* 嵌入其他语言
+* 模版处理函数的第一个参数（模版字符串数组），还有一个 `raw` 属性，保存的是**转义**后的原字符串
+
+## 模板字符串的限制
+
+* 标签模板可以内嵌别的语言，默认将字符串转义，导致报错
+* ES2018 放松了对<u>标签模版</u>里面字符串转义的限制
+	* 遇到不合法的字符串转义，返回 `undefined`
+	* `raw` 属性上仍可以得到原始字符串
+* 不是标签模版仍然会报错
+
+
+
+# 字符串的新增方法
+
+## String.fromCodePoint()
+
+* ES5 提供 `String.fromCharCode()` 方法从 Unicode 码点返回对应字符，不能识别大于 `0xFFFF` 的字符
+* ES6 提供 `String.fromCodePoint()` 可识别大于 `0xFFFF` 的字符
+	* 多个参数会被合并成一个字符串返回
+* `fromCodePoint` 方法定义在 `String` 对象上
+*  `codePointAt` 方法定义在字符串的实例对象上
+
+## String.raw()
+
+* 替换所有变量，并对斜杠进行转义
+
+* 实现
+
+```js
+String.raw = function (strings, ...values) {
+  let output = '';
+  let index;
+  for (index = 0; index < values.length; index++) {
+    output += strings.raw[index] + values[index];
+  }
+  
+  output += strings.raw[index]
+  return output;
+}
+```
+
+## 实例方法：codePointAt()
+
+* JavaScript 内部，字符以 UTF-16 的格式存储，每个字符固定 2 字节
+* 大于 `0xFFFF ` 的字符需要 4 个字节存储，JavaScript 会认为它们是两个字符，字符串长度为 2
+* ES5 `charCodeAt()` 只能 2 个字节 2 个字节处理
+* ES6 `codePointAt()` 能够正确处理 4 个字节
+* `codePointAt()` 返回的码点是十进制的，toString(16) 转为十六进制
+
+## 实例方法：normalize()
+
+* 合成符号
+
+## 实例方法：includes(), startsWith(), endsWith()
+
+* ES5 `indexOf` 可以确定一个字符串是否包含在另一个字符串中
+* ES6
+	* `includes('subString', n)` 返回布尔值，表示是否找到了参数字符串
+	* `startsWith('subString', n) ` 返回布尔值，表示参数字符串是否在原字符串的头部
+	* `endsWith('subString', n)` 返回布尔值，表示参数字符串是否在原字符串的尾部
+
+## 实例方法：repeat(n)
+
+* 返回一个新字符串，重复 n 次
+* 小数取整，负数/Infinity 报错
+
+## 实例方法：padStart(n, 'string'), padEnd(n, 'string')
+
+* 补全长度
+	* 长度 n
+	* 用来补全的字符串 string
+
+## 实例方法：trimStart(), trimEnd()
+
+* 消除空格
+* 不修改原始字符
+
+## 实例方法：matchAll()
+
+* `matchAll()`返回一个正则表达式在当前字符串的所有匹配
+* 详见 6-正则的扩展
