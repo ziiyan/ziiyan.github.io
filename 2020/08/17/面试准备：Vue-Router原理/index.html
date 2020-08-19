@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>面试准备：Vue-Router 原理 | life kicks in right now</title>
+  <meta name="description" content="路由分类 匹配不同的 url 路径，进行解析，然后动态的渲染出区域 html 内容 但 url 改变会造成页面刷新，解决思路是改变 url 但不刷新页面  hash 模式 # 号后面 hash 值变化，不会导致浏览器发出请求，也就不会刷新页面 hash 值变化会触发 hashchange 事件，通过监听 hashchange 实现更新页面部分内容 支持所有浏览器  history 模式 H5 AP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试准备：Vue-Router 原理">
+<meta property="og:url" content="http://ziiyan.github.io/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="life kicks in right now">
+<meta property="og:description" content="路由分类 匹配不同的 url 路径，进行解析，然后动态的渲染出区域 html 内容 但 url 改变会造成页面刷新，解决思路是改变 url 但不刷新页面  hash 模式 # 号后面 hash 值变化，不会导致浏览器发出请求，也就不会刷新页面 hash 值变化会触发 hashchange 事件，通过监听 hashchange 实现更新页面部分内容 支持所有浏览器  history 模式 H5 AP">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-17T01:00:07.000Z">
+<meta property="article:modified_time" content="2020-08-19T01:42:44.817Z">
+<meta property="article:author" content="ziiyan">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://ziiyan.github.io/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ziiyan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Ziiyan</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Life kicks in right now</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>鶸挣扎记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.38px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.88px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.63px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.25px;">React</a> <a href="/tags/Vue/" style="font-size: 13.63px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.5px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.25px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.5px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13.13px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.38px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13.13px;">翻译</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.75px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJavaScript%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/" class="title">学习笔记：JavaScript运行原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-18T01:25:08.000Z" itemprop="datePublished">2020-08-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/" class="title">面试准备：Vue-Router 原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-17T01:00:07.000Z" itemprop="datePublished">2020-08-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/16/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="title">学习笔记：浏览器工作原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-16T13:16:51.000Z" itemprop="datePublished">2020-08-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/15/%E8%B4%9D%E5%A3%B3%E6%89%BE%E6%88%BF-%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2hr%E9%9D%A2/" class="title">贝壳找房-一面二面hr面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-15T10:40:32.000Z" itemprop="datePublished">2020-08-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/" class="title">面试准备：虚拟 DOM</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-11T01:02:38.000Z" itemprop="datePublished">2020-08-11</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由分类"><span class="toc-number">1.</span> <span class="toc-text">路由分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-模式"><span class="toc-number">1.1.</span> <span class="toc-text">hash 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history-模式"><span class="toc-number">1.2.</span> <span class="toc-text">history 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#abstract-模式"><span class="toc-number">1.3.</span> <span class="toc-text">abstract 模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码分析"><span class="toc-number">2.</span> <span class="toc-text">源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模式参数"><span class="toc-number">2.1.</span> <span class="toc-text">模式参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashHistory"><span class="toc-number">2.2.</span> <span class="toc-text">HashHistory</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-number">2.2.1.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replace"><span class="toc-number">2.2.2.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#监听地址栏"><span class="toc-number">2.2.3.</span> <span class="toc-text">监听地址栏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5History"><span class="toc-number">2.3.</span> <span class="toc-text">HTML5History</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replace-1"><span class="toc-number">2.3.2.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#请求问题"><span class="toc-number">2.3.3.</span> <span class="toc-text">请求问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">2.4.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">3.</span> <span class="toc-text">references</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-面试准备：Vue-Router原理" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试准备：Vue-Router 原理
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/" class="article-date">
+	  <time datetime="2020-08-17T01:00:07.000Z" itemprop="datePublished">2020-08-17</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="路由分类"><a href="#路由分类" class="headerlink" title="路由分类"></a>路由分类</h2><ul>
+<li>匹配不同的 url 路径，进行解析，然后动态的渲染出区域 html 内容</li>
+<li>但 url 改变会造成页面刷新，解决思路是改变 url 但不刷新页面</li>
+</ul>
+<h3 id="hash-模式"><a href="#hash-模式" class="headerlink" title="hash 模式"></a>hash 模式</h3><ul>
+<li><code>#</code> 号后面 hash 值变化，不会导致浏览器发出请求，也就不会刷新页面</li>
+<li>hash 值变化会触发 <code>hashchange</code> 事件，通过监听 <code>hashchange</code> 实现更新页面部分内容</li>
+<li>支持所有浏览器</li>
+</ul>
+<h3 id="history-模式"><a href="#history-模式" class="headerlink" title="history 模式"></a>history 模式</h3><ul>
+<li>H5 API<ul>
+<li><code>pushState</code></li>
+<li><code>replaceState</code></li>
+<li>触发 <code>popstate</code> 事件</li>
+</ul>
+</li>
+<li>没有 <code>#</code> 号，刷新会发送请求，需要服务器支持，把所有路由都重定向到根页面</li>
+<li>依赖 HTML5 History API 和服务器配置</li>
+</ul>
+<h3 id="abstract-模式"><a href="#abstract-模式" class="headerlink" title="abstract 模式"></a>abstract 模式</h3><ul>
+<li>支持所有 JavaScript 运行环境，如 Node.js 服务器端</li>
+<li><strong>如果发现没有浏览器的 API，路由会自动强制进入这个模式</strong></li>
+</ul>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="模式参数"><a href="#模式参数" class="headerlink" title="模式参数"></a>模式参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [...]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">VueRouter</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  mode: string	<span class="comment">// 传入的字符串参数，指示history类别</span></span><br><span class="line">  history: HashHistory | HTML5History | AbstractHistory	<span class="comment">// 实际起作用的对象属性，必须是以上三个类的枚举</span></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">  fallback: boolean	<span class="comment">// 如浏览器不支持，'history'模式需回滚为'hash'模式</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span> (options: RouterOptions = &#123;&#125;) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> mode = options.mode || <span class="string">'hash'</span>	<span class="comment">// 默认为'hash'模式</span></span><br><span class="line">    <span class="keyword">this</span>.fallback =</span><br><span class="line">      mode === <span class="string">'history'</span> &amp;&amp; !supportsPushState &amp;&amp; options.fallback !== <span class="literal">false</span>	<span class="comment">// 通过supportsPushState判断浏览器是否支持'history'模式</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.fallback) &#123;</span><br><span class="line">      mode = <span class="string">'hash'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!inBrowser) &#123;	<span class="comment">// 不在浏览器环境下运行需强制为'abstract'模式</span></span><br><span class="line">      mode = <span class="string">'abstract'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.mode = mode</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据mode确定history实际的类并实例化</span></span><br><span class="line">    <span class="keyword">switch</span> (mode) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'history'</span>:</span><br><span class="line">        <span class="keyword">this</span>.history = <span class="keyword">new</span> HTML5History(<span class="keyword">this</span>, options.base)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'hash'</span>:</span><br><span class="line">        <span class="keyword">this</span>.history = <span class="keyword">new</span> HashHistory(<span class="keyword">this</span>, options.base, <span class="keyword">this</span>.fallback)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'abstract'</span>:</span><br><span class="line">        <span class="keyword">this</span>.history = <span class="keyword">new</span> AbstractHistory(<span class="keyword">this</span>, options.base)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">          assert(<span class="literal">false</span>, <span class="string">`invalid mode: <span class="subst">$&#123;mode&#125;</span>`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  init (app: any <span class="comment">/* Vue component instance */</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> history = <span class="keyword">this</span>.history</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据history的类别执行相应的初始化操作和监听</span></span><br><span class="line">    <span class="keyword">if</span> (history <span class="keyword">instanceof</span> HTML5History || history <span class="keyword">instanceof</span> HashHistory) &#123;</span><br><span class="line">      <span class="keyword">const</span> handleInitialScroll = <span class="function"><span class="params">routeOrError</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">from</span> = history.current</span><br><span class="line">        <span class="keyword">const</span> expectScroll = <span class="keyword">this</span>.options.scrollBehavior</span><br><span class="line">        <span class="keyword">const</span> supportsScroll = supportsPushState &amp;&amp; expectScroll</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (supportsScroll &amp;&amp; <span class="string">'fullPath'</span> <span class="keyword">in</span> routeOrError) &#123;</span><br><span class="line">          handleScroll(<span class="keyword">this</span>, routeOrError, <span class="keyword">from</span>, <span class="literal">false</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">const</span> setupListeners = <span class="function"><span class="params">routeOrError</span> =&gt;</span> &#123;</span><br><span class="line">        history.setupListeners()</span><br><span class="line">        handleInitialScroll(routeOrError)</span><br><span class="line">      &#125;</span><br><span class="line">      history.transitionTo(</span><br><span class="line">        history.getCurrentLocation(),</span><br><span class="line">        setupListeners,</span><br><span class="line">        setupListeners</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    history.listen(<span class="function"><span class="params">route</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.apps.forEach(<span class="function"><span class="params">app</span> =&gt;</span> &#123;</span><br><span class="line">        app._route = route</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// VueRouter类暴露的以下方法实际是调用具体history对象的方法</span></span><br><span class="line">  push (location: RawLocation, onComplete?: <span class="built_in">Function</span>, onAbort?: <span class="built_in">Function</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>.history.push(location, onComplete, onAbort)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  replace (location: RawLocation, onComplete?: <span class="built_in">Function</span>, onAbort?: <span class="built_in">Function</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">     <span class="keyword">this</span>.history.replace(location, onComplete, onAbort)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  go (n: number) &#123;</span><br><span class="line">    <span class="keyword">this</span>.history.go(n)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  back () &#123;</span><br><span class="line">    <span class="keyword">this</span>.go(<span class="number">-1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  forward () &#123;</span><br><span class="line">    <span class="keyword">this</span>.go(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作为参数传入的字符串属性mode只是一个标记，用来指示实际起作用的对象属性history的实现类<ul>
+<li>history - HTML5History</li>
+<li>hash - HashHistory</li>
+<li>abstract - AbstractHistory</li>
+</ul>
+</li>
+<li>初始化对应的 history 之前，会对 mode 做一些校验<ul>
+<li>若浏览器不支持 HTML5History，则mode强制设为<code>hash</code></li>
+<li>若不是在浏览器环境下运行，则mode强制设为<code>abstract</code></li>
+</ul>
+</li>
+<li>VueRouter 类中的<code>onReady()</code>、<code>push()</code>等方法只是一个代理<ul>
+<li>实际是调用的具体<code>history</code>对象的对应方法</li>
+<li>在<code>init()</code>方法中初始化时，也是根据<code>history</code>对象具体的类别执行不同操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="HashHistory"><a href="#HashHistory" class="headerlink" title="HashHistory"></a>HashHistory</h3><ul>
+<li>hash（“#”）符号的本来作用是加在URL中指示网页中的位置，可通过 window.location.hash 属性读取<ul>
+<li>虽然出现在URL中，但是用来指导浏览器动作的，不会被包括在HTTP请求中，对服务器端完全无用，因此，改变hash不会重新加载页面</li>
+<li>可以为hash的改变添加监听事件 <code>hashchange</code></li>
+<li>每一次改变hash（window.location.hash），都会在浏览器的访问历史中增加一个记录</li>
+</ul>
+</li>
+</ul>
+<h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><p>直接赋值，hash的改变会自动添加到浏览器的访问历史记录中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.hash = route.fullPath</span><br></pre></td></tr></table></figure>
+
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><ul>
+<li>并不是将新路由添加到浏览器访问历史的栈顶，而是替换掉当前的路由</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.replace(</span><br><span class="line">  <span class="built_in">window</span>.location.href.slice(<span class="number">0</span>, i &gt;= <span class="number">0</span> ? i : <span class="number">0</span>) + <span class="string">'#'</span> + path</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="监听地址栏"><a href="#监听地址栏" class="headerlink" title="监听地址栏"></a>监听地址栏</h4><ul>
+<li>监听 <code>hashchange</code>，调用的函数为 <code>replaceHash</code></li>
+<li>即在浏览器地址栏中直接输入路由相当于代码调用了 <code>replace()</code> 方法</li>
+</ul>
+<h3 id="HTML5History"><a href="#HTML5History" class="headerlink" title="HTML5History"></a>HTML5History</h3><ul>
+<li>History interface 是浏览器历史记录栈提供的接口，通过 back(), forward(), go() 等方法，我们可以读取浏览器历史记录栈的信息，进行各种跳转操作</li>
+<li>从HTML5开始，History interface提供了两个新的方法：<code>pushState(),</code> <code>replaceState()</code> 使得我们可以对浏览器历史记录栈进行修改</li>
+<li>这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前URL改变了，但浏览器不会立即发送请求该URL，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础</li>
+</ul>
+<h4 id="push-1"><a href="#push-1" class="headerlink" title="push"></a>push</h4><ul>
+<li>对 <code>window.location.hash</code> 直接进行赋值改为了调用 <code>history.pushState()</code> 方法</li>
+</ul>
+<h4 id="replace-1"><a href="#replace-1" class="headerlink" title="replace"></a>replace</h4><ul>
+<li><code>window.location.replace</code> 改为了 <code>history.replaceState()</code> 方法</li>
+</ul>
+<h4 id="请求问题"><a href="#请求问题" class="headerlink" title="请求问题"></a>请求问题</h4><ul>
+<li>用户直接在地址栏中输入并回车时，浏览器会重启重新加载应用</li>
+<li>如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面</li>
+</ul>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li>history 需要 H5 接口的支持，会有兼容性问题</li>
+<li>需要后端配合设置静态资源重定向，否则会 404</li>
+<li>pushState设置的新URL可以是与当前URL同源的任意URL；而hash只可修改#后面的部分，故只可设置与当前同文档的URL</li>
+<li>pushState设置的新URL可以与当前URL一模一样，这样也会把记录添加到栈中；而hash设置的新值必须与原来不一样才会触发记录添加到栈中</li>
+<li>pushState通过stateObject可以添加任意类型的数据到记录中；而hash只可添加短字符串</li>
+<li>pushState可额外设置title属性供后续使用</li>
+</ul>
+<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><ul>
+<li><a href="https://juejin.im/post/6844903615283363848" target="_blank" rel="noopener">前端路由简介以及vue-router实现原理</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27588422" target="_blank" rel="noopener">【源码拾遗】从vue-router看前端路由的两种实现</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://ziiyan.github.io/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/" title="面试准备：Vue-Router 原理" target="_blank" rel="external">http://ziiyan.github.io/2020/08/17/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9AVue-Router%E5%8E%9F%E7%90%86/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ziiyan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ziiyan" target="_blank"><span class="text-dark">Ziiyan</span><small class="ml-1x">Life kicks in right now</small></a></h3>
+        <div>因上努力，果上随缘</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJavaScript%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/" title="学习笔记：JavaScript运行原理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/08/16/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" title="学习笔记：浏览器工作原理"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '25953118',
+    clientSecret: 'wzy574542379',
+    repo: 'https://github.com/ziiyan',
+    owner: 'ziiyan',
+    admin: ['ziiyan'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
