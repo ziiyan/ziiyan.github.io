@@ -17,27 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Vue渲染时机 | life kicks in right now</title>
-  <meta name="description" content="​        最近在改样式时碰到一个很神奇的bug：qrcode 生成一个二维码，绘制在对应的 canvas 标签中，bug 是二维码不显示。代码总共三行，qrcode 的回调 error 是空的，说明至少二维码的创建到绘制是没有错误的。 ​        查看分支记录，发现了一些相关修改：二维码码是放在一个弹窗中的，以前的弹窗是用绝对定位移出可视区域，实际上弹窗是一直存在的。因为设计的需求换">
+  <title>面试准备：call/apply/bind | life kicks in right now</title>
+  <meta name="description" content="callapply 绑定上下文  1234567891011Function.prototype.myApply &#x3D; function (context) &amp;#123;  &#x2F;&#x2F; 这里 this 为 Function  &#x2F;&#x2F; 最后一行 obj.getName.myApply(me) 调用的时候  &#x2F;&#x2F; this 为 obj.getName，context 为 me  &#x2F;&#x2F; 也就是说，把 obj.ge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue渲染时机">
-<meta property="og:url" content="http://ziiyan.github.io/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/index.html">
+<meta property="og:title" content="面试准备：call&#x2F;apply&#x2F;bind">
+<meta property="og:url" content="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="​        最近在改样式时碰到一个很神奇的bug：qrcode 生成一个二维码，绘制在对应的 canvas 标签中，bug 是二维码不显示。代码总共三行，qrcode 的回调 error 是空的，说明至少二维码的创建到绘制是没有错误的。 ​        查看分支记录，发现了一些相关修改：二维码码是放在一个弹窗中的，以前的弹窗是用绝对定位移出可视区域，实际上弹窗是一直存在的。因为设计的需求换">
+<meta property="og:description" content="callapply 绑定上下文  1234567891011Function.prototype.myApply &#x3D; function (context) &amp;#123;  &#x2F;&#x2F; 这里 this 为 Function  &#x2F;&#x2F; 最后一行 obj.getName.myApply(me) 调用的时候  &#x2F;&#x2F; this 为 obj.getName，context 为 me  &#x2F;&#x2F; 也就是说，把 obj.ge">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://ziiyan.github.io/Users/wuziyan/Library/Application%20Support/typora-user-images/image-20200324140454111.png">
-<meta property="og:image" content="http://ziiyan.github.io/Users/wuziyan/Library/Application%20Support/typora-user-images/image-20200324141141884.png">
-<meta property="og:image" content="http://ziiyan.github.io/Users/wuziyan/Library/Application%20Support/typora-user-images/image-20200324150813733.png">
-<meta property="og:image" content="http://ziiyan.github.io/Users/wuziyan/Library/Application%20Support/typora-user-images/image-20200324141636792.png">
-<meta property="article:published_time" content="2020-03-24T04:39:49.000Z">
-<meta property="article:modified_time" content="2020-03-31T07:58:00.323Z">
+<meta property="article:published_time" content="2020-09-05T14:49:41.000Z">
+<meta property="article:modified_time" content="2020-09-05T15:53:00.912Z">
 <meta property="article:author" content="ziiyan">
-<meta property="article:tag" content="Vue">
-<meta property="article:tag" content="浏览器">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ziiyan.github.io/Users/wuziyan/Library/Application%20Support/typora-user-images/image-20200324140454111.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -303,21 +298,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modal-组件渲染时机"><span class="toc-number">1.</span> <span class="toc-text">Modal 组件渲染时机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug-分析流程"><span class="toc-number">2.</span> <span class="toc-text">Bug 分析流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextTick"><span class="toc-number">3.</span> <span class="toc-text">nextTick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步更新队列"><span class="toc-number">4.</span> <span class="toc-text">异步更新队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#call"><span class="toc-number">1.</span> <span class="toc-text">call</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply"><span class="toc-number">2.</span> <span class="toc-text">apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bind"><span class="toc-number">3.</span> <span class="toc-text">bind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区别"><span class="toc-number">4.</span> <span class="toc-text">区别</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Vue渲染时机" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-面试准备：call:apply:bind" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Vue渲染时机
+      面试准备：call/apply/bind
     </h1>
   
 
@@ -325,117 +320,57 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/" class="article-date">
-	  <time datetime="2020-03-24T04:39:49.000Z" itemprop="datePublished">2020-03-24</time>
+	<a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/" class="article-date">
+	  <time datetime="2020-09-05T14:49:41.000Z" itemprop="datePublished">2020-09-05</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="article-tag-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a>
+	<a class="article-tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>​        最近在改样式时碰到一个很神奇的bug：qrcode 生成一个二维码，绘制在对应的 canvas 标签中，bug 是二维码不显示。代码总共三行，qrcode 的回调 error 是空的，说明至少二维码的创建到绘制是没有错误的。</p>
-<p>​        查看分支记录，发现了一些相关修改：二维码码是放在一个弹窗中的，以前的弹窗是用绝对定位移出可视区域，实际上弹窗是一直存在的。因为设计的需求换成了 AntD，这个弹窗也换成了 modal 组件，只有在点击个人信息的时候才显示。</p>
-<h2 id="Modal-组件渲染时机"><a href="#Modal-组件渲染时机" class="headerlink" title="Modal 组件渲染时机"></a>Modal 组件渲染时机</h2><ul>
-<li>项目采用的都是同步引入的方式，父子组件渲染顺序如下：</li>
+        <h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><ul>
+<li>绑定上下文</li>
 </ul>
-<blockquote>
-<p>加载渲染过程</p>
-<p>父 beforeCreate<br>父 created<br>父 beforeMount<br>子 beforeCreate<br>子 created<br>子 beforeMount<br>子 mounted<br>父 mounted</p>
-<hr>
-<p>更新过程</p>
-<p>父 beforeUpdate<br>子 beforeUpdate<br>子 updated<br>父 updated</p>
-</blockquote>
-<p>生命周期介绍：<a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90</a></p>
-<h2 id="Bug-分析流程"><a href="#Bug-分析流程" class="headerlink" title="Bug 分析流程"></a>Bug 分析流程</h2><ul>
-<li>现在在 mouted 里面加入绘制二维码的代码</li>
-</ul>
-<blockquote>
-<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324140454111.png" alt="image-20200324140454111" style="zoom:50%;">
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这里 this 为 Function</span></span><br><span class="line">  <span class="comment">// 最后一行 obj.getName.myApply(me) 调用的时候</span></span><br><span class="line">  <span class="comment">// this 为 obj.getName，context 为 me</span></span><br><span class="line">  <span class="comment">// 也就是说，把 obj.getName 这个函数添加到 me.fn 上</span></span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// 执行一下</span></span><br><span class="line">  context.fn();</span><br><span class="line">  <span class="comment">// 执行完就删掉</span></span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>document.getElementById(‘canvas’) 获取到的元素为空</p>
-<p>qrcode 报错，这里主要是用来生成二维码的 userInfo.pri_Key 还没获取到值</p>
-</blockquote>
 <ul>
-<li>在 watch 里面加入绘制二维码的代码，监听的是控制弹窗是否显示的变量</li>
+<li>添加参数</li>
 </ul>
-<blockquote>
-<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324141141884.png" alt="image-20200324141141884" style="zoom:50%;">
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// 获取参数</span></span><br><span class="line">  <span class="keyword">let</span> args = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">  context.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>document.getElementById(‘canvas’) 获取到的元素为空</p>
-<p>userInfo.pri_Key 有值，qrcode 不报错了</p>
-</blockquote>
 <ul>
-<li>很显然，问题就在为什么这个 canvas 标签一直获取不到，那什么时候才能获取到呢？</li>
+<li><code>this</code> 为 <code>null</code>，指向 <code>window</code></li>
 </ul>
-<blockquote>
-<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324150813733.png" alt="image-20200324150813733" style="zoom:50%;">
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> tmp = context || <span class="built_in">window</span>;</span><br><span class="line">  tmp.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">let</span> args = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">if</span> (args) &#123;</span><br><span class="line">    tmp.fn(...args);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    tmp.fn();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">delete</span> tmp.fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Click 点击显示 modal，要到子组件 updated 时才能获取到标签</p>
-<p>也就是说在 updated 里面才更新 DOM，watch 里面是不更新的</p>
-</blockquote>
-<ul>
-<li>官网里面关于 updated 的描述</li>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><ul>
+<li>绑定上下文</li>
 </ul>
-<blockquote>
-<p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
-<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watcher</a> 取而代之。</p>
-</blockquote>
-<ul>
-<li>但我们知道，watch 里 DOM 还没更新，我们如何在 watch 里面修改 canvas 呢？</li>
-</ul>
-<blockquote>
-<p>如果你希望等到整个视图都重绘完毕，可以在 <code>updated</code> 里使用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick" target="_blank" rel="noopener">vm.$nextTick</a></p>
-</blockquote>
-<h2 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h2><blockquote>
-<p>将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。</p>
-</blockquote>
-<ul>
-<li><p>显然，这就是我们需要的方法了。</p>
-<ul>
-<li>等待 DOM 更新，可以得到 canvas 标签</li>
-<li>调用 qrcode 库创建二维码并会绘制到 canvas 上</li>
-</ul>
-</li>
-<li><p>将绘制二维码的代码封装一层 nextTick</p>
-</li>
-</ul>
-<blockquote>
-<img src="/Users/wuziyan/Library/Application Support/typora-user-images/image-20200324141636792.png" alt="image-20200324141636792" style="zoom:50%;">
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    self.apply(context);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>document.getElementById(‘canvas’) 可以正常获取到元素，二维码正常显示</p>
-</blockquote>
-<h2 id="异步更新队列"><a href="#异步更新队列" class="headerlink" title="异步更新队列"></a>异步更新队列</h2><blockquote>
-<p>Vue 在更新 DOM 时是<strong>异步</strong>执行的。</p>
-<p>只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。</p>
-<p>如果同一个 watcher 被多次触发，只会被推入到队列中一次。</p>
-<p>这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。</p>
-<p>然后，在下一个的事件循环 “tick” 中，Vue 刷新队列并执行实际 (已去重的) 工作。</p>
-<p>Vue 在内部对异步队列尝试使用原生的 <code>Promise.then</code>、<code>MutationObserver</code> 和 <code>setImmediate</code>，如果执行环境不支持，则会采用 <code>setTimeout(fn, 0)</code> 代替。</p>
-</blockquote>
 <ul>
-<li>之前误打误撞使用了 setTimeout(fn, 0)，实际上恰好实现了异步队列</li>
+<li>添加参数</li>
 </ul>
-<blockquote>
-<p>如果你想基于更新后的 DOM 状态来做点什么，这就可能会有些棘手。</p>
-<p>虽然 Vue.js 通常鼓励开发人员使用“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们必须要这么做。</p>
-<p>为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code>。这样回调函数将在 DOM 更新完成后被调用。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>moda 组件在 mounted 时并不会渲染到页面上</li>
-<li>在控制 modal 显示变量为 true 之后，直到 updated 阶段才更新 DOM</li>
-<li>watch 当中有关 DOM 的操作，要利用 nextTick 延迟到 DOM 渲染之后执行</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// 获取第二个到最后一个参数</span></span><br><span class="line">  <span class="keyword">let</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 这里的 arguments 指的是返回的函数里传入的参数</span></span><br><span class="line">    <span class="keyword">let</span> bindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    self.apply(context, args.concat(bindArgs));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li><code>call</code> 参数是 <code>this</code> 和若干个变量，立即执行。</li>
+<li><code>apply</code> 参数是 <code>this</code> 和数组，立即执行。</li>
+<li><code>bind</code> 会创建一个新函数，返回函数引用，不会立即执行。</li>
 </ul>
 
       
@@ -446,7 +381,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/" title="Vue渲染时机" target="_blank" rel="external">http://ziiyan.github.io/2020/03/24/Vue%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/</a>
+      <a href="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/" title="面试准备：call/apply/bind" target="_blank" rel="external">http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -493,12 +428,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/03/24/React%E5%92%8CVue/" title="React和Vue"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/" title="面试准备：深拷贝 &amp; 浅拷贝"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/03/22/ES6%EF%BC%9AIterator%E5%92%8Cfor-of%E5%BE%AA%E7%8E%AF/" title="ES6：Iterator和for...of循环"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" title="面试准备：浏览器缓存"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

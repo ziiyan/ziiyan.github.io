@@ -17,22 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>回调地狱 Callback Hell | life kicks in right now</title>
-  <meta name="description" content="http:&#x2F;&#x2F;callbackhell.com&#x2F;">
+  <title>面试准备：深拷贝 &amp; 浅拷贝 | life kicks in right now</title>
+  <meta name="description" content="深拷贝和浅拷贝是针对引用类型的  区别 浅拷贝：拷贝对象的时候，只赋值第一层的键值对，如果嵌套了对象，只能复制对象的地址。 深拷贝：完全拷贝一份。  浅拷贝数组 Array.concat() Array.slice()  对象 Object.assign()  实现深拷贝数组 JSON.parse(JSON.stringify(arr))  对象12345678910let deepCopy &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回调地狱 Callback Hell">
-<meta property="og:url" content="http://ziiyan.github.io/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/index.html">
+<meta property="og:title" content="面试准备：深拷贝 &amp; 浅拷贝">
+<meta property="og:url" content="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="http:&#x2F;&#x2F;callbackhell.com&#x2F;">
+<meta property="og:description" content="深拷贝和浅拷贝是针对引用类型的  区别 浅拷贝：拷贝对象的时候，只赋值第一层的键值对，如果嵌套了对象，只能复制对象的地址。 深拷贝：完全拷贝一份。  浅拷贝数组 Array.concat() Array.slice()  对象 Object.assign()  实现深拷贝数组 JSON.parse(JSON.stringify(arr))  对象12345678910let deepCopy &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-15T02:59:02.000Z">
-<meta property="article:modified_time" content="2020-06-15T02:59:31.925Z">
+<meta property="article:published_time" content="2020-09-05T15:57:29.000Z">
+<meta property="article:modified_time" content="2020-09-05T16:07:55.351Z">
 <meta property="article:author" content="ziiyan">
-<meta property="article:tag" content="翻译">
-<meta property="article:tag" content="精读">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ziiyan.github.io/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/index.html">
+  <link rel="canonical" href="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/index.html">
   
     <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
   
@@ -177,7 +177,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">14</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -187,7 +187,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.78px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.56px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.22px;">React</a> <a href="/tags/Vue/" style="font-size: 13.67px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13.11px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.44px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.22px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.44px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13.11px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13.11px;">翻译</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.89px;">面试</a>
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.78px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.67px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.22px;">React</a> <a href="/tags/Vue/" style="font-size: 13.56px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13.11px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.44px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.22px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.44px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13px;">翻译</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.89px;">面试</a>
     </div>
   </div>
 
@@ -196,7 +196,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -208,6 +208,51 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="title">面试准备：深拷贝 &amp; 浅拷贝</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-05T15:57:29.000Z" itemprop="datePublished">2020-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/" class="title">面试准备：call/apply/bind</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-05T14:49:41.000Z" itemprop="datePublished">2020-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="title">面试准备：浏览器缓存</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-05T07:58:33.000Z" itemprop="datePublished">2020-09-05</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -238,51 +283,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/02/MDN%EF%BC%9AJavaScript/" class="title">MDN-JavaScript</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-02T15:35:41.000Z" itemprop="datePublished">2020-09-02</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/08/31/%E7%BA%A2%E5%AE%9D%E4%B9%A64%EF%BC%9A%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98/" class="title">红宝书4：变量、作用域和内存</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-08-31T14:16:00.000Z" itemprop="datePublished">2020-08-31</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/08/31/%E7%BA%A2%E5%AE%9D%E4%B9%A67%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="title">红宝书7：迭代器与生成器</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-08-31T11:05:54.000Z" itemprop="datePublished">2020-08-31</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -298,21 +298,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#区别"><span class="toc-number">1.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅拷贝"><span class="toc-number">2.</span> <span class="toc-text">浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">2.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">2.2.</span> <span class="toc-text">对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现深拷贝"><span class="toc-number">3.</span> <span class="toc-text">实现深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组-1"><span class="toc-number">3.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象-1"><span class="toc-number">3.2.</span> <span class="toc-text">对象</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-回调地狱-callbackhell" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-面试准备：深拷贝 &amp; 浅拷贝" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      回调地狱 Callback Hell
+      面试准备：深拷贝 &amp; 浅拷贝
     </h1>
   
 
@@ -320,27 +320,45 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/" class="article-date">
-	  <time datetime="2020-06-15T02:59:02.000Z" itemprop="datePublished">2020-06-15</time>
+	<a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="article-date">
+	  <time datetime="2020-09-05T15:57:29.000Z" itemprop="datePublished">2020-09-05</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a>, <a class="article-tag-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a>
+	<a class="article-tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><a href="http://callbackhell.com/" target="_blank" rel="noopener">http://callbackhell.com/</a></p>
+        <ul>
+<li>深拷贝和浅拷贝是针对引用类型的</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>浅拷贝：拷贝对象的时候，只赋值第一层的键值对，如果嵌套了对象，只能复制对象的地址。</li>
+<li>深拷贝：完全拷贝一份。</li>
+</ul>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li><code>Array.concat()</code></li>
+<li><code>Array.slice()</code></li>
+</ul>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li><code>Object.assign()</code></li>
+</ul>
+<h2 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h2><h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a>数组</h3><ul>
+<li><code>JSON.parse(JSON.stringify(arr))</code></li>
+</ul>
+<h3 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a>对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -350,7 +368,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ziiyan.github.io/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/" title="回调地狱 Callback Hell" target="_blank" rel="external">http://ziiyan.github.io/2020/06/15/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callbackhell/</a>
+      <a href="http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/" title="面试准备：深拷贝 &amp; 浅拷贝" target="_blank" rel="external">http://ziiyan.github.io/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -396,13 +414,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/07/01/Webpakc%20%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E6%88%98/" title="Webpakc 从原理到实战"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/06/07/leetcode%E5%91%A8%E8%B5%9B-%E7%AC%AC192%E5%9C%BA/" title="leetcode周赛-第192场"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/" title="面试准备：call/apply/bind"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
