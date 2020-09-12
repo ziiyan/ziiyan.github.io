@@ -18,15 +18,15 @@
   
   
   <title>面试准备：虚拟 DOM | life kicks in right now</title>
-  <meta name="description" content="真实 DOM 检查 HTML 并构建 DOM 树 检查 CSS 构建 Style Rules 结合 DOM &amp; Style Rules，构建 Render 树 每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标，调用每个节点的 paint 方法，绘制页面  注意点 DOM">
+  <meta name="description" content="真实 DOM  检查 HTML 并构建 DOM 树 检查 CSS 构建 Style Rules 结合 DOM &amp; Style Rules，构建 Render 树  每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标，调用每个节点的 paint 方法，绘制页面  注意点  D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试准备：虚拟 DOM">
 <meta property="og:url" content="http://ziiyan.github.io/2020/08/11/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E8%99%9A%E6%8B%9FDOM/index.html">
 <meta property="og:site_name" content="life kicks in right now">
-<meta property="og:description" content="真实 DOM 检查 HTML 并构建 DOM 树 检查 CSS 构建 Style Rules 结合 DOM &amp; Style Rules，构建 Render 树 每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标，调用每个节点的 paint 方法，绘制页面  注意点 DOM">
+<meta property="og:description" content="真实 DOM  检查 HTML 并构建 DOM 树 检查 CSS 构建 Style Rules 结合 DOM &amp; Style Rules，构建 Render 树  每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象 render 对象构成 render 树   根据 render 树确定节点坐标，调用每个节点的 paint 方法，绘制页面  注意点  D">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-11T01:02:38.000Z">
-<meta property="article:modified_time" content="2020-08-12T07:10:17.725Z">
+<meta property="article:modified_time" content="2020-09-10T01:31:52.206Z">
 <meta property="article:author" content="ziiyan">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="React">
@@ -178,7 +178,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">16</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">18</span></li></ul>
     </div>
   </div>
 
@@ -188,7 +188,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.78px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.67px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.22px;">React</a> <a href="/tags/Vue/" style="font-size: 13.56px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13.11px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.44px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.22px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.44px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13px;">翻译</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.89px;">面试</a>
+      <a href="/tags/CSS/" style="font-size: 13.43px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.86px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.86px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 14px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.29px;">React</a> <a href="/tags/Vue/" style="font-size: 13.71px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13.14px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.57px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.29px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.71px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.43px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13px;">翻译</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 13px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a>
     </div>
   </div>
 
@@ -197,7 +197,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -216,70 +216,70 @@
                 
               </p>
               <p class="item-title">
+                <a href="/2020/09/09/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E4%B8%BB%E7%AB%99%E6%8A%80%E6%9C%AF%E4%B8%AD%E5%BF%83-%E4%B8%80%E9%9D%A2/" class="title">面经：哔哩哔哩-主站技术中心-一面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-09T12:15:17.000Z" itemprop="datePublished">2020-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/09/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF&%E5%BC%82%E6%AD%A5%E5%8E%9F%E7%90%86/" class="title">学习笔记：事件循环&amp;异步原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-09T04:19:17.000Z" itemprop="datePublished">2020-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/09/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E9%97%AD%E5%8C%85/" class="title">面试准备：闭包</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-09T01:08:56.000Z" itemprop="datePublished">2020-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/07/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E5%B0%8F%E7%B1%B3%E9%9B%86%E5%9B%A2-%E5%8D%97%E4%BA%AC-%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2/" class="title">面经：小米集团-南京-一面二面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-07T12:02:03.000Z" itemprop="datePublished">2020-09-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
                 <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B7%B1%E6%8B%B7%E8%B4%9D%20&%20%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="title">面试准备：深拷贝 &amp; 浅拷贝</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-09-05T15:57:29.000Z" itemprop="datePublished">2020-09-05</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Acall:apply:bind/" class="title">面试准备：call/apply/bind</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-05T14:49:41.000Z" itemprop="datePublished">2020-09-05</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/05/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="title">面试准备：浏览器缓存</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-05T07:58:33.000Z" itemprop="datePublished">2020-09-05</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/04/%E7%BA%A2%E5%AE%9D%E4%B9%A68%EF%BC%9A%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="title">红宝书8：对象、类与面向对象编程</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-03T17:18:54.000Z" itemprop="datePublished">2020-09-04</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/09/03/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%EF%BC%9Athis/" class="title">面试准备：this</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-09-03T15:27:45.000Z" itemprop="datePublished">2020-09-03</time>
               </p>
             </div>
           </li>
@@ -341,30 +341,36 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="真实-DOM"><a href="#真实-DOM" class="headerlink" title="真实 DOM"></a>真实 DOM</h2><ol>
+        <h2 id="真实-DOM">真实 DOM</h2>
+<ol>
 <li>检查 HTML 并构建 DOM 树</li>
 <li>检查 CSS 构建 Style Rules</li>
-<li>结合 DOM &amp; Style Rules，构建 Render 树<ul>
+<li>结合 DOM &amp; Style Rules，构建 Render 树
+<ul>
 <li>每个 DOM 节点都有 attach 方法，接收样式信息，返回一个 render 对象</li>
 <li>render 对象构成 render 树</li>
 </ul>
 </li>
 <li>根据 render 树确定节点坐标，调用每个节点的 paint 方法，绘制页面</li>
 </ol>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<h3 id="注意点">注意点</h3>
+<ul>
 <li>DOM 树渐进构建，不必等整个 HTML 解析完</li>
 <li>Render 树、DOM 树、CSSOM 树构建并不完全独立，可能会交叉</li>
-<li>CSS 从右往左解析，嵌套标签越多，解析越慢<ul>
+<li>CSS 从右往左解析，嵌套标签越多，解析越慢
+<ul>
 <li>最右可以快速判断当前元素是否匹配，向上验证</li>
 <li>从左开始类似深搜，需要回溯多次</li>
 </ul>
 </li>
 <li>原生 JS 操作 DOM 时，浏览器会从构建 DOM 树开始从头到尾执行一遍流程，如果需要更新 10 个节点，就会操作 10 次。</li>
 </ul>
-<h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><ul>
+<h2 id="虚拟-DOM">虚拟 DOM</h2>
+<ul>
 <li>如果需要更新 10 个节点，虚拟 DOM 不会立即操作 DOM，而是将 10 次更新的内容保存到本地 js 对象中，再一次性 attch 到 DOM 树上，避免无用的 DOM 操作。</li>
 </ul>
-<h3 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<h3 id="算法步骤">算法步骤</h3>
+<ol>
 <li>用 JavaScript 对象结构表示 DOM 树的结构，然后用对象构造一个真正的 DOM 树，插到文档中</li>
 <li>当状态变更时，重新构造一棵对象树，然后用新的树和旧的树比较，记录差异</li>
 <li>把差异应用到真的 DOM 树上，视图就更新了</li>
@@ -372,44 +378,47 @@
 <blockquote>
 <p><strong>虚拟 DOM 本质上就是在 JS 和 DOM 之间做了一个缓存</strong></p>
 </blockquote>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><h3 id="一、用-JS-对象模拟-DOM-树"><a href="#一、用-JS-对象模拟-DOM-树" class="headerlink" title="一、用 JS 对象模拟 DOM 树"></a>一、用 JS 对象模拟 DOM 树</h3><h4 id="构建-JS-节点"><a href="#构建-JS-节点" class="headerlink" title="构建 JS 节点"></a>构建 JS 节点</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.tagName = tagName</span><br><span class="line">  <span class="keyword">this</span>.props = props</span><br><span class="line">  <span class="keyword">this</span>.children = children</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Element(tagName, props, children)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用例</span></span><br><span class="line"><span class="keyword">var</span> el = <span class="built_in">require</span>(<span class="string">'./element'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul = el(<span class="string">'ul'</span>, &#123;<span class="attr">id</span>: <span class="string">'list'</span>&#125;, [</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 2'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">])</span><br><span class="line"><span class="comment">// &lt;ul id='list'&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 1&lt;/li&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 2&lt;/li&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 3&lt;/li&gt;</span></span><br><span class="line"><span class="comment">// &lt;/ul&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="构建-DOM-节点"><a href="#构建-DOM-节点" class="headerlink" title="构建 DOM 节点"></a>构建 DOM 节点</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.createElement(<span class="keyword">this</span>.tagName)</span><br><span class="line">  <span class="keyword">var</span> props = <span class="keyword">this</span>.props</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> props) &#123;</span><br><span class="line">    <span class="keyword">var</span> propValue = props[propName]</span><br><span class="line">    el.setAttribute(propName, propValue)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> children = <span class="keyword">this</span>.children || []</span><br><span class="line">  </span><br><span class="line">  children.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">child</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> childEl = (child <span class="keyword">instanceof</span> Element)</span><br><span class="line">    	? child.render() <span class="comment">// 如果子节点也是虚拟DOM，递归构建DOM节点</span></span><br><span class="line">    	: <span class="built_in">document</span>.createTextNode(child)	<span class="comment">// 如果是字符串，构建文本节点</span></span><br><span class="line">    el.appendChild(childEl)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> el</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、比较两棵树的差异（diff）"><a href="#二、比较两棵树的差异（diff）" class="headerlink" title="二、比较两棵树的差异（diff）"></a>二、比较两棵树的差异（diff）</h3><ul>
+<h2 id="算法实现">算法实现</h2>
+<h3 id="一、用-JS-对象模拟-DOM-树">一、用 JS 对象模拟 DOM 树</h3>
+<h4 id="构建-JS-节点">构建 JS 节点</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.tagName = tagName</span><br><span class="line">  <span class="keyword">this</span>.props = props</span><br><span class="line">  <span class="keyword">this</span>.children = children</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Element(tagName, props, children)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用例</span></span><br><span class="line"><span class="keyword">var</span> el = <span class="built_in">require</span>(<span class="string">'./element'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul = el(<span class="string">'ul'</span>, &#123;<span class="attr">id</span>: <span class="string">'list'</span>&#125;, [</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 2'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">])</span><br><span class="line"><span class="comment">// &lt;ul id='list'&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 1&lt;/li&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 2&lt;/li&gt;</span></span><br><span class="line"><span class="comment">//  &lt;li class='item'&gt;Item 3&lt;/li&gt;</span></span><br><span class="line"><span class="comment">// &lt;/ul&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="构建-DOM-节点">构建 DOM 节点</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.createElement(<span class="keyword">this</span>.tagName)</span><br><span class="line">  <span class="keyword">var</span> props = <span class="keyword">this</span>.props</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> props) &#123;</span><br><span class="line">    <span class="keyword">var</span> propValue = props[propName]</span><br><span class="line">    el.setAttribute(propName, propValue)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> children = <span class="keyword">this</span>.children || []</span><br><span class="line">  </span><br><span class="line">  children.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">child</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> childEl = (child <span class="keyword">instanceof</span> Element)</span><br><span class="line">    	? child.render() <span class="comment">// 如果子节点也是虚拟DOM，递归构建DOM节点</span></span><br><span class="line">    	: <span class="built_in">document</span>.createTextNode(child)	<span class="comment">// 如果是字符串，构建文本节点</span></span><br><span class="line">    el.appendChild(childEl)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> el</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、比较两棵树的差异（diff）">二、比较两棵树的差异（diff）</h3>
+<ul>
 <li>通用算法，树的最小编辑距离，O(n^3)</li>
 <li>同层比较，降低时间复杂度，O(n)</li>
 </ul>
-<h4 id="深搜，记录差异"><a href="#深搜，记录差异" class="headerlink" title="深搜，记录差异"></a>深搜，记录差异</h4><ul>
+<h4 id="深搜，记录差异">深搜，记录差异</h4>
+<ul>
 <li>每遍历到一个节点就把该节点和新的的树进行对比</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diff</span> (<span class="params">oldTree, newTree</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> index = <span class="number">0</span>  <span class="comment">// 当前节点标志，按深搜顺序从 9 开始</span></span><br><span class="line">  <span class="keyword">var</span> patches = &#123;&#125;  <span class="comment">// 用来记录每个节点差异的对象</span></span><br><span class="line">  dfsWalk(oldTree, newTree, index, patches)</span><br><span class="line">  <span class="keyword">return</span> patches</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfsWalk</span> (<span class="params">oldNode, newNode, index, patches</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对比 oldNode 和 newNode 的不同，记录下来</span></span><br><span class="line">  patches[index] = [&#123;difference&#125;, &#123;difference&#125;, ...]</span><br><span class="line">  diffChildren(oldNode.children, newNode.children, index, patches)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diffChildren</span> (<span class="params">oldChildren, newChildren, index, patches</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> leftNode = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">var</span> currentNodeIndex = index</span><br><span class="line">  oldChildren.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">child, i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newChild = newChildren[i]</span><br><span class="line">    currentNodeIndex = (leftNode &amp;&amp; leftNode.count)	<span class="comment">// 计算节点标识</span></span><br><span class="line">    	? currentNodeIndex + leftNode.count + <span class="number">1</span></span><br><span class="line">    	: currentNodeIndex + <span class="number">1</span></span><br><span class="line">    dfsWalk(child, newChild, currentNodeIndex, patches)</span><br><span class="line">    leftNode = child</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="差异类型"><a href="#差异类型" class="headerlink" title="差异类型"></a>差异类型</h5><ul>
+<h5 id="差异类型">差异类型</h5>
+<ul>
 <li>替换成新节点 REPLACE = 0</li>
 <li>移动删除新增 REORDER = 1</li>
 <li>修改部分属性 PROPS = 2</li>
 <li>修改文本内容 TEXT = 3</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">patches[<span class="number">0</span>] = [&#123;</span><br><span class="line">  type: REPLACE,</span><br><span class="line">  node: newNode <span class="comment">// el('div', props, children)</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  type: PROPS,</span><br><span class="line">  props: &#123;</span><br><span class="line">    id: <span class="string">"container"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">patches[<span class="number">2</span>] = [&#123;</span><br><span class="line">  type: TEXT,</span><br><span class="line">  content: <span class="string">"Virtual DOM2"</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表对比算法"><a href="#列表对比算法" class="headerlink" title="列表对比算法"></a>列表对比算法</h4><ul>
+<h4 id="列表对比算法">列表对比算法</h4>
+<ul>
 <li>最小编辑距离，针对 REORDER，同层元素对比顺序，解决如何移动最佳</li>
 <li>需要用到唯一标识 key</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">patches[<span class="number">0</span>] = [&#123;</span><br><span class="line">  type: REORDER,</span><br><span class="line">  moves: [&#123;remove or insert&#125;, &#123;remove or insert&#125;, ...]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-
-<h3 id="三、把差异应用到真的-DOM-树上"><a href="#三、把差异应用到真的-DOM-树上" class="headerlink" title="三、把差异应用到真的 DOM 树上"></a>三、把差异应用到真的 DOM 树上</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">patch</span> (<span class="params">node, patches</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> walker = &#123;<span class="attr">index</span>: <span class="number">0</span>&#125;</span><br><span class="line">  dfsWalk(node, walker, patches)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfsWalk</span> (<span class="params">node, walker, patches</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> currentPatches = patchea[walker.index]</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> len = node.childNodes</span><br><span class="line">  	? node.childNodes.length</span><br><span class="line">  	: <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> child = node.childNodes[i]</span><br><span class="line">    walker.index++</span><br><span class="line">    dfsWalk(child, walker, patches)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (currentPatches) &#123;</span><br><span class="line">    applyPatches(onde, currentPatches)	<span class="comment">// 对当前节点进行 DOM 操作</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="三、把差异应用到真的-DOM-树上">三、把差异应用到真的 DOM 树上</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">patch</span> (<span class="params">node, patches</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> walker = &#123;<span class="attr">index</span>: <span class="number">0</span>&#125;</span><br><span class="line">  dfsWalk(node, walker, patches)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfsWalk</span> (<span class="params">node, walker, patches</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> currentPatches = patchea[walker.index]</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> len = node.childNodes</span><br><span class="line">  	? node.childNodes.length</span><br><span class="line">  	: <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> child = node.childNodes[i]</span><br><span class="line">    walker.index++</span><br><span class="line">    dfsWalk(child, walker, patches)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (currentPatches) &#123;</span><br><span class="line">    applyPatches(onde, currentPatches)	<span class="comment">// 对当前节点进行 DOM 操作</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyPatches</span> (<span class="params">node, currentPatches</span>) </span>&#123;</span><br><span class="line">  currentPatches.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">currentPatch</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (currentPatch.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> REPLACE:</span><br><span class="line">        node.parentNode.replaceChild(currentPatch.node.render(), node)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> REORDER:</span><br><span class="line">        reorderChildren(node, currentPatch.moves)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> PROPS:</span><br><span class="line">        setProps(node, currentPatch.props)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> TEXT:</span><br><span class="line">        node.textContent = currentPatch.content</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Unknown patch type '</span> + currentPatch.type)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 构建虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> tree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: blue'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 通过虚拟DOM构建真正的DOM</span></span><br><span class="line"><span class="keyword">var</span> root = tree.render()</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 生成新的虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> newTree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: red'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>), el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 比较两棵虚拟DOM树的不同</span></span><br><span class="line"><span class="keyword">var</span> patches = diff(tree, newTree)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 在真正的DOM元素上应用变更</span></span><br><span class="line">patch(root, patches)</span><br></pre></td></tr></table></figure>
-
-<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><ul>
-<li><p><a href="https://github.com/livoras/blog/issues/13" target="_blank" rel="noopener">深度剖析：如何实现一个 Virtual DOM 算法</a></p>
-</li>
-<li><p><a href="https://juejin.im/post/6844903895467032589" target="_blank" rel="noopener">深入剖析：Vue核心之虚拟DOM</a></p>
-</li>
+<h3 id="总结">总结</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 构建虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> tree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: blue'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 通过虚拟DOM构建真正的DOM</span></span><br><span class="line"><span class="keyword">var</span> root = tree.render()</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 生成新的虚拟DOM</span></span><br><span class="line"><span class="keyword">var</span> newTree = el(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'container'</span>&#125;, [</span><br><span class="line">    el(<span class="string">'h1'</span>, &#123;<span class="attr">style</span>: <span class="string">'color: red'</span>&#125;, [<span class="string">'simple virtal dom'</span>]),</span><br><span class="line">    el(<span class="string">'p'</span>, [<span class="string">'Hello, virtual-dom'</span>]),</span><br><span class="line">    el(<span class="string">'ul'</span>, [el(<span class="string">'li'</span>), el(<span class="string">'li'</span>)])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 比较两棵虚拟DOM树的不同</span></span><br><span class="line"><span class="keyword">var</span> patches = diff(tree, newTree)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 在真正的DOM元素上应用变更</span></span><br><span class="line">patch(root, patches)</span><br></pre></td></tr></table></figure>
+<h2 id="references">references</h2>
+<ul>
+<li><a href="https://github.com/livoras/blog/issues/13" target="_blank" rel="noopener">深度剖析：如何实现一个 Virtual DOM 算法</a></li>
+<li><a href="https://juejin.im/post/6844903895467032589" target="_blank" rel="noopener">深入剖析：Vue核心之虚拟DOM</a></li>
+<li><a href="https://juejin.im/post/6844903902689656845" target="_blank" rel="noopener">重新认识 Virtual DOM</a></li>
+<li><a href="https://juejin.im/post/6844903905629831176" target="_blank" rel="noopener">详解 Diff 算法以及循环要加 key 值问题</a></li>
 </ul>
 
       
