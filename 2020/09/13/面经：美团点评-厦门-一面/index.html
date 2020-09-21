@@ -26,7 +26,7 @@
 <meta property="og:description" content="JS 数据类型  基本数据类型（7）：null、undefined、string、number、boolean、symbol、BigInt  BigInt 可以表示大于 2^53 - 1 的数字，调用构造函数 BigInt 声明，或者直接在数字后面加一个小写字母 n，不能和普通数字运算，会报错   复杂数据类型：Object    symbol 了解多少  理解和使用ES6中的Symbol 每个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-13T14:39:27.000Z">
-<meta property="article:modified_time" content="2020-09-15T12:34:41.413Z">
+<meta property="article:modified_time" content="2020-09-16T01:44:43.140Z">
 <meta property="article:author" content="ziiyan">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -244,7 +244,7 @@
                 
               </p>
               <p class="item-title">
-                <a href="/2020/09/09/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E4%B8%BB%E7%AB%99%E6%8A%80%E6%9C%AF%E4%B8%AD%E5%BF%83-%E4%B8%80%E9%9D%A2/" class="title">面经：哔哩哔哩-主站技术中心-一面</a>
+                <a href="/2020/09/09/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E4%B8%BB%E7%AB%99%E6%8A%80%E6%9C%AF%E4%B8%AD%E5%BF%83-%E4%B8%80%E9%9D%A2/" class="title">面经：哔哩哔哩-主站技术中心-一二面</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-09-09T12:15:17.000Z" itemprop="datePublished">2020-09-09</time>
@@ -427,7 +427,15 @@
 <li>nextTick</li>
 </ul>
 <h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><ul>
-<li>项目难点</li>
+<li><p>项目难点</p>
+<blockquote>
+<p>项目中有一个个人信息面板，是使用弹窗组件来完成的，就是点击个人中心然后出现一个弹窗，上面要展示一个二维码。这个二维码是通过一个第三方包生成的，用法是传入一个字符串和一个 canvas 对象，就会根据字符串生成一个二维码并且绘制到 canvas 上。然后当时的问题是这个二维码没有展示出来。</p>
+<p>那我的思路就是，字符串、生成、绘制这三个之中哪个出现了问题。然后我在排查过程中发现这个二维码一闪而过，就是绘制出来又被覆盖的感觉，我就考虑到应该是一个渲染顺序的问题。</p>
+<p>然后我在几个生命周期里面打印了 canvas 元素，首先点击父组件上的个人中心，然后父组件会执行 beforeUpdate，然后子组件 beforeUpdate、updated，父组件 updated，然后我发现 canvas 这个元素在子组件的 updated 阶段才能获取到，之前都是 null。</p>
+<p>我就去看了官方文档对生命周期的描述，DOM 重新渲染之后会调用 updated，这个时候可以进行依赖 DOM 的操作，但还是建议在计算属性或者 watch 里面修改。但 watch 里面还获取不到 canvas 标签，然后也是官网里面看到有 nextTick 这个 API，可以将回调延迟到下次 DOM 更新循环之后执行。我就把绘制二维码的代码放到 nextTick 的回调里面，问题就解决了。</p>
+<p>其实最开始我意识到渲染顺序的时候，是直接用 setTimeout 解决的，也可以完成，当时也好奇嘛，然后从这里深挖也了解到了事件循环机制，然后还发现 vue 这个 nextTick 源码里面是用 promise 实现的，如果浏览器不支持 promise 就会用 setTiemout 来实现，所以我最开始的解决方式也是误打误撞吧，觉得还挺神奇的。这件事情比较早了，就从这件事情上我意识到不能只用框架，还是要更深入的理解，像之前只是背背几个生命周期肯定是不行的。我当时还因为这个写了一个博客，印象还挺深刻的。</p>
+</blockquote>
+</li>
 </ul>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul>
 <li>设计抽奖算法，抽过的不能再抽</li>
