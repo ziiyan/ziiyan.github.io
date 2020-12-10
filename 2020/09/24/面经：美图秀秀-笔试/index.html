@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>面经：美图秀秀-笔试 | life kicks in right now</title>
+  <meta name="description" content="题目太经典了，记一下 display: none、opacity: 0、visibility: hidden、pointer-events: none 区别    display: none opacity: 0 visibility: hidden    占据页面空间 ✖️ ☑️ ☑️   子元素继承 ✖️ ✖️不会继承，且 opacity: 1 仍不显示 ☑️ 子元素可以通过设置 visibi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面经：美图秀秀-笔试">
+<meta property="og:url" content="http://ziiyan.github.io/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/index.html">
+<meta property="og:site_name" content="life kicks in right now">
+<meta property="og:description" content="题目太经典了，记一下 display: none、opacity: 0、visibility: hidden、pointer-events: none 区别    display: none opacity: 0 visibility: hidden    占据页面空间 ✖️ ☑️ ☑️   子元素继承 ✖️ ✖️不会继承，且 opacity: 1 仍不显示 ☑️ 子元素可以通过设置 visibi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-24T15:02:19.000Z">
+<meta property="article:modified_time" content="2020-09-25T00:27:13.621Z">
+<meta property="article:author" content="ziiyan">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://ziiyan.github.io/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="life kicks in right now" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ziiyan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Ziiyan</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Life kicks in right now</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>鶸挣扎记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" rel="tag">ECMAScript 6 入门</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag">JavaScript高级程序设计</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PWA/" rel="tag">PWA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E5%AE%83/" rel="tag">其它</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD/" rel="tag">性能</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag">精读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ECMAScript-6-%E5%85%A5%E9%97%A8/" style="font-size: 13.67px;">ECMAScript 6 入门</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.78px;">JavaScript</a> <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 13.89px;">JavaScript高级程序设计</a> <a href="/tags/PWA/" style="font-size: 13px;">PWA</a> <a href="/tags/React/" style="font-size: 13.22px;">React</a> <a href="/tags/Vue/" style="font-size: 13.56px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13.11px;">其它</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.44px;">刷题</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 13px;">工作</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 13.22px;">性能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">正则表达式</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13.56px;">浏览器</a> <a href="/tags/%E7%B2%BE%E8%AF%BB/" style="font-size: 13px;">精读</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">网络</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 13px;">翻译</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 13px;">面经</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/10/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%B7%E4%BD%A0%E4%B9%A6/" class="title">学习笔记：JavaScript正则表达式迷你书</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-10T01:42:18.000Z" itemprop="datePublished">2020-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/12/%E7%BA%A2%E5%AE%9D%E4%B9%A67%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="title">红宝书7：迭代器与生成器</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-12T01:05:54.000Z" itemprop="datePublished">2020-10-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/" class="title">面经：美图秀秀-笔试</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-24T15:02:19.000Z" itemprop="datePublished">2020-09-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/22/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E8%99%BE%E7%9A%AE-%E4%B8%80%E9%9D%A2/" class="title">面经：虾皮-一面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-22T00:16:02.000Z" itemprop="datePublished">2020-09-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/13/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%A2%E7%82%B9%E8%AF%84-%E5%8E%A6%E9%97%A8-%E4%B8%80%E9%9D%A2/" class="title">面经：美团点评-厦门-一面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-13T14:39:27.000Z" itemprop="datePublished">2020-09-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#display-none、opacity-0、visibility-hidden、pointer-events-none-区别"><span class="toc-number">1.</span> <span class="toc-text">display: none、opacity: 0、visibility: hidden、pointer-events: none 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-定位"><span class="toc-number">2.</span> <span class="toc-text">CSS 定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒模型"><span class="toc-number">3.</span> <span class="toc-text">盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-选择器优先级"><span class="toc-number">4.</span> <span class="toc-text">CSS 选择器优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器本地存储方案"><span class="toc-number">5.</span> <span class="toc-text">浏览器本地存储方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-常见图片格式"><span class="toc-number">6.</span> <span class="toc-text">web 常见图片格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-变量声明"><span class="toc-number">7.</span> <span class="toc-text">Javascript 变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-CSS-实现"><span class="toc-number">8.</span> <span class="toc-text">HTML+CSS 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读题"><span class="toc-number">9.</span> <span class="toc-text">读题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现模版函数"><span class="toc-number">10.</span> <span class="toc-text">实现模版函数</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-面经：美图秀秀-笔试" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面经：美图秀秀-笔试
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/" class="article-date">
+	  <time datetime="2020-09-24T15:02:19.000Z" itemprop="datePublished">2020-09-24</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>题目太经典了，记一下</p>
+<h3 id="display-none、opacity-0、visibility-hidden、pointer-events-none-区别"><a href="#display-none、opacity-0、visibility-hidden、pointer-events-none-区别" class="headerlink" title="display: none、opacity: 0、visibility: hidden、pointer-events: none 区别"></a>display: none、opacity: 0、visibility: hidden、pointer-events: none 区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>display: none</th>
+<th>opacity: 0</th>
+<th>visibility: hidden</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>占据页面空间</td>
+<td>✖️</td>
+<td>☑️</td>
+<td>☑️</td>
+</tr>
+<tr>
+<td>子元素继承</td>
+<td>✖️</td>
+<td>✖️不会继承，且 opacity: 1 仍不显示</td>
+<td>☑️ 子元素可以通过设置 visibility: visible 显示</td>
+</tr>
+<tr>
+<td>触发事件绑定</td>
+<td>✖️</td>
+<td>☑️</td>
+<td>✖️</td>
+</tr>
+</tbody></table>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events" target="_blank" rel="noopener">pointer-events: none</a></p>
+<p><strong><code>pointer-events</code></strong> CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/event.target" target="_blank" rel="noopener">target</a>。</p>
+<p>pointer-events: none 表示元素永远不会成为鼠标事件的<a href="https://developer.mozilla.org/en-US/docs/Web/API/event.target" target="_blank" rel="noopener">target</a>。</p>
+<h3 id="CSS-定位"><a href="#CSS-定位" class="headerlink" title="CSS 定位"></a>CSS 定位</h3><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><h3 id="CSS-选择器优先级"><a href="#CSS-选择器优先级" class="headerlink" title="CSS 选择器优先级"></a>CSS 选择器优先级</h3><ol>
+<li><p>ID 选择器</p>
+</li>
+<li><p>类选择器、属性选择器、伪类</p>
+</li>
+<li><p>元素选择器、伪元素</p>
+</li>
+</ol>
+<p>内联样式会覆盖外部样式表，<code>!important</code> 可以覆盖内联样式，少用。</p>
+<p>优先级是由 <code>A</code> 、<code>B</code>、<code>C</code>、<code>D</code> 的值来决定的，其中它们的值计算规则如下：</p>
+<ol>
+<li>如果存在内联样式，那么 <code>A = 1</code>, 否则 <code>A = 0</code>;</li>
+<li><code>B</code> 的值等于 <code>ID选择器</code> 出现的次数;</li>
+<li><code>C</code> 的值等于 <code>类选择器</code> 和 <code>属性选择器</code> 和 <code>伪类</code> 出现的总次数;</li>
+<li><code>D</code> 的值等于 <code>标签选择器</code> 和 <code>伪元素</code> 出现的总次数 。</li>
+</ol>
+<p>最终计算结果 （ A，B，C，D ），对比每个计算结果</p>
+<h3 id="浏览器本地存储方案"><a href="#浏览器本地存储方案" class="headerlink" title="浏览器本地存储方案"></a>浏览器本地存储方案</h3><table>
+<thead>
+<tr>
+<th>cookie</th>
+<th>sessionStorage</th>
+<th>localStorage</th>
+<th>indexDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储量小，4 kb 左右</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>影响性能，跟随请求头发送</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="web-常见图片格式"><a href="#web-常见图片格式" class="headerlink" title="web 常见图片格式"></a>web 常见图片格式</h3><h3 id="Javascript-变量声明"><a href="#Javascript-变量声明" class="headerlink" title="Javascript 变量声明"></a>Javascript 变量声明</h3><h3 id="HTML-CSS-实现"><a href="#HTML-CSS-实现" class="headerlink" title="HTML+CSS 实现"></a>HTML+CSS 实现</h3><h3 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h3><h3 id="实现模版函数"><a href="#实现模版函数" class="headerlink" title="实现模版函数"></a>实现模版函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="string">'test'</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> tmpl = <span class="string">'this is a &#123;&#123; a &#125;&#125;, this is b = &#123;&#123; b &#125;&#125;'</span>;</span><br><span class="line">template(tmpl, data);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">template</span>(<span class="params">tmpl, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = tmpl.split(<span class="string">' &#123;&#123; '</span>);</span><br><span class="line">    <span class="keyword">let</span> arr = [];</span><br><span class="line">    arr.push(tmp[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">let</span> tmp1 = tmp[<span class="number">1</span>].split(<span class="string">' &#125;&#125;'</span>);</span><br><span class="line">    arr.push(tmp1[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">let</span> tmp2 = tmp[<span class="number">2</span>].split(<span class="string">' &#125;&#125;'</span>);</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>] + <span class="string">' '</span> + data[tmp1[<span class="number">0</span>]] + arr[<span class="number">1</span>] + <span class="string">' '</span> + data[tmp2[<span class="number">0</span>]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">template</span>(<span class="params">tmpl, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> tmpl.replace(<span class="regexp">/\&#123;\&#123;(.*?)\&#125;\&#125;/g</span>, (match, key) =&gt; data[key.trim()]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://ziiyan.github.io/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/" title="面经：美图秀秀-笔试" target="_blank" rel="external">http://ziiyan.github.io/2020/09/24/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80-%E7%AC%94%E8%AF%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ziiyan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ziiyan" target="_blank"><span class="text-dark">Ziiyan</span><small class="ml-1x">Life kicks in right now</small></a></h3>
+        <div>因上努力，果上随缘</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/10/12/%E7%BA%A2%E5%AE%9D%E4%B9%A67%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" title="红宝书7：迭代器与生成器"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/09/22/%E9%9D%A2%E7%BB%8F%EF%BC%9A%E8%99%BE%E7%9A%AE-%E4%B8%80%E9%9D%A2/" title="面经：虾皮-一面"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ziiyan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '25953118',
+    clientSecret: 'wzy574542379',
+    repo: 'https://github.com/ziiyan',
+    owner: 'ziiyan',
+    admin: ['ziiyan'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
